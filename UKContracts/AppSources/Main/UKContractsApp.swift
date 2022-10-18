@@ -11,7 +11,7 @@ import SwiftUI
 struct UKContractsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView(cfViewModel: CFViewModel())
         }
     }
 }
