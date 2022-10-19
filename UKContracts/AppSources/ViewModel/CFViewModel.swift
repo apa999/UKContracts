@@ -10,22 +10,46 @@ import SwiftUI
 @MainActor
 class CFViewModel: ObservableObject {
   
+  //MARK: - Published objects
   @Published var cfModel = CFModel()
   
+  //MARK: - Properties
   var cfSearch = CFSearch()
   
-  func loadMessages () {
-    Task {
-      do {
-        let url = URL(string: Constants.searchText)!
-        
-        cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
-                                                              from: url,
-                                                              dateDecodingStrategy: .iso8601)
-      } catch {
-        print(error)
-        cfModel.cfSearch = cfSearch
-      }
-    }
+  
+  /// Report the model status
+  enum ViewModelStatus : Equatable {
+    
+    case unloaded
+    case dataLoaded
+    case dataLoadFailed(error: EquatableError)
+    case invalidUrl(invalidUrl: String)
   }
+  
+  var viewModelStatus = ViewModelStatus.unloaded
+  
+  //MARK: - Init
+  init() {
+  }
+  
+  
+  //MARK: - Public functions
+  func loadMessages (urlString: String) {
+    
+    if let url = URL(string: urlString) {
+      Task {
+        do {
+          cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
+                                                                from: url,
+                                                                dateDecodingStrategy: .iso8601)
+        } catch {
+          viewModelStatus = .dataLoadFailed(error: EquatableError(error))
+          cfModel.cfSearch = cfSearch
+        } // catch
+      } // Task
+    } else {
+      viewModelStatus = .invalidUrl(invalidUrl: urlString)
+    }
+  } // func loadMessages
 }
+

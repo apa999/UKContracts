@@ -27,7 +27,7 @@ struct ContentView: View {
       .navigationBarTitleDisplayMode(.inline)
     }
     .onAppear{
-      cfViewModel.loadMessages()
+//      cfViewModel.loadMessages(urlString: Constants.searchText)
     }
   } // body
 }

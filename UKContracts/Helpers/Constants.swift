@@ -10,9 +10,13 @@ import Foundation
 struct Constants {
   
   /// Search
-  static let searchText1 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=1"
+  
   static let searchText  = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?"
-  static let national = "https://discovery.nationalarchives.gov.uk/results/r?_q=Slim&_sd=&_ed=&_hb="
+  
+  static let searchText1 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=1"
+  
+  static let searchText5 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=5"
+  
   
   /// CPV Constants
   static let CpvCodes = "CpvCodes"
