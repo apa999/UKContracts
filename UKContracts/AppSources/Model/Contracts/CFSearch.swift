@@ -146,7 +146,12 @@ struct Document : Codable, Identifiable {
   var formattedDatePublished: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: datePublished ?? Date())
+    
+    if let datePublished = datePublished {
+      return formatter.string(from: datePublished)
+    } else {
+      return ""
+    }
   }
   
   
@@ -154,7 +159,12 @@ struct Document : Codable, Identifiable {
   var formattedDateModified: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: dateModified ?? Date())
+    
+    if let dateModified = dateModified {
+      return formatter.string(from: dateModified)
+    } else {
+      return ""
+    }
   }
 }
 

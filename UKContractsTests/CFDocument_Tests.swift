@@ -31,7 +31,6 @@ final class CFDocument_Tests: XCTestCase {
     XCTAssertEqual(sut.url, url)
     XCTAssertEqual(sut.format, "text/html")
     XCTAssertEqual(sut.language, "en")
-    
     XCTAssertEqual(sut.formattedDatePublished, "Thu 6 Oct 2022, 11:56")
     XCTAssertEqual(sut.formattedDateModified,  "Wed 19 Oct 2022, 14:24")
   }
