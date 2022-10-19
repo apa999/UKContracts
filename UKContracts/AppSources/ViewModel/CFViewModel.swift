@@ -113,7 +113,7 @@ class CFViewModel: ObservableObject {
   
   //MARK: - Search Intents
   func search()   {
-    let thisFunction = "\(String(describing: self))./(#function)"
+    let thisFunction = "\(String(describing: self)).\(#function)"
     print(thisFunction)
     
   } // func search()

@@ -66,9 +66,7 @@ struct ContentView: View {
   
   private var showSearchButton: some View {
     Button {
-      Task {
-//        await cfViewModel.search()
-      }
+      cfViewModel.search()
     }
     label: {
       Image(systemName: "magnifyingglass")
