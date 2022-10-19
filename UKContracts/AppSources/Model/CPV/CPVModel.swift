@@ -40,16 +40,14 @@ struct CPVModel {
   
   /// Index of last parent - performance enhancer
   private var indexOfLastParent = 0
-  
-  private var settings: SettingsModel!
+
   
   //MARK: - Init
   
   /// Loads the CPV codes from the flat file and chcks if the user has saved filtered CPV codes.
   ///
   /// If the user has saved filtered CPV codes, then use these, otherwise use the full hierarchical list
-  init(settings: SettingsModel) {
-    self.settings = settings
+  init() {
     var cpvLoader = CPVLoader()
     
     (flatCpvs, cpvs) = cpvLoader.getCpvs()
@@ -121,6 +119,7 @@ struct CPVModel {
   }
   
   private mutating func loadFilteredCpvs() -> [CPV]{
+    let settings = SettingsModel()
     let filteredCpvCodes = settings.getFilteredCpvs()
     var filteredCpvs     = [CPV]()
     

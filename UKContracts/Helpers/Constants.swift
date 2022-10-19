@@ -34,6 +34,8 @@ struct Constants {
   /// Settings
   static let settingsTextColor                 = Color.blue
   
+  /// General
+  static let textColor                         = Color.white
   
 } // struct Constants
 

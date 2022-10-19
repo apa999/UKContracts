@@ -79,6 +79,37 @@ struct SettingsModel {
  
   
   
+  //MARK: - Settings Functions
+  
+  /// Toggles the Award flag
+  mutating func toggleAward() {
+    award.toggle()
+  }
+  
+  /// Toggles the Implmentation flag
+  mutating func toggleImplmentation() {
+    implmentation.toggle()
+  }
+  
+  /// Toggles the Planning flag
+  mutating func togglePlanning() {
+    planning.toggle()
+  }
+  
+  /// Toggles the Tender flag
+  mutating func toggleTender() {
+    tender.toggle()
+  }
+  
+  /// Toggles the SME flag
+  mutating func toggleSME() {
+    sme.toggle()
+  }
+  
+  /// Toggles the VCO flag
+  mutating func toggleVCO() {
+    vco.toggle()
+  }
 } // SettingsModel
 
 /// Store Dates as AppStorage
