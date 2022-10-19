@@ -20,7 +20,11 @@ struct ContentView: View {
   /// True when the settings view is visible
   @State private var showingSettings = false
   
+  /// True when the list view is visible
+  @State private var showingList = false
+  
   var body: some View {
+    
     ZStack {
       Color.blue
         .ignoresSafeArea()
@@ -46,6 +50,10 @@ struct ContentView: View {
 
     .sheet(isPresented: $showingCpv) {
       CPVListView(cfViewModel: cfViewModel)
+    }
+    
+    .sheet(isPresented: $showingList) {
+      ListView(cfViewModel: cfViewModel)
     }
   } // body
   
@@ -75,6 +83,7 @@ struct ContentView: View {
   private var showSearchButton: some View {
     Button {
       cfViewModel.search()
+      showingList = true
     }
     label: {
       Image(systemName: "magnifyingglass")
