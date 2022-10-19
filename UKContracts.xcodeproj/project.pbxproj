@@ -38,7 +38,7 @@
 		33B427F028FFE16D00B2165F /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427EF28FFE16D00B2165F /* HierarchyList.swift */; };
 		33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F128FFE1D500B2165F /* Debouncer.swift */; };
 		33B427F428FFE5B200B2165F /* CpvCodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 33B427F328FFE5B200B2165F /* CpvCodes.csv */; };
-		33B427F628FFFB0300B2165F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F528FFFB0300B2165F /* ListView.swift */; };
+		33B427F829000CF200B2165F /* CFContractListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F729000CF200B2165F /* CFContractListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +93,7 @@
 		33B427EF28FFE16D00B2165F /* HierarchyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HierarchyList.swift; sourceTree = "<group>"; };
 		33B427F128FFE1D500B2165F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		33B427F328FFE5B200B2165F /* CpvCodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CpvCodes.csv; sourceTree = "<group>"; };
-		33B427F528FFFB0300B2165F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		33B427F729000CF200B2165F /* CFContractListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContractListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,11 +192,11 @@
 		33B427B028FF27E400B2165F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33B427F729000CF200B2165F /* CFContractListView.swift */,
 				33B427C228FF29A100B2165F /* CFDetailView.swift */,
 				33B4278728FF27CC00B2165F /* ContentView.swift */,
 				33B427EA28FFE11C00B2165F /* CPV Views */,
 				33B427DB28FFDDE200B2165F /* GradientsView.swift */,
-				33B427F528FFFB0300B2165F /* ListView.swift */,
 				33B427DD28FFDE1C00B2165F /* SettingsView.swift */,
 			);
 			path = Views;
@@ -429,11 +429,11 @@
 				33B427E528FFDEA700B2165F /* CPV.swift in Sources */,
 				33B427BF28FF28D300B2165F /* CFModel.swift in Sources */,
 				33B4278828FF27CC00B2165F /* ContentView.swift in Sources */,
-				33B427F628FFFB0300B2165F /* ListView.swift in Sources */,
 				33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */,
 				33B427C128FF292700B2165F /* URLSession-Extension.swift in Sources */,
 				33B427C328FF29A100B2165F /* CFDetailView.swift in Sources */,
 				33B427B928FF285500B2165F /* CFSearch.swift in Sources */,
+				33B427F829000CF200B2165F /* CFContractListView.swift in Sources */,
 				33B427C528FF2AA800B2165F /* CFSearch-Extension.swift in Sources */,
 				33B427E728FFDEC700B2165F /* CPVLoader.swift in Sources */,
 				33B427E928FFDEE800B2165F /* CPVModel.swift in Sources */,

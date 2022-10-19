@@ -32,11 +32,12 @@ struct Constants {
   static let angularGradientColours    = [Color.red, Color.orange, Color.yellow, Color.purple, Color.teal, Color.blue]
   
   /// Settings
-  static let settingsTextColor                 = Color.blue
+  static let settingsTextColor = Color.blue
   
   /// General
-  static let textColor     = Color.white
-  static let noContracts   = "No contracts"
+  static let backgroundColour = Color.blue
+  static let textColor        = Color.white
+  static let noContracts      = "No contracts"
   
   static let searchMessage = """
 Click the magnifying glass to search using the default settings,

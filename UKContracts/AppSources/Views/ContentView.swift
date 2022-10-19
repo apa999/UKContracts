@@ -26,86 +26,96 @@ struct ContentView: View {
   var body: some View {
     
     ZStack {
-      Color.blue
+      Constants.backgroundColour
         .ignoresSafeArea()
-
-      VStack(spacing: 20) {
-        Text("Contract Finder")
-          .font(.title)
-          .foregroundColor(Constants.textColor)
-        
-        Text(Constants.searchMessage)
-          .foregroundColor(Constants.textColor)
-          .font(.title2)
-       
+      
+      VStack() {
+        if showingList == false {
+          headerText
+        } else {
+          CFContractListView(cfViewModel: cfViewModel)
+        }
         Spacer()
         userOptions
       }
       .padding()
     } // ZStack
-
+    
     .sheet(isPresented: $showingSettings) {
       SettingsView(cfViewModel: cfViewModel)
     }
-
+    
     .sheet(isPresented: $showingCpv) {
       CPVListView(cfViewModel: cfViewModel)
     }
-    
-    .sheet(isPresented: $showingList) {
-      ListView(cfViewModel: cfViewModel)
-    }
   } // body
   
-  
- 
-   
+  //MARK: - Private vars
+  private var headerText: some View {
+    VStack(spacing: 20) {
+      Text("Contract Finder")
+        .font(.title)
+        .foregroundColor(Constants.textColor)
+      
+      Text(Constants.searchMessage)
+        .foregroundColor(Constants.textColor)
+        .font(.title2)
+    }
+    .multilineTextAlignment(.center)
+    .padding()
+  } // headerText
+    
   private var userOptions: some View {
     HStack {
-      showCpvButton
-      Spacer()
-      showSearchButton
-      Spacer()
-      showSettingsButton
+      if showingList {
+        showSearchButton
+      } else {
+        showCpvButton
+        Spacer()
+        showSearchButton
+        Spacer()
+        showSettingsButton
+      }
     }
     .padding()
   } // gameIsRunningHStack
   
   private var showCpvButton: some View {
     Button { showingCpv = true }
-    label: {
-      Image(systemName: "chart.bar.doc.horizontal")
-    } // label
-    .foregroundColor(Constants.textColor)
-    .font(.largeTitle)
+  label: {
+    Image(systemName: "chart.bar.doc.horizontal")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.largeTitle)
   } // showCpvButton
   
   private var showSearchButton: some View {
     Button {
-      cfViewModel.search()
-      showingList = true
+      if showingList == false {
+        cfViewModel.search()
+      }
+      showingList.toggle()
     }
-    label: {
-      Image(systemName: "magnifyingglass")
-    } // label
-    .foregroundColor(Constants.textColor)
-    .font(.largeTitle)
+  label: {
+    Image(systemName: "magnifyingglass")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.largeTitle)
   } // showSearchButton
   
   private var showSettingsButton: some View {
     Button { showingSettings = true }
-    label: {
-      Image(systemName: "gear")
-    } // label
-    .foregroundColor(Constants.textColor)
-    .font(.largeTitle)
+  label: {
+    Image(systemName: "gear")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.largeTitle)
   } // showSettingsButton
   
 } // ContentView
 
 struct ContentView_Previews: PreviewProvider {
   static let cfViewModel = CFViewModel()
-  
   
   static var previews: some View {
     cfViewModel.search()
