@@ -9,19 +9,22 @@ import Foundation
 
 struct CFModel {
   
-  var cfSearch = CFSearch() {
-    didSet {
+  var cfSearch = CFSearch()
+//  {
+//    didSet {
 //      if let releases = cfSearch.releases {
 //        for release in releases {
 //          print("release: \(release.id)")
 //
 //          if let tender = release.tender {
 //            if let docs = tender.documents {
-//              print(docs)
+//              for doc in docs{
+//                print(doc.documentType)
+//              }
 //            }
 //          }
 //        }
 //      }
-    }
-  }
+//    } // didSet
+//  }
 }

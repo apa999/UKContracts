@@ -131,6 +131,17 @@ struct Document : Codable, Identifiable {
     case url, datePublished, format, language, dateModified
   }
   
+  
+  var formattedDocumentType: String? {
+    if let documentType = documentType {
+      if documentType == "tenderNotice" {
+        return "Tender notice"
+      }
+    }
+    
+    return documentType
+  }
+  
   var formattedDatePublished: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
