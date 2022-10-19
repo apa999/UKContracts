@@ -11,7 +11,8 @@ import SwiftUI
 class CFViewModel: ObservableObject {
   
   //MARK: - Published objects
-  @Published var cfModel = CFModel()
+  @Published var cfModel  = CFModel()
+  @Published var settings = SettingsModel()
   
   //MARK: - Properties
   var cfSearch = CFSearch()

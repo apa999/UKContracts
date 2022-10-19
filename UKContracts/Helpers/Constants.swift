@@ -5,7 +5,7 @@
 //  Created by Anthony Abbott on 17/10/2022.
 //
 
-import Foundation
+import SwiftUI
 
 struct Constants {
   
@@ -24,6 +24,16 @@ struct Constants {
   
   /// N.B. Append the CPV code and ".html", for example,  "http://cpv.data.ac.uk/code-19000000.html"
   static let cpvCodeURL = "http://cpv.data.ac.uk/code-"
+  
+  
+  /// Gradients
+  static let linearGradientStartColour = Color.teal
+  static let linearGradientStopColour  = Color.blue
+  static let angularGradientColours    = [Color.red, Color.orange, Color.yellow, Color.purple, Color.teal, Color.blue]
+  
+  /// Settings
+  static let settingsTextColor                 = Color.blue
+  
   
 } // struct Constants
 
