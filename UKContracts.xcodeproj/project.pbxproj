@@ -39,6 +39,8 @@
 		33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F128FFE1D500B2165F /* Debouncer.swift */; };
 		33B427F428FFE5B200B2165F /* CpvCodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 33B427F328FFE5B200B2165F /* CpvCodes.csv */; };
 		33B427F829000CF200B2165F /* CFContractListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F729000CF200B2165F /* CFContractListView.swift */; };
+		33B427FA29000FD200B2165F /* TenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F929000FD200B2165F /* TenderView.swift */; };
+		33B427FC29002D5D00B2165F /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427FB29002D5D00B2165F /* DocumentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		33B427F128FFE1D500B2165F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		33B427F328FFE5B200B2165F /* CpvCodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CpvCodes.csv; sourceTree = "<group>"; };
 		33B427F729000CF200B2165F /* CFContractListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContractListView.swift; sourceTree = "<group>"; };
+		33B427F929000FD200B2165F /* TenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderView.swift; sourceTree = "<group>"; };
+		33B427FB29002D5D00B2165F /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +200,10 @@
 				33B427C228FF29A100B2165F /* CFDetailView.swift */,
 				33B4278728FF27CC00B2165F /* ContentView.swift */,
 				33B427EA28FFE11C00B2165F /* CPV Views */,
+				33B427FB29002D5D00B2165F /* DocumentView.swift */,
 				33B427DB28FFDDE200B2165F /* GradientsView.swift */,
 				33B427DD28FFDE1C00B2165F /* SettingsView.swift */,
+				33B427F929000FD200B2165F /* TenderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,7 +434,9 @@
 				33B427E328FFDE7000B2165F /* Storage.swift in Sources */,
 				33B427E528FFDEA700B2165F /* CPV.swift in Sources */,
 				33B427BF28FF28D300B2165F /* CFModel.swift in Sources */,
+				33B427FC29002D5D00B2165F /* DocumentView.swift in Sources */,
 				33B4278828FF27CC00B2165F /* ContentView.swift in Sources */,
+				33B427FA29000FD200B2165F /* TenderView.swift in Sources */,
 				33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */,
 				33B427C128FF292700B2165F /* URLSession-Extension.swift in Sources */,
 				33B427C328FF29A100B2165F /* CFDetailView.swift in Sources */,

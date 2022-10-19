@@ -100,10 +100,22 @@ struct Award : Codable, Identifiable {
 struct Period : Codable {
   let startDate : Date?
   let endDate   : Date?
+  
+  var formattedStartDate: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: startDate ?? Date())
+  }
+  
+  var formattedEndDate: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: endDate ?? Date())
+  }
 }
 
 // MARK: - Document
-struct Document : Codable {
+struct Document : Codable, Identifiable {
   let id                  : String?
   let documentType        : String?
   let documentDescription : String?
@@ -117,6 +129,18 @@ struct Document : Codable {
     case id, documentType
     case documentDescription = "description"
     case url, datePublished, format, language, dateModified
+  }
+  
+  var formattedDatePublished: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: datePublished ?? Date())
+  }
+  
+  var formattedDateModified: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: dateModified ?? Date())
   }
 }
 
@@ -223,6 +247,12 @@ struct Tender : Codable {
   let additionalClassifications : [Classification]?
   let communication             : Communication?
   
+  var formattedDatePublished: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: datePublished ?? Date())
+  }
+  
   enum CodingKeys : String, CodingKey {
     case id, title
     case tenderDescription = "description"
@@ -262,13 +292,23 @@ struct Communication : Codable {
 }
 
 // MARK: - Item
-struct Item : Codable {
+struct Item : Codable, Equatable, Hashable {
+  
   let id                : String?
   let deliveryAddresses : [DeliveryAddress]?
+  
+  static func == (lhs: Item, rhs: Item) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+    hasher.combine(deliveryAddresses)
+  }
 }
 
 // MARK: - DeliveryAddress
-struct DeliveryAddress : Codable {
+struct DeliveryAddress : Codable, Hashable {
   let region      : String?
   let countryName : String?
   let postalCode  : String?
@@ -284,6 +324,12 @@ struct Suitability : Codable {
 // MARK: - TenderPeriod
 struct TenderPeriod : Codable {
   let endDate : Date?
+  
+  var formattedEndDate: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: endDate ?? Date())
+  }
 }
 
 
