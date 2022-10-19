@@ -93,7 +93,9 @@ class CFViewModel: ObservableObject {
   } // func search()
   
   //MARK: - Private functions
-  private func loadMessages (urlString: String) {
+  
+  /// Public for testing
+  func loadMessages (urlString: String) {
     if let url = URL(string: urlString) {
       Task {
         do {

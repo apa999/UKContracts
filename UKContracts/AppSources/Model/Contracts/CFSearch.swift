@@ -131,7 +131,7 @@ struct Document : Codable, Identifiable {
     case url, datePublished, format, language, dateModified
   }
   
-  
+  /// Format the document type
   var formattedDocumentType: String? {
     if let documentType = documentType {
       if documentType == "tenderNotice" {
@@ -142,12 +142,15 @@ struct Document : Codable, Identifiable {
     return documentType
   }
   
+  /// Format the date published
   var formattedDatePublished: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
     return formatter.string(from: datePublished ?? Date())
   }
   
+  
+  /// Format the date modified
   var formattedDateModified: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
@@ -155,6 +158,40 @@ struct Document : Codable, Identifiable {
   }
 }
 
+extension Document {
+  init(id                  : String?,
+       documentType        : String?,
+       documentDescription : String?,
+       url                 : String?,
+       datePublishedStr    : String?,
+       format              : String?,
+       language            : String?,
+       dateModifiedStr     : String?) {
+    self.id                  = id
+    self.documentType        = documentType
+    self.documentDescription = documentDescription
+    self.url                 = url
+    self.format              = format
+    self.language            = language
+    
+    let formatter = DateFormatter()
+    
+    /// Expected format : "2022-10-06 10:56:33 +0000"
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+    
+    if let datePublishedStr = datePublishedStr {
+      datePublished = formatter.date(from: datePublishedStr) ?? nil
+    } else {
+      self.datePublished = nil
+    }
+    
+    if let dateModifiedStr = dateModifiedStr {
+      dateModified = formatter.date(from: dateModifiedStr) ?? nil
+    } else {
+      dateModified = nil
+    }
+  }
+}
 
 // MARK: - Buyer
 struct Buyer: Codable {
