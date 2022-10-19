@@ -22,12 +22,18 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
-      GradientsView()
+      Color.blue
+        .ignoresSafeArea()
 
       VStack {
         Text("Contract Finder")
           .font(.largeTitle)
-
+        
+        if (cfViewModel.cfModel.cfSearch.releases != nil) {
+          Spacer()
+          releases
+        }
+       
         Spacer()
         userOptions
       }
@@ -44,6 +50,24 @@ struct ContentView: View {
   } // body
   
   
+  var releases: some View {
+    NavigationView {
+      List {
+        ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+          
+          NavigationLink(destination: CFDetailView(release: release))
+          {
+            Text(release.tender?.title ?? "Missing tender")
+              .foregroundColor(.white)
+          } // NavigationLink
+          .listRowBackground(Color.blue)
+        } // ForEach
+      } // List
+      .background(.blue)
+      .scrollContentBackground(.hidden)
+    }
+  } // releases
+   
   private var userOptions: some View {
     HStack {
       showCpvButton
@@ -89,7 +113,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static let cfViewModel = CFViewModel()
   
+  
   static var previews: some View {
-    ContentView(cfViewModel: cfViewModel)
+    cfViewModel.search()
+    return ContentView(cfViewModel: cfViewModel)
   }
 }

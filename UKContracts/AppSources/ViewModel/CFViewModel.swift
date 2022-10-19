@@ -30,30 +30,6 @@ class CFViewModel: ObservableObject {
   
   var viewModelStatus = ViewModelStatus.unloaded
   
-  //MARK: - Init
-  init() {
-  }
-  
-  
-  //MARK: - Public functions
-  func loadMessages (urlString: String) {
-    
-    if let url = URL(string: urlString) {
-      Task {
-        do {
-          cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
-                                                                from: url,
-                                                                dateDecodingStrategy: .iso8601)
-        } catch {
-          viewModelStatus = .dataLoadFailed(error: EquatableError(error))
-          cfModel.cfSearch = cfSearch
-        } // catch
-      } // Task
-    } else {
-      viewModelStatus = .invalidUrl(invalidUrl: urlString)
-    }
-  } // func loadMessages
-  
   //MARK: - CPV Intents
   
   // Deselects all the CPV's
@@ -113,9 +89,25 @@ class CFViewModel: ObservableObject {
   
   //MARK: - Search Intents
   func search()   {
-    let thisFunction = "\(String(describing: self)).\(#function)"
-    print(thisFunction)
-    
+    loadMessages(urlString: Constants.searchText)
   } // func search()
+  
+  //MARK: - Private functions
+  private func loadMessages (urlString: String) {
+    if let url = URL(string: urlString) {
+      Task {
+        do {
+          cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
+                                                                from: url,
+                                                                dateDecodingStrategy: .iso8601)
+        } catch {
+          viewModelStatus = .dataLoadFailed(error: EquatableError(error))
+          cfModel.cfSearch = cfSearch
+        } // catch
+      } // Task
+    } else {
+      viewModelStatus = .invalidUrl(invalidUrl: urlString)
+    }
+  } // func loadMessages
 } // CFViewModel
 
