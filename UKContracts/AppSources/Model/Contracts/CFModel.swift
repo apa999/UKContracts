@@ -9,10 +9,5 @@ import Foundation
 
 struct CFModel {
   
-  var cfSearch = CFSearch() {
-    didSet {
-      print("cfSearch has changed: \(cfSearch.releases?.count ?? -1 )")
-    }
-  }
-  
+  var cfSearch = CFSearch()
 }

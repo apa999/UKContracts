@@ -35,7 +35,12 @@ struct Constants {
   static let settingsTextColor                 = Color.blue
   
   /// General
-  static let textColor                         = Color.white
+  static let textColor     = Color.white
+  static let noContracts   = "No contracts"
   
+  static let searchMessage = """
+Click the magnifying glass to search using the default settings,
+or select the CPV codes or settings option to set the search parameters.
+"""
 } // struct Constants
 

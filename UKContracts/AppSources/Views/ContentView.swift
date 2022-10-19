@@ -25,14 +25,14 @@ struct ContentView: View {
       Color.blue
         .ignoresSafeArea()
 
-      VStack {
+      VStack(spacing: 20) {
         Text("Contract Finder")
-          .font(.largeTitle)
+          .font(.title)
+          .foregroundColor(Constants.textColor)
         
-        if (cfViewModel.cfModel.cfSearch.releases != nil) {
-          Spacer()
-          releases
-        }
+        Text(Constants.searchMessage)
+          .foregroundColor(Constants.textColor)
+          .font(.title2)
        
         Spacer()
         userOptions
@@ -50,23 +50,7 @@ struct ContentView: View {
   } // body
   
   
-  var releases: some View {
-    NavigationView {
-      List {
-        ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-          
-          NavigationLink(destination: CFDetailView(release: release))
-          {
-            Text(release.tender?.title ?? "Missing tender")
-              .foregroundColor(.white)
-          } // NavigationLink
-          .listRowBackground(Color.blue)
-        } // ForEach
-      } // List
-      .background(.blue)
-      .scrollContentBackground(.hidden)
-    }
-  } // releases
+ 
    
   private var userOptions: some View {
     HStack {
