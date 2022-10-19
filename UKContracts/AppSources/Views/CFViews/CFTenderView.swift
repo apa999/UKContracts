@@ -1,5 +1,5 @@
 //
-//  TenderView.swift
+//  CFTView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -30,7 +30,7 @@
 import SwiftUI
 
 /// Displays the Tender details
-struct TenderView: View {
+struct CFTenderView: View {
   
   var tender: Tender
   
@@ -50,12 +50,11 @@ struct TenderView: View {
       }
       
     } // Zstack
-    .padding(10)
     .foregroundColor(Constants.textColor)
     
     .sheet(isPresented: $showingDocuments) {
       if let documents = tender.documents {
-        DocumentView(documents: documents)
+        CFDocumentView(documents: documents)
       }
     }
     
@@ -163,7 +162,9 @@ struct TenderView: View {
   private var controlButtons: some View  {
     HStack(alignment: .center) {
       Spacer()
-      documentsButton
+      if tender.documents != nil {
+        documentsButton
+      }
       Spacer()
     }
     
@@ -190,6 +191,6 @@ struct TenderView_Previews: PreviewProvider {
   static let cfSearch = CFSearch.getTestCFSearch()
   
   static var previews: some View {
-    TenderView(tender: (cfSearch.releases?.first!.tender)!)
+    CFTenderView(tender: (cfSearch.releases?.first!.tender)!)
   }
 }

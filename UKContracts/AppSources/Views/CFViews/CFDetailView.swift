@@ -1,8 +1,8 @@
 //
-//  CFDetailView.swift
+//  CFDV.swift
 //  UKContracts
 //
-//  Created by Anthony Abbott on 18/10/2022.
+//  Created by Anthony Abbott on 19/10/2022.
 //
 
 import SwiftUI
@@ -46,7 +46,7 @@ struct CFDetailView: View {
     
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
-        TenderView(tender: tender)
+        CFTenderView(tender: tender)
       }
     }
     
@@ -90,3 +90,4 @@ struct CFDetailView_Previews: PreviewProvider {
     CFDetailView(release: cfSearch.releases!.first!)
   }
 }
+

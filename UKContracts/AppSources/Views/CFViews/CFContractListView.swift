@@ -1,5 +1,5 @@
 //
-//  CFContractListView.swift
+//  CFCLView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -28,13 +28,5 @@ struct CFContractListView: View {
       .background(Constants.backgroundColour)
       .scrollContentBackground(.hidden)
     }
-  }
-}
-
-struct CFContracListView_Previews: PreviewProvider {
-  static let cfViewModel = CFViewModel()
-  static var previews: some View {
-    cfViewModel.search()
-    return CFContractListView(cfViewModel: cfViewModel)
   }
 }

@@ -1,5 +1,5 @@
 //
-//  DocumentView.swift
+//  CFDocView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -20,32 +20,31 @@
 
 import SwiftUI
 
-struct DocumentView: View {
+struct CFDocumentView: View {
   
   var documents: [Document]
   
   var body: some View {
-    ZStack {
-      Constants.backgroundColour
-        .ignoresSafeArea()
-      
-      VStack {
-        Text("Documents")
-          .font(.title2)
-        Spacer()
-        VStack(alignment: .leading, spacing: 10) {
-          ForEach(documents) { document in
-            documentDetails(document: document)
-            Divider()
-          } // ForEach
-        } // VStack
-        .padding(10)
-      }
-      
-     
-      
-    } // Zstack
-    .foregroundColor(Constants.textColor)
+    ScrollView {
+      ZStack {
+        Constants.backgroundColour
+          .ignoresSafeArea()
+        
+        VStack {
+          Text("Documents")
+            .font(.title2)
+          Spacer()
+          VStack(alignment: .leading, spacing: 10) {
+            ForEach(documents) { document in
+              documentDetails(document: document)
+              Divider()
+            } // ForEach
+          } // VStack
+          .padding(10)
+        }
+      } // Zstack
+      .foregroundColor(Constants.textColor)
+    } // ScrollView
   }
   
   private func documentDetails(document: Document) -> some View {
@@ -91,6 +90,7 @@ struct DocumentView: View {
 struct DocumentView_Previews: PreviewProvider {
   
   static var previews: some View {
-    DocumentView(documents: [CFSearch.DocumentTest1, CFSearch.DocumentTest2])
+    CFDocumentView(documents: [CFSearch.DocumentTest1, CFSearch.DocumentTest2,CFSearch.DocumentTest3
+                            ])
   }
 }
