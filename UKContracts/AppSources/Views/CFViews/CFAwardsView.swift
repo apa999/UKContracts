@@ -54,6 +54,22 @@ struct CFAwardsView: View {
       if let id = award.id {
         Text("Id: \(id)")
       }
+    
+      if let _ = award.date {
+        Text("Date: \(award.formattedDate)")
+      }
+      
+      if let _ = award.datePublished {
+        Text("Published: \(award.formattedDatePublished)")
+      }
+      
+      if let value = award.value {
+        showValues(value)
+      }
+      
+      if let suppliers = award.suppliers {
+        showSuppliers(suppliers)
+      }
       
       if let status = award.status {
         Text("Status: \(status)").font(.title2)
@@ -61,7 +77,35 @@ struct CFAwardsView: View {
       
     } // VStack
   } // showAwardDetails
-}
+  
+  
+  //MARK: - Private functions
+  private func showSuppliers(_ suppliers: [Buyer]) -> some View {
+    return VStack(alignment: .leading, spacing: 10) {
+      ForEach(suppliers, id: \.self) { supplier in
+        
+        if let id = supplier.id, let name = supplier.name  {
+          Text("Buyer : \(name), Id: \(id)")
+        } else {
+          if let name = supplier.name {
+            Text("Name: \(name)")
+          }
+          if let id = supplier.id {
+            Text("Buyer : \(id)")
+          }
+        }
+      } // ForEach
+    } // VStack
+  } // private func showSuppliers
+  
+  private func showValues(_ minValue: MinValue) -> some View {
+    return VStack(alignment: .leading, spacing: 10) {
+      if let _ = minValue.amount {
+        Text("Minimum value: \(minValue.fAmount)")
+      }
+    } // VStack
+  } // private func showValues
+} // struct CFAwardsView
 
 struct CFAwardsView_Previews: PreviewProvider {
   

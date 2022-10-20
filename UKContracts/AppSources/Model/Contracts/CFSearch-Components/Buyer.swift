@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - Buyer
-struct Buyer: Codable {
+struct Buyer: Codable, Hashable {
   let id   : String?
   let name : String?
 }

@@ -5,6 +5,23 @@
 //  Created by Anthony Abbott on 19/10/2022.
 //
 
+// MARK: - Release
+/*
+ struct Release : Codable, Identifiable {
+   let ocid           : String?
+   let id             : String?
+   let language       : String?
+   let date           : Date?
+   let tag            : [String]?
+   let initiationType : String?
+   let tender         : Tender?
+   let parties        : [Party]?
+   let buyer          : Buyer?
+   let awards         : [Award]?
+   let planning       : Planning?
+ }
+ */
+
 import SwiftUI
 
 struct CFReleaseView: View {
@@ -19,31 +36,32 @@ struct CFReleaseView: View {
   /// True when the parties details view is visible
   @State private var showingParties = false
   
+  /// True when the awards details view is visible
+  @State private var showingAwards = false
+  
   var body: some View {
     
     ZStack(alignment: .top) {
       Constants.backgroundColour
         .ignoresSafeArea()
+      
       VStack(spacing: 10) {
         Text("Contract Details")
           .font(.title)
         
-        VStack {
+        VStack(alignment: .leading, spacing: 5) {
           mainText
           
           Spacer()
           
-          HStack {
-            partiesButton
-            Spacer()
-            tenderButton
-          }
-          .padding(.horizontal)
+          controlButtons
+          
         } // VStack 2
       } // VStack 1
-      .padding(10)
+      .padding(.horizontal)
       .foregroundColor(Constants.textColor)
     } // ZStack
+    
     .onTapGesture {
       presentationMode.wrappedValue.dismiss()
     }
@@ -57,6 +75,12 @@ struct CFReleaseView: View {
     .sheet(isPresented: $showingParties) {
       if let parties = release.parties {
         CFPartyView(parties: parties)
+      }
+    }
+    
+    .sheet(isPresented: $showingAwards) {
+      if let awards = release.awards {
+        CFAwardsView(awards: awards)
       }
     }
     
@@ -74,13 +98,40 @@ struct CFReleaseView: View {
       }
    
       Text("Buyer: \(release.buyer?.name   ?? "No buyer")")
-      
-      ForEach(release.awards ?? [] ) { award in
-        Text("Award: \(award.awardDescription   ?? "No award name")")
-      }
     } // VStack
     .font(.title3)
   } // mainText
+  
+  
+  //MARK: - Buttons
+  private var controlButtons: some View {
+    HStack {
+      if let _ = release.awards {
+        awardsButton
+        Spacer()
+      }
+      
+      if let _ = release.parties {
+        partiesButton
+        Spacer()
+      }
+      
+      if let _ = release.tender {
+        tenderButton
+        Spacer()
+      }
+    }
+    .padding(.horizontal)
+  } // rivate var controlButtons
+  
+  private var awardsButton: some View {
+    Button { showingAwards = true }
+  label: {
+    Text("Awards")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.title2)
+  } // awardsButton
   
   private var partiesButton: some View {
     Button { showingParties = true }
