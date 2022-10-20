@@ -288,17 +288,7 @@ struct CFTenderView: View {
   .opacity( tender.documents != nil ? 1 : 0 )
   } // documentsButton
   
-  private func formatStatus1(_ status: String) -> some View {
-    let uStatus = status.capitalizingFirstLetter()
-    switch status {
-      case "active"   : return Text("\(uStatus)").font(.title).foregroundColor(.red)
-      case "complete" : return Text("\(uStatus)").font(.title3).foregroundColor(.white)
-      case "planned"  : return Text("\(uStatus)").font(.title3).foregroundColor(.yellow)
-      case "planning" : return Text("\(uStatus)").font(.title3).foregroundColor(.green)
-      default: return Text("Unknown status - \(status)").font(.title3).foregroundColor(.black)
-    } // switch status
-  } // private func formatStatus
-  
+  //TODO: - Duplicate function - see also CFTenderView -
   private func formatStatus(_ status: String) -> some View {
     let uStatus = status.capitalizingFirstLetter()
     

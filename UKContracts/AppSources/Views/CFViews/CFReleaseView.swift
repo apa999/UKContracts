@@ -45,9 +45,13 @@ struct CFReleaseView: View {
       Constants.backgroundColour
         .ignoresSafeArea()
       
-      VStack(spacing: 10) {
+      VStack(spacing: 15) {
         Text("Contract Details")
           .font(.title)
+        
+        if let tenderTitle = release.tender?.title {
+          Text("\(tenderTitle)").font(.title2)
+        }
         
         VStack(alignment: .leading, spacing: 5) {
           mainText
@@ -99,10 +103,13 @@ struct CFReleaseView: View {
    
       Text("Buyer: \(release.buyer?.name   ?? "No buyer")")
       
-      if let ocid = release.ocid {
+      if let _ = release.id {
         /// Displays the website for the CPV
         Button(action: showWebsiteFor) {
-          Image(systemName: "network")
+          HStack {
+            Text("Details: ")
+            Image(systemName: "network")
+          }.font(.title2)
         } // Button
       }
       

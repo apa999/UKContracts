@@ -72,7 +72,7 @@ struct CFAwardsView: View {
       }
       
       if let status = award.status {
-        Text("Status: \(status)").font(.title2)
+        formatStatus(status)
       }
       
     } // VStack
@@ -105,6 +105,40 @@ struct CFAwardsView: View {
       }
     } // VStack
   } // private func showValues
+  
+  
+  
+  //TODO: - Duplicate function - see also CFTenderView -
+  private func formatStatus(_ status: String) -> some View {
+    let uStatus = status.capitalizingFirstLetter()
+    
+    var t1 = Text("")
+    var t2 = Text("")
+    
+    switch status {
+      case "active"   :
+        t1 = Text("Status").font(.title).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title).foregroundColor(.red)
+      case "complete" :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.white)
+      case "planned"  :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.yellow)
+      case "planning" :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.green)
+      default:
+        t1 = Text("Unknown status - \(status)").font(.title3).foregroundColor(.white)
+        t2 = Text("Unknown status - \(status)").font(.title3).foregroundColor(.black)
+    } // switch status
+    
+    return HStack() {
+      t1
+      t2
+    }.padding(.top)
+  } // private func formatStatus
+    
 } // struct CFAwardsView
 
 struct CFAwardsView_Previews: PreviewProvider {
