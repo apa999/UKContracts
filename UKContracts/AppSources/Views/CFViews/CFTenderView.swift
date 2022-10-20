@@ -41,14 +41,13 @@ struct CFTenderView: View {
     ZStack {
       Constants.backgroundColour
         .ignoresSafeArea()
-      
-      VStack {
-        Text("Tender")
-          .font(.title2)
-        Spacer()
-        tenderDetails
-      }
-      
+      ScrollView {
+        VStack(spacing: 20) {
+          Text("Tender")
+            .font(.title2)
+          tenderDetails
+        } // VStack
+      } // ScrollView
     } // Zstack
     .foregroundColor(Constants.textColor)
     
@@ -61,34 +60,52 @@ struct CFTenderView: View {
   } // body
   
   var tenderDetails: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      tenderHeader
-      itemDetails
-      tenderValues
-      procurement
-      contractPeriod
-      suitability
-      mainProcurement
+    VStack(spacing: 20) {
+      VStack(alignment: .center, spacing: 10) {
+        Text("Title:  \(tender.title ?? "No tender title")")
+          .font(.title2)
+      } // VStack 2
       
-      controlButtons
+      VStack(alignment: .leading, spacing: 10) {
+        Group {
+          tenderHeader
+          Divider().frame(height: 2).overlay(.red).padding(5)
+          itemDetails
+          Divider().frame(height: 2).overlay(.red).padding(5)
+          tenderValues
+          Divider().frame(height: 2).overlay(.red).padding(5)
+          procurement
+          Divider().frame(height: 2).overlay(.red).padding(5)
+          contractPeriod
+          Divider().frame(height: 2).overlay(.red).padding(5)
+        }
+        Group {
+          suitability
+          Divider().frame(height: 2).overlay(.red).padding(5)
+          mainProcurement
+        }
       
-    } // VStack
+        controlButtons
+      } // VStack 3
+    } // VStack 1
     .padding()
   } // tenderDetails
   
   /// Tender details
   private var tenderHeader: some View  {
-    VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 10) {
       Text("Id:  \(tender.id ?? "No tender Id")")
-      Text("Title:  \(tender.title ?? "No tender title")")
+      
       Text("Description:  \(tender.tenderDescription ?? "No tender tenderDescription")")
       
       Text("Date published:  \(tender.formattedDatePublished )")
       
       Text("Status:  \(tender.title ?? "No tender status")")
+      
       Text("Classifacation scheme:  \(tender.classification?.scheme ?? "No tender status")")
+      
       Text("Classifacation description:  \(tender.classification?.classificationDescription ?? "No tender status")")
-    } // VStack
+    } // VStack 1
   }
   
   private var itemDetails: some View {
@@ -141,7 +158,7 @@ struct CFTenderView: View {
       }
     } // VStack
   } // contractPeriod
-
+  
   private var suitability: some View {
     VStack{
       if let suitability = tender.suitability {
@@ -181,7 +198,7 @@ struct CFTenderView: View {
   } // label
   .foregroundColor(Constants.textColor)
   .font(.title3)
-//  .opacity( tender.documents != nil ? 1 : 0 )
+  .opacity( tender.documents != nil ? 1 : 0 )
   } // documentsButton
   
 } // struct TenderView
@@ -189,8 +206,9 @@ struct CFTenderView: View {
 struct TenderView_Previews: PreviewProvider {
   
   static let cfSearch = CFSearch.getTestCFSearch()
+  static let rNum = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
   
   static var previews: some View {
-    CFTenderView(tender: (cfSearch.releases?.first!.tender)!)
+    CFTenderView(tender: (cfSearch.releases?[rNum].tender)!)
   }
 }

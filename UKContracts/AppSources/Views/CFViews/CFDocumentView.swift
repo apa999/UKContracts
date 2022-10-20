@@ -30,7 +30,6 @@ struct CFDocumentView: View {
       Constants.backgroundColour
         .ignoresSafeArea()
       ScrollView {
-        
         VStack {
           Text("Documents")
             .font(.title2)
