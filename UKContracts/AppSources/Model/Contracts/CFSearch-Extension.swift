@@ -10,8 +10,11 @@ import Foundation
 /// Static data and function for testing only
 extension CFSearch {
   
- 
   
+  //MARK: - Classification test data
+  static let classification1 = Classification(scheme: "CPV",
+                                              id: "48000000",
+                                              classificationDescription: "Software package and information systems")
   //MARK: - Document test data
   static let DocumentTest1 = Document(id: "1",
           documentType: "tenderNotice",

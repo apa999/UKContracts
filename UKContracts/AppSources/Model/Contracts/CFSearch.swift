@@ -284,53 +284,6 @@ struct BudgetBreakdown : Codable {
   }
 }
 
-// MARK: - Tender
-struct Tender : Codable {
-  let id                        : String?
-  let title                     : String?
-  let tenderDescription         : String?
-  let datePublished             : Date?
-  let status                    : String?
-  let classification            : Classification?
-  let items                     : [Item]?
-  let minValue                  : MinValue?
-  let value                     : MinValue?
-  let procurementMethod         : String?
-  let procurementMethodDetails  : String?
-  let tenderPeriod              : TenderPeriod?
-  let contractPeriod            : Period?
-  let suitability               : Suitability?
-  let mainProcurementCategory   : String?
-  let documents                 : [Document]?
-  let additionalClassifications : [Classification]?
-  let communication             : Communication?
-  
-  var formattedDatePublished: String {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: datePublished ?? Date())
-  }
-  
-  enum CodingKeys : String, CodingKey {
-    case id, title
-    case tenderDescription = "description"
-    case datePublished
-    case status
-    case classification
-    case items
-    case minValue
-    case value
-    case procurementMethod
-    case procurementMethodDetails
-    case tenderPeriod
-    case contractPeriod
-    case suitability
-    case mainProcurementCategory
-    case documents
-    case additionalClassifications
-    case communication
-  }
-}
 
 // MARK: - Classification
 struct Classification : Codable {
@@ -349,28 +302,8 @@ struct Communication : Codable {
   let futureNoticeDate : Date?
 }
 
-// MARK: - Item
-struct Item : Codable, Equatable, Hashable {
-  
-  let id                : String?
-  let deliveryAddresses : [DeliveryAddress]?
-  
-  static func == (lhs: Item, rhs: Item) -> Bool {
-    return lhs.id == rhs.id
-  }
-  
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-    hasher.combine(deliveryAddresses)
-  }
-}
 
-// MARK: - DeliveryAddress
-struct DeliveryAddress : Codable, Hashable {
-  let region      : String?
-  let countryName : String?
-  let postalCode  : String?
-}
+
 
 
 // MARK: - Suitability

@@ -42,7 +42,7 @@ struct CFTenderView: View {
       Constants.backgroundColour
         .ignoresSafeArea()
       ScrollView {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
           Text("Tender")
             .font(.title2)
           tenderDetails
@@ -60,28 +60,29 @@ struct CFTenderView: View {
   } // body
   
   var tenderDetails: some View {
-    VStack(spacing: 20) {
+    VStack(spacing: 10) {
       VStack(alignment: .center, spacing: 10) {
-        Text("Title:  \(tender.title ?? "No tender title")")
+        Text("\(tender.title ?? "No tender title")")
           .font(.title2)
       } // VStack 2
       
       VStack(alignment: .leading, spacing: 10) {
         Group {
           tenderHeader
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          classificationView
           itemDetails
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          
           tenderValues
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          
+          Constants.divider
           procurement
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          Constants.divider
           contractPeriod
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          Constants.divider
         }
         Group {
           suitability
-          Divider().frame(height: 2).overlay(.red).padding(5)
+          Constants.divider
           mainProcurement
         }
       
@@ -94,44 +95,96 @@ struct CFTenderView: View {
   /// Tender details
   private var tenderHeader: some View  {
     VStack(alignment: .leading, spacing: 10) {
-      Text("Id:  \(tender.id ?? "No tender Id")")
       
-      Text("Description:  \(tender.tenderDescription ?? "No tender tenderDescription")")
+      if let id = tender.id {
+        Text("Id:  \(id)")
+      }
+  
+      if let description = tender.tenderDescription {
+        Text("Description:  \(description)")
+      }
       
       Text("Date published:  \(tender.formattedDatePublished )")
       
-      Text("Status:  \(tender.title ?? "No tender status")")
-      
-      Text("Classifacation scheme:  \(tender.classification?.scheme ?? "No tender status")")
-      
-      Text("Classifacation description:  \(tender.classification?.classificationDescription ?? "No tender status")")
+      if let _ = tender.status {
+        Text("Status:  \(tender.fStatus)")
+      }
     } // VStack 1
-  }
+  } // private var tenderHeader
+  
+  
+  private var classificationView: some View {
+    Group {
+      if let classification = tender.classification {
+        if let scheme = classification.scheme,
+           let description = classification.classificationDescription,
+           let id = classification.id {
+          
+          VStack(alignment: .center, spacing: 5) {
+            Constants.divider
+            Text("Classification")
+              .font(.title3)
+          } // VStack
+          
+          VStack(alignment: .leading, spacing: 10) {
+            Text("Scheme : \(scheme)")
+            Text("Id : \(id)")
+            Text("Description : \(description)")
+          } // VStack
+          
+        } //if let ...
+      } else {
+        EmptyView()
+      }
+    } // Group
+  } // private var classification
   
   private var itemDetails: some View {
-    ForEach(tender.items ?? [], id: \.self) { item in
-      Text("item.id:  \(item.id ?? "No tender Id")")
-      
-      ForEach(item.deliveryAddresses ?? [], id: \.self) { address in
-        Text("Region  \(address.region ?? "")")
-        Text("Country  \(address.countryName ?? "")")
-        Text("Postal code  \(address.postalCode ?? "")")
-      } // ForEach(item
-    } // ForEach(tender.items
+    Group {
+      if let items = tender.items {
+        
+        VStack(alignment: .center, spacing: 5) {
+          Constants.divider
+          Text("Items")
+            .font(.title3)
+        } // VStack
+          
+        ForEach(items, id: \.self) { item in
+          Text("item.id:  \(item.id ?? "No tender Id")")
+          
+          ForEach(item.deliveryAddresses ?? [], id: \.self) { address in
+            Text("Address: \(address.fDeliveryAddress)")
+          } // ForEach(item
+          
+        } // ForEach(tender.items
+      }
+    } // Group
   } // itemDetails
   
   private var tenderValues: some View {
-    VStack {
-      if let minValue = tender.minValue {
-        Text("Min value:  \(minValue.amount ?? 0)")
-        Text("Min value:  \(minValue.currency ?? "")")
-      }
+  
+    Group {
       
-      if let value = tender.value {
-        Text("Value:  \(value.amount ?? 0)")
-        Text("Value:  \(value.currency ?? "")")
-      } // if let value = tender.value
-    } // VStack
+      if let _ = tender.minValue , let _ = tender.value {
+        VStack(alignment: .center, spacing: 5) {
+          Constants.divider
+          Text("Values")
+            .font(.title3)
+        } // VStack
+      }
+    
+      VStack {
+        if let minValue = tender.minValue {
+          Text("Minimum value:  \(minValue.amount ?? 0)")
+          Text("Minimum value:  \(minValue.currency ?? "")")
+        }
+        
+        if let value = tender.value {
+          Text("Value:  \(value.amount ?? 0)")
+          Text("Value:  \(value.currency ?? "")")
+        } // if let value = tender.value
+      } // VStack
+    } // Group
   } // tenderValues
   
   private var procurement: some View {
@@ -209,6 +262,6 @@ struct TenderView_Previews: PreviewProvider {
   static let rNum = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
   
   static var previews: some View {
-    CFTenderView(tender: (cfSearch.releases?[rNum].tender)!)
+    CFTenderView(tender: (cfSearch.releases?[0].tender)!)
   }
 }

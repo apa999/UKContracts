@@ -37,7 +37,7 @@ struct CFDocumentView: View {
           VStack(alignment: .leading, spacing: 10) {
             ForEach(documents) { document in
               documentDetails(document: document)
-              Divider().frame(height: 2).overlay(.red).padding(5)
+              Constants.divider
             } // ForEach
           } // VStack
           .padding(10)

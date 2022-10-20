@@ -10,11 +10,8 @@ import SwiftUI
 struct Constants {
   
   /// Search
-  
   static let searchText  = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?"
-  
   static let searchText1 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=1"
-  
   static let searchText5 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=5"
   
   
@@ -33,6 +30,11 @@ struct Constants {
   
   /// Settings
   static let settingsTextColor = Color.blue
+  
+  /// General UI
+  static var divider : some View {
+    Divider().frame(height: 2).overlay(.red).padding(5)
+  }
   
   /// General
   static let backgroundColour = Color.blue
