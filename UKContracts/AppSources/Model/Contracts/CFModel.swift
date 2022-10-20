@@ -17,11 +17,7 @@ struct CFModel {
 //          print("release: \(release.id)")
 //
 //          if let tender = release.tender {
-//            print("Tender: \(tender.id)")
-//            
-//            if let value = tender.value {
-//              print("")
-//            }
+//            print("Tender: \(tender.status)")
 //          }
 //        }
 //      }

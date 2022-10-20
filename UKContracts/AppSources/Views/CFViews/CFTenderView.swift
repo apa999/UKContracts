@@ -45,6 +45,7 @@ struct CFTenderView: View {
         VStack(spacing: 10) {
           Text("Tender")
             .font(.title2)
+          
           tenderDetails
         } // VStack
       } // ScrollView
@@ -85,22 +86,30 @@ struct CFTenderView: View {
   
   /// Tender details
   private var tenderHeader: some View  {
-    VStack(alignment: .leading, spacing: 10) {
+    Group {
+      VStack(alignment: .center, spacing: 5) {
+        Constants.divider
+        Text("Details")
+          .font(.title3)
+      } // VStack
       
-      if let id = tender.id {
-        Text("Id:  \(id)")
-      }
-  
-      if let description = tender.tenderDescription {
-        Text("Description:  \(description)")
-      }
-      
-      Text("Date published:  \(tender.formattedDatePublished )")
-      
-      if let _ = tender.status {
-        Text("Status:  \(tender.fStatus)")
-      }
-    } // VStack 1
+      VStack(alignment: .leading, spacing: 5) {
+        
+        if let id = tender.id, id != tender.title {
+          Text("Id:  \(id)")
+        }
+        
+        if let description = tender.tenderDescription {
+          Text("Description:  \(description)")
+        }
+        
+        Text("Published:  \(tender.formattedDatePublished )")
+        
+        if let status = tender.status {
+          formatStatus(status)
+        }
+      } // VStack 1
+    } // Group
   } // private var tenderHeader
   
   
@@ -279,6 +288,16 @@ struct CFTenderView: View {
   .opacity( tender.documents != nil ? 1 : 0 )
   } // documentsButton
   
+  private func formatStatus(_ status: String) -> some View {
+    let uStatus = status.capitalizingFirstLetter()
+    switch status {
+      case "active"   : return Text("\(uStatus)").font(.title).foregroundColor(.red)
+      case "complete" : return Text("\(uStatus)").font(.title3).foregroundColor(.white)
+      case "planned"  : return Text("\(uStatus)").font(.title3).foregroundColor(.yellow)
+      case "planning" : return Text("\(uStatus)").font(.title3).foregroundColor(.green)
+      default: return Text("Unknown status - \(status)").font(.title3).foregroundColor(.black)
+    } // switch status
+  } // private func formatStatus
 } // struct TenderView
 
 
@@ -290,9 +309,12 @@ struct TenderView_Previews: PreviewProvider {
   static let cfSearch = CFSearch.getTestData()
   static let rNum = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
 
-  static let tender = CFSearch.getTenderHavingValue()
+  static let valueTender = CFSearch.getTenderHavingValue()
+  
+  /// Known status: active, complete, planned, planning
+  static let statusTender = CFSearch.getTenderHavingStatus("InvalidStatus")
   
   static var previews: some View {
-    CFTenderView(tender: ((tender ?? cfSearch.releases?[0].tender!)!))
+    CFTenderView(tender: ((statusTender ?? cfSearch.releases?[0].tender!)!))
   }
 }

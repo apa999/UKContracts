@@ -34,7 +34,7 @@ let TestDataString = """
                 "id": "CON-00000309: Peakon ApS Staff survey services",
                 "title": "CON-00000309: Peakon ApS Staff survey services",
                 "description": "The G-Cloud Call-off contract was awarded to one supplier",
-                "status": "complete",
+                "status": "planned",
                 "classification": {
                     "scheme": "CPV",
                     "id": "48000000",
@@ -4183,7 +4183,7 @@ let TestDataString = """
                 "id": "ITT for projects 10042837, 10045189, 10044843",
                 "title": "ITT for projects 10042837, 10045189, 10044843",
                 "description": "ITT for projects 10042837, 10045189, 10044843",
-                "status": "complete",
+                "status": "InvalidStatus",
                 "classification": {
                     "scheme": "CPV",
                     "id": "79421100",
