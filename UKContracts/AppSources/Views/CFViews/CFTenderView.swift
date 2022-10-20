@@ -118,9 +118,9 @@ struct CFTenderView: View {
           } // VStack
           
           VStack(alignment: .leading, spacing: 10) {
-            Text("Scheme : \(scheme)")
-            Text("Id : \(id)")
-            Text("Description : \(description)")
+            Text("Scheme: \(scheme)")
+            Text("Id: \(id)")
+            Text("Description: \(description)")
           } // VStack
           
         } //if let ...
@@ -141,7 +141,7 @@ struct CFTenderView: View {
         } // VStack
           
         ForEach(items, id: \.self) { item in
-          Text("Id:  \(item.id ?? "No Item Id")")
+          Text("Id: \(item.id ?? "No Item Id")")
           
           ForEach(item.deliveryAddresses ?? [], id: \.self) { address in
             Text("Address: \(address.fDeliveryAddress)")
@@ -166,13 +166,11 @@ struct CFTenderView: View {
     
       VStack(alignment: .leading, spacing: 5) {
         if let minValue = tender.minValue {
-          Text("Minimum value:  \(minValue.amount ?? 0)")
-          Text("Minimum value:  \(minValue.currency ?? "")")
+          Text("Minimum value: \(minValue.fAmount)")
         }
         
         if let value = tender.value {
-          Text("Value:  \(value.amount ?? 0)")
-          Text("Value:  \(value.currency ?? "")")
+          Text("Value: \(value.fAmount)")
         } // if let value = tender.value
       } // VStack
     } // Group
@@ -191,11 +189,11 @@ struct CFTenderView: View {
     
     VStack(alignment: .leading, spacing: 5){
       if let procurementMethod = tender.procurementMethod {
-        Text("Method  \(procurementMethod)")
+        Text("Method: \(procurementMethod)")
       }
       
       if let procurementMethodDetails = tender.procurementMethodDetails {
-        Text("Description  \(procurementMethodDetails)")
+        Text("Description: \(procurementMethodDetails)")
       }
       
       if let mainProcurementCategory = tender.mainProcurementCategory {
@@ -208,8 +206,8 @@ struct CFTenderView: View {
   private var tenderPeriod: some View {
     VStack{
       if let tenderPeriod = tender.tenderPeriod {
-        Text("Tender period  \(tenderPeriod.formattedEndDate)")
-        Text("Procurement description \(tender.procurementMethodDetails ?? "")")
+        Text("Tender period: \(tenderPeriod.formattedEndDate)")
+        Text("Description: \(tender.procurementMethodDetails ?? "")")
       }
     } // VStack
   } // tenderPeriod
@@ -227,8 +225,8 @@ struct CFTenderView: View {
     
     VStack(alignment: .leading, spacing: 5) {
       if let contractPeriod = tender.contractPeriod {
-        Text("Start \(contractPeriod.formattedStartDate)")
-        Text("End \(contractPeriod.formattedEndDate)")
+        Text("Starts: \(contractPeriod.formattedStartDate)")
+        Text("Ends: \(contractPeriod.formattedEndDate)")
       }
     } // VStack
     } // Group
@@ -247,8 +245,8 @@ struct CFTenderView: View {
       VStack(alignment: .leading, spacing: 5) {
         if let suitability = tender.suitability {
           HStack(alignment: .center, spacing: 20) {
-            Text("SME  \(suitability.sme  ?? false ? "Yes" : "No")")
-            Text("VCSE \(suitability.vcse ?? false ? "Yes" : "No")")
+            Text("SME: \(suitability.sme  ?? false ? "Yes" : "No")")
+            Text("VCSE: \(suitability.vcse ?? false ? "Yes" : "No")")
           }.padding(.horizontal)
         }
       } // VStack
