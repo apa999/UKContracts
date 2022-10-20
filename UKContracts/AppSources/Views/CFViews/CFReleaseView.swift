@@ -89,7 +89,7 @@ struct CFReleaseView: View {
   //MARK: - Private vars
   
   private var mainText: some View {
-    VStack(alignment: .leading, spacing: 20) {
+    VStack(alignment: .leading, spacing: 15) {
       
       Text("Date : \(release.formattedDate)")
       
@@ -98,10 +98,41 @@ struct CFReleaseView: View {
       }
    
       Text("Buyer: \(release.buyer?.name   ?? "No buyer")")
+      
+      if let ocid = release.ocid {
+        /// Displays the website for the CPV
+        Button(action: showWebsiteFor) {
+          Image(systemName: "network")
+        } // Button
+      }
+      
+      
     } // VStack
     .font(.title3)
   } // mainText
   
+  //MARK: - Private functions
+  
+  /*
+   Displays the website for the CPV
+   
+   Example: Releasse.id = 90983041-1638-4704-9bcf-61bbae6515a2-582687
+   
+   From website
+   https://www.contractsfinder.service.gov.uk/notice/90983041-1638-4704-9bcf-61bbae6515a2
+   */
+  private func showWebsiteFor() {
+    
+    if let id = release.id {
+      var splits = id.split(separator: "-")
+      splits.removeLast()
+      let newId = splits.joined(separator: "-")
+      
+      if let url = URL(string: "\(Constants.ocidBaseUrl)\(newId)?") {
+        UIApplication.shared.open(url, options: [:])
+      }
+    }
+  }
   
   //MARK: - Buttons
   private var controlButtons: some View {

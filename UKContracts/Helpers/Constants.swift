@@ -14,6 +14,7 @@ struct Constants {
   static let searchText1 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=1"
   static let searchText5 = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?limit=5"
   
+  static let ocidBaseUrl = "https://www.contractsfinder.service.gov.uk/notice/"
   
   /// CPV Constants
   static let CpvCodes = "CpvCodes"
