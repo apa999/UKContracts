@@ -37,6 +37,13 @@ struct Constants {
     Divider().frame(height: 2).overlay(.red).padding(5)
   }
   
+  static var dashedLine: some View {
+    Line()
+      .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+      .frame(height: 1)
+  }
+
+  
   /// General
   static let backgroundColour = Color.blue
   static let textColor        = Color.white

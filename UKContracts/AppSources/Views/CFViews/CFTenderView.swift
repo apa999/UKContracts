@@ -150,8 +150,6 @@ struct CFTenderView: View {
         } // VStack
           
         ForEach(items, id: \.self) { item in
-          Text("Id: \(item.id ?? "No Item Id")")
-          
           ForEach(item.deliveryAddresses ?? [], id: \.self) { address in
             Text("Address: \(address.fDeliveryAddress)")
           } // ForEach(item

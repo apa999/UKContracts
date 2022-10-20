@@ -50,23 +50,26 @@ struct CFPartyView: View {
   private func showPartyDetails(_ party: Party) -> some View {
     return VStack(alignment: .leading, spacing: 10) {
       if let name = party.name {
-        Text("Name: \(name)").font(.title2)
+        Text("\(name)").font(.title2)
       }
       
       if let id = party.id {
         Text("Id: \(id)")
+        Constants.dashedLine
       }
       
       if let address = party.address {
         showAddress(address)
+        Constants.dashedLine
       }
       
       if let contactPoint = party.contactPoint {
         showContactPoint(contactPoint)
+        Constants.dashedLine
       }
       
       if let details = party.details {
-        showDetails(details)
+        showDetails(details, party: party)
       }
       
       if let identifier = party.identifier {
@@ -111,10 +114,19 @@ struct CFPartyView: View {
     }
   } // private func showContactPoint
   
-  private func showDetails(_ details: Details) -> some View {
+  private func showDetails(_ details: Details, party: Party) -> some View {
     VStack(alignment: .leading, spacing: 5) {
-      if let url = details.url {
-        Text("URL: \(url)")
+      if let urlString = party.details?.url {
+        /// Displays the website for the party
+        Button {
+          showWebsiteFor(urlString: urlString)
+        }
+      label: {
+        HStack(spacing: 10){
+          Text("Website")
+          Image(systemName: "network")
+        }
+      }
       }
       if let vcse = details.vcse {
         Text("VCSE: \(vcse ? "Yes" : "No" )")
@@ -122,6 +134,13 @@ struct CFPartyView: View {
     }
   } // private func showDetails
   
+  
+  private func showWebsiteFor(urlString: String) {
+    if let url = URL(string: urlString.replacingOccurrences(of: "http://www.", with: "https://www.")) {
+      
+      UIApplication.shared.open(url, options: [:])
+    }
+  }
   
   private func showIdentifier(_ identifier: Identifier) -> some View {
     VStack(alignment: .leading, spacing: 5) {
@@ -146,6 +165,7 @@ struct CFPartyView: View {
       }
     } // VStack
   } // private func showRoles
+  
   
   
 } // CFPartyView
