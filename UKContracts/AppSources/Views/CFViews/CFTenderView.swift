@@ -288,7 +288,7 @@ struct CFTenderView: View {
   .opacity( tender.documents != nil ? 1 : 0 )
   } // documentsButton
   
-  private func formatStatus(_ status: String) -> some View {
+  private func formatStatus1(_ status: String) -> some View {
     let uStatus = status.capitalizingFirstLetter()
     switch status {
       case "active"   : return Text("\(uStatus)").font(.title).foregroundColor(.red)
@@ -297,6 +297,36 @@ struct CFTenderView: View {
       case "planning" : return Text("\(uStatus)").font(.title3).foregroundColor(.green)
       default: return Text("Unknown status - \(status)").font(.title3).foregroundColor(.black)
     } // switch status
+  } // private func formatStatus
+  
+  private func formatStatus(_ status: String) -> some View {
+    let uStatus = status.capitalizingFirstLetter()
+    
+    var t1 = Text("")
+    var t2 = Text("")
+    
+    switch status {
+      case "active"   :
+        t1 = Text("Status").font(.title).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title).foregroundColor(.red)
+      case "complete" :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.white)
+      case "planned"  :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.yellow)
+      case "planning" :
+        t1 = Text("Status").font(.title3).foregroundColor(.white)
+        t2 = Text("\(uStatus)").font(.title3).foregroundColor(.green)
+      default:
+        t1 = Text("Unknown status - \(status)").font(.title3).foregroundColor(.white)
+        t2 = Text("Unknown status - \(status)").font(.title3).foregroundColor(.black)
+    } // switch status
+    
+    return HStack() {
+      t1
+      t2
+    }.padding(.top)
   } // private func formatStatus
 } // struct TenderView
 
@@ -312,7 +342,7 @@ struct TenderView_Previews: PreviewProvider {
   static let valueTender = CFSearch.getTenderHavingValue()
   
   /// Known status: active, complete, planned, planning
-  static let statusTender = CFSearch.getTenderHavingStatus("InvalidStatus")
+  static let statusTender = CFSearch.getTenderHavingStatus("planning")
   
   static var previews: some View {
     CFTenderView(tender: ((statusTender ?? cfSearch.releases?[0].tender!)!))
