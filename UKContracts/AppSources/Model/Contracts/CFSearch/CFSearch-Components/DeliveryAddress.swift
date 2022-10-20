@@ -16,16 +16,16 @@ struct DeliveryAddress : Codable, Hashable {
   var fDeliveryAddress : String {
     var address = ""
     
-    if let region {
-      address = region
+    if let postalCode, postalCode.count > 0 {
+      address = postalCode
     }
     
-    if let countryName {
-      address = address.count > 0 ? "\(address), \(countryName)" : countryName
+    if let countryName, countryName.count > 0 {
+      address = address.count > 0 ? "\(countryName), \(address)" : countryName
     }
     
-    if let postalCode {
-      address = address.count > 0 ? "\(address), \(postalCode)" : postalCode
+    if let region, region.count > 0 {
+      address = (postalCode?.count ?? 0 > 0 || countryName?.count ?? 0 > 0) ? "\(region), \(address)" : region
     }
     
     return address

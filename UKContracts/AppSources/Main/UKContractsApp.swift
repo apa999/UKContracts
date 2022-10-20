@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct UKContractsApp: App {
-    var body: some Scene {
-        WindowGroup {
-          ContentView(cfViewModel: CFViewModel())
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView(cfViewModel: CFViewModel())
     }
+  }
 }
