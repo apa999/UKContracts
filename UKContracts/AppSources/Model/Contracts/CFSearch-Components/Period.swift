@@ -12,15 +12,27 @@ struct Period : Codable {
   let startDate : Date?
   let endDate   : Date?
   
+  /// Format the start date
   var formattedStartDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: startDate ?? Date())
+    
+    if let startDate = startDate {
+      return formatter.string(from: startDate)
+    } else {
+      return ""
+    }
   }
   
+  /// Format the end date
   var formattedEndDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: endDate ?? Date())
+    
+    if let endDate = endDate {
+      return formatter.string(from: endDate)
+    } else {
+      return ""
+    }
   }
 }

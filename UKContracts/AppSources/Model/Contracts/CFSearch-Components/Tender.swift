@@ -35,10 +35,16 @@ struct Tender : Codable {
     return ""
   }
   
+  /// Format the date published
   var formattedDatePublished: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: datePublished ?? Date())
+    
+    if let datePublished = datePublished {
+      return formatter.string(from: datePublished)
+    } else {
+      return ""
+    }
   }
   
   enum CodingKeys : String, CodingKey {
@@ -66,9 +72,15 @@ struct Tender : Codable {
 struct TenderPeriod : Codable {
   let endDate : Date?
   
+  /// Format the end date
   var formattedEndDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: endDate ?? Date())
+    
+    if let endDate = endDate {
+      return formatter.string(from: endDate)
+    } else {
+      return ""
+    }
   }
 }

@@ -541,4 +541,19 @@ extension CFSearch {
     }
     return nil
   } // static func getParties()
+  
+  /// Returns the awards from a release
+  static func getAwards(_ minNumberOfAwards: Int = 1) -> [Award]? {
+    let jsonData = Data(TestDataString.utf8)
+    let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
+    
+    for release in cfSearch.releases ?? [] {
+      if let awards = release.awards {
+        if awards.count >= minNumberOfAwards {
+          return awards
+        }
+      }
+    }
+    return nil
+  } // static func getAwards()
 }

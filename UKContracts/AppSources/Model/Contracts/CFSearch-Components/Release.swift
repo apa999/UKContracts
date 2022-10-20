@@ -21,9 +21,15 @@ struct Release : Codable, Identifiable {
   let awards         : [Award]?
   let planning       : Planning?
   
+  /// Format the date
   var formattedDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E d MMM y, HH:mm"
-    return formatter.string(from: date ?? Date())
+    
+    if let date = date {
+      return formatter.string(from: date)
+    } else {
+      return ""
+    }
   }
 }

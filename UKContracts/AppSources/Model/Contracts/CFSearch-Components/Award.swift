@@ -30,4 +30,28 @@ struct Award : Codable, Identifiable {
     case documents
     case awardDescription = "description"
   }
+  
+  /// Format the date
+  var formattedDate: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    
+    if let date = date {
+      return formatter.string(from: date)
+    } else {
+      return ""
+    }
+  }
+  
+  /// Format the date published
+  var formattedDatePublished: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    
+    if let datePublished = datePublished {
+      return formatter.string(from: datePublished)
+    } else {
+      return ""
+    }
+  }
 }
