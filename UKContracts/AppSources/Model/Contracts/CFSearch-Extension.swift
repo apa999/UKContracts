@@ -473,7 +473,6 @@ extension CFSearch {
   }
 
   /// Converts the test data into a CFSearch struct
-  @MainActor
   static func getTestData() -> CFSearch {
     
     let jsonData = Data(TestDataString.utf8)
@@ -481,9 +480,9 @@ extension CFSearch {
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
    
     return cfSearch
-  }
+  } // static func getTestData()
   
-  @MainActor
+  /// Returns a value object from a tender
   static func getTenderHavingValue() -> Tender? {
   
     let jsonData = Data(TestDataString.utf8)
@@ -498,8 +497,9 @@ extension CFSearch {
       }
     }
     return nil
-  }
+  } // static func getTenderHavingValue()
   
+  /// Returns a tender with given status
   static func getTenderHavingStatus(_ status: String = "active") -> Tender? {
     let jsonData = Data(TestDataString.utf8)
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
@@ -512,8 +512,9 @@ extension CFSearch {
       }
     }
     return nil
-  }
+  } // static func getTenderHavingStatus
   
+  /// Returns a Release with given type
   static func getReleaseHavingType(_ type: String) -> Release? {
     let jsonData = Data(TestDataString.utf8)
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
@@ -524,5 +525,20 @@ extension CFSearch {
       }
     }
     return nil
-  }
+  } // static func getReleaseHavingType
+  
+  /// Returns the parties from a release
+  static func getParties(_ minNumberOfParties: Int = 1) -> [Party]? {
+    let jsonData = Data(TestDataString.utf8)
+    let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
+    
+    for release in cfSearch.releases ?? [] {
+      if let parties = release.parties {
+        if parties.count >= minNumberOfParties {
+          return parties
+        }
+      }
+    }
+    return nil
+  } // static func getParties()
 }

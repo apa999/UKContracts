@@ -8,8 +8,14 @@
 import Foundation
 
 // MARK: - Details
-struct Details : Codable {
+struct Details : Codable, CustomStringConvertible {
+  
   let url   : String?
   let scale : String?
   let vcse  : Bool?
+  
+  var description: String {
+    return "URL: \(url ?? "")"
+  }
+  
 }

@@ -44,7 +44,7 @@ struct CFTenderView: View {
       ScrollView {
         VStack(spacing: 10) {
           Text("Tender")
-            .font(.title2)
+            .font(.title)
           
           tenderDetails
         } // VStack
@@ -333,11 +333,8 @@ struct CFTenderView: View {
 
 
 struct TenderView_Previews: PreviewProvider {
-  
-  
-//  static let cfSearch = CFSearch.getTestCFSearch()
   static let cfSearch = CFSearch.getTestData()
-  static let rNum = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
+  static let rNum     = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
 
   static let valueTender = CFSearch.getTenderHavingValue()
   

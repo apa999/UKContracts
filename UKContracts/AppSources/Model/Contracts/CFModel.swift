@@ -14,9 +14,9 @@ struct CFModel {
 //    didSet {
 //      if let releases = cfSearch.releases {
 //        for release in releases {
-//          print("release: \(release.initiationType)")
-//
-//
+//          if let parties = release.parties {
+//            print(parties.count)
+//          }
 //        }
 //      }
 //    } // didSet
