@@ -443,14 +443,14 @@ extension CFSearch {
   static let cfSearchTestData = Data(cfSearchTestString.utf8)
   
   /// Converts the test data into a CFSearch struct
-  static func getTestCFSearch() -> CFSearch {
+  static func getTestCFSearch(data: Data = CFSearch.cfSearchTestData) -> CFSearch {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy  = .useDefaultKeys
     decoder.dataDecodingStrategy = .deferredToData
     decoder.dateDecodingStrategy = .iso8601
     
     do {
-      let cfSearch = try decoder.decode(CFSearch.self, from: CFSearch.cfSearchTestData)
+      let cfSearch = try decoder.decode(CFSearch.self, from: data)
       
       return cfSearch
     } catch let DecodingError.dataCorrupted(context) {
@@ -470,5 +470,33 @@ extension CFSearch {
     }
     
     return CFSearch()
+  }
+
+  /// Converts the test data into a CFSearch struct
+  @MainActor
+  static func getTestData() -> CFSearch {
+    
+    let jsonData = Data(TestDataString.utf8)
+    
+    let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
+   
+    return cfSearch
+  }
+  
+  @MainActor
+  static func getTenderHavingValue() -> Tender? {
+  
+    let jsonData = Data(TestDataString.utf8)
+    
+    let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
+    
+    for release in cfSearch.releases ?? [] {
+      if let tender = release.tender {
+        if let _ = tender.value {
+          return tender
+        }
+      }
+    }
+    return nil
   }
 }

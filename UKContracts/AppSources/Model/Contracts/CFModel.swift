@@ -10,20 +10,21 @@ import Foundation
 struct CFModel {
   
   var cfSearch = CFSearch()
-  {
-    didSet {
-      if let releases = cfSearch.releases {
-        for release in releases {
-          print("release: \(release.id)")
-
-          if let tender = release.tender {
-            print("Tender: \(tender.id)")
-            if tender.id == "CON-22-237" {
-              print("FOUND: \(release.id)")
-            }
-          }
-        }
-      }
-    } // didSet
-  }
+//  {
+//    didSet {
+//      if let releases = cfSearch.releases {
+//        for release in releases {
+//          print("release: \(release.id)")
+//
+//          if let tender = release.tender {
+//            print("Tender: \(tender.id)")
+//            
+//            if let value = tender.value {
+//              print("")
+//            }
+//          }
+//        }
+//      }
+//    } // didSet
+//  }
 }

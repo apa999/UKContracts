@@ -71,21 +71,12 @@ struct CFTenderView: View {
           tenderHeader
           classificationView
           itemDetails
-          
           tenderValues
-          
-          Constants.divider
           procurement
-          Constants.divider
           contractPeriod
-          Constants.divider
-        }
-        Group {
           suitability
-          Constants.divider
-          mainProcurement
         }
-      
+        
         controlButtons
       } // VStack 3
     } // VStack 1
@@ -150,7 +141,7 @@ struct CFTenderView: View {
         } // VStack
           
         ForEach(items, id: \.self) { item in
-          Text("item.id:  \(item.id ?? "No tender Id")")
+          Text("Id:  \(item.id ?? "No Item Id")")
           
           ForEach(item.deliveryAddresses ?? [], id: \.self) { address in
             Text("Address: \(address.fDeliveryAddress)")
@@ -173,7 +164,7 @@ struct CFTenderView: View {
         } // VStack
       }
     
-      VStack {
+      VStack(alignment: .leading, spacing: 5) {
         if let minValue = tender.minValue {
           Text("Minimum value:  \(minValue.amount ?? 0)")
           Text("Minimum value:  \(minValue.currency ?? "")")
@@ -188,10 +179,30 @@ struct CFTenderView: View {
   } // tenderValues
   
   private var procurement: some View {
-    VStack{
-      Text("Procurement method  \(tender.procurementMethod ?? "")")
-      Text("Procurement description \(tender.procurementMethodDetails ?? "")")
+    Group {
+      if let _ = tender.procurementMethod ,
+          let _ = tender.procurementMethodDetails {
+        VStack(alignment: .center, spacing: 5) {
+          Constants.divider
+          Text("Procurement")
+            .font(.title3)
+        } // VStack
+      }
+    
+    VStack(alignment: .leading, spacing: 5){
+      if let procurementMethod = tender.procurementMethod {
+        Text("Method  \(procurementMethod)")
+      }
+      
+      if let procurementMethodDetails = tender.procurementMethodDetails {
+        Text("Description  \(procurementMethodDetails)")
+      }
+      
+      if let mainProcurementCategory = tender.mainProcurementCategory {
+        Text("Category: \(mainProcurementCategory)")
+      }
     } // VStack
+    } // Group
   } // procurement
   
   private var tenderPeriod: some View {
@@ -204,31 +215,47 @@ struct CFTenderView: View {
   } // tenderPeriod
   
   private var contractPeriod: some View {
-    VStack{
+    Group {
+    
+      if let _ = tender.contractPeriod {
+        VStack(alignment: .center, spacing: 5) {
+          Constants.divider
+          Text("Contract period")
+            .font(.title3)
+        } // VStack
+      }
+    
+    VStack(alignment: .leading, spacing: 5) {
       if let contractPeriod = tender.contractPeriod {
-        Text("Contract period start \(contractPeriod.formattedStartDate)")
-        Text("Contract period end \(contractPeriod.formattedEndDate)")
+        Text("Start \(contractPeriod.formattedStartDate)")
+        Text("End \(contractPeriod.formattedEndDate)")
       }
     } // VStack
+    } // Group
   } // contractPeriod
   
   private var suitability: some View {
-    VStack{
-      if let suitability = tender.suitability {
-        Text("SME  \(suitability.sme  ?? false ? "Yes" : "No")")
-        Text("VCSE \(suitability.vcse ?? false ? "Yes" : "No")")
+    Group {
+      if let _ = tender.suitability {
+        VStack(alignment: .center, spacing: 5) {
+          Constants.divider
+          Text("Suitability")
+            .font(.title3)
+        } // VStack
       }
-    } // VStack
+      
+      VStack(alignment: .leading, spacing: 5) {
+        if let suitability = tender.suitability {
+          HStack(alignment: .center, spacing: 20) {
+            Text("SME  \(suitability.sme  ?? false ? "Yes" : "No")")
+            Text("VCSE \(suitability.vcse ?? false ? "Yes" : "No")")
+          }.padding(.horizontal)
+        }
+      } // VStack
+    } // Group
   } // suitability
   
-  private var mainProcurement: some View {
-    VStack{
-      if let mainProcurementCategory = tender.mainProcurementCategory {
-        Text("mainProcurementCategory: \(mainProcurementCategory)")
-      }
-    } // VStack
-  } // mainProcurement
-  
+ 
   private var controlButtons: some View  {
     HStack(alignment: .center) {
       Spacer()
@@ -237,8 +264,7 @@ struct CFTenderView: View {
       }
       Spacer()
     }
-    
-  }
+  } // private var controlButtons
   
   private var documentsButton: some View {
     Button {
@@ -248,6 +274,7 @@ struct CFTenderView: View {
     }
   label: {
     Text("Documents")
+      .font(.title3)
   } // label
   .foregroundColor(Constants.textColor)
   .font(.title3)
@@ -256,12 +283,18 @@ struct CFTenderView: View {
   
 } // struct TenderView
 
+
+
 struct TenderView_Previews: PreviewProvider {
   
-  static let cfSearch = CFSearch.getTestCFSearch()
+  
+//  static let cfSearch = CFSearch.getTestCFSearch()
+  static let cfSearch = CFSearch.getTestData()
   static let rNum = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
+
+  static let tender = CFSearch.getTenderHavingValue()
   
   static var previews: some View {
-    CFTenderView(tender: (cfSearch.releases?[0].tender)!)
+    CFTenderView(tender: ((tender ?? cfSearch.releases?[0].tender!)!))
   }
 }

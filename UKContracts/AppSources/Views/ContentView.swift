@@ -23,8 +23,8 @@ struct ContentView: View {
   /// True when the list view is visible
   @State private var showingList = false
   
+  
   var body: some View {
-    
     ZStack {
       Constants.backgroundColour
         .ignoresSafeArea()

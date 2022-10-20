@@ -13,6 +13,11 @@
 		3311A4C0290129F600B14B5F /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4BF290129F600B14B5F /* String-Extensions.swift */; };
 		3311A4C229012DD500B14B5F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C129012DD500B14B5F /* Item.swift */; };
 		3311A4C429012DFE00B14B5F /* DeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C329012DFE00B14B5F /* DeliveryAddress.swift */; };
+		3311A4C6290130D500B14B5F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C5290130D500B14B5F /* Document.swift */; };
+		3311A4C829013A5A00B14B5F /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C729013A5A00B14B5F /* Release.swift */; };
+		3311A4CA29013A7300B14B5F /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C929013A7300B14B5F /* Award.swift */; };
+		3311A4CC29013AA100B14B5F /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4CB29013AA100B14B5F /* Period.swift */; };
+		3311A4D12901445B00B14B5F /* CFSearchTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4CF290143DE00B14B5F /* CFSearchTestData.swift */; };
 		33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278528FF27CC00B2165F /* UKContractsApp.swift */; };
 		33B4278828FF27CC00B2165F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278728FF27CC00B2165F /* ContentView.swift */; };
 		33B4278A28FF27CD00B2165F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B4278928FF27CD00B2165F /* Assets.xcassets */; };
@@ -73,6 +78,11 @@
 		3311A4BF290129F600B14B5F /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
 		3311A4C129012DD500B14B5F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3311A4C329012DFE00B14B5F /* DeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddress.swift; sourceTree = "<group>"; };
+		3311A4C5290130D500B14B5F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		3311A4C729013A5A00B14B5F /* Release.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
+		3311A4C929013A7300B14B5F /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		3311A4CB29013AA100B14B5F /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		3311A4CF290143DE00B14B5F /* CFSearchTestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFSearchTestData.swift; sourceTree = "<group>"; };
 		33B4278228FF27CC00B2165F /* UKContracts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKContracts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B4278528FF27CC00B2165F /* UKContractsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKContractsApp.swift; sourceTree = "<group>"; };
 		33B4278728FF27CC00B2165F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,9 +150,13 @@
 		3311A4BE2901297A00B14B5F /* CFSearch-Components */ = {
 			isa = PBXGroup;
 			children = (
+				3311A4C929013A7300B14B5F /* Award.swift */,
 				3311A4C329012DFE00B14B5F /* DeliveryAddress.swift */,
+				3311A4C5290130D500B14B5F /* Document.swift */,
 				3311A4C129012DD500B14B5F /* Item.swift */,
+				3311A4C729013A5A00B14B5F /* Release.swift */,
 				3311A4BC2901294000B14B5F /* Tender.swift */,
+				3311A4CB29013AA100B14B5F /* Period.swift */,
 			);
 			path = "CFSearch-Components";
 			sourceTree = "<group>";
@@ -260,6 +274,7 @@
 		33B427B428FF281700B2165F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3311A4CF290143DE00B14B5F /* CFSearchTestData.swift */,
 				33B427BA28FF286400B2165F /* Constants.swift */,
 				33B427CE28FFC7A700B2165F /* EquatableError.swift */,
 				33B427C028FF292700B2165F /* URLSession-Extension.swift */,
@@ -462,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B427DC28FFDDE200B2165F /* GradientsView.swift in Sources */,
+				3311A4CC29013AA100B14B5F /* Period.swift in Sources */,
 				33B427F028FFE16D00B2165F /* HierarchyList.swift in Sources */,
 				33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */,
 				33B427EC28FFE13700B2165F /* CPVCheckView.swift in Sources */,
@@ -475,18 +491,22 @@
 				33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */,
 				33B427C128FF292700B2165F /* URLSession-Extension.swift in Sources */,
 				33B427B928FF285500B2165F /* CFSearch.swift in Sources */,
+				3311A4C6290130D500B14B5F /* Document.swift in Sources */,
 				33B427C528FF2AA800B2165F /* CFSearch-Extension.swift in Sources */,
 				33B427E728FFDEC700B2165F /* CPVLoader.swift in Sources */,
 				33B427E928FFDEE800B2165F /* CPVModel.swift in Sources */,
 				33B427BB28FF286400B2165F /* Constants.swift in Sources */,
 				33B4280929005E6900B2165F /* CFContractListView.swift in Sources */,
 				33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */,
+				3311A4CA29013A7300B14B5F /* Award.swift in Sources */,
+				3311A4C829013A5A00B14B5F /* Release.swift in Sources */,
 				33B427BD28FF28BA00B2165F /* CFViewModel.swift in Sources */,
 				3311A4BD2901294000B14B5F /* Tender.swift in Sources */,
 				33B4280529005E3E00B2165F /* CFDocumentView.swift in Sources */,
 				3311A4C0290129F600B14B5F /* String-Extensions.swift in Sources */,
 				3311A4BB29011AE000B14B5F /* ClassifacationView.swift in Sources */,
 				33B427CF28FFC7A700B2165F /* EquatableError.swift in Sources */,
+				3311A4D12901445B00B14B5F /* CFSearchTestData.swift in Sources */,
 				33B427EE28FFE15200B2165F /* CPVListView.swift in Sources */,
 				33B427E128FFDE5A00B2165F /* SettingsModel.swift in Sources */,
 				33B4280729005E5200B2165F /* CFTenderView.swift in Sources */,

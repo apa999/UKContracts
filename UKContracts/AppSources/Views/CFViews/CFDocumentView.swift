@@ -54,7 +54,7 @@ struct CFDocumentView: View {
       }
       
       if let documentDescription =  document.documentDescription {
-        Text("Description : \(documentDescription)")
+        Text("\(documentDescription)")
       }
       
       if let datePublished =  document.formattedDatePublished {
