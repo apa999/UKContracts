@@ -46,14 +46,15 @@ struct CFReleaseView: View {
         .ignoresSafeArea()
       
       VStack(spacing: 15) {
-        Text("Contract Details")
+        Text("Release Details")
           .font(.title)
+      
         
-        if let tenderTitle = release.tender?.title {
-          Text("\(tenderTitle)").font(.title2)
-        }
-        
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 10) {
+          if let tenderTitle = release.tender?.title {
+            Text("\(tenderTitle)").font(.title2)
+          }
+          
           mainText
           
           Spacer()

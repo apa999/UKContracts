@@ -9,6 +9,7 @@ import Foundation
 
 struct CFModel {
   
+
   var cfSearch = CFSearch()
 //  {
 //    didSet {
@@ -21,4 +22,14 @@ struct CFModel {
 //      }
 //    } // didSet
 //  }
+  
+  /// Model status
+  enum ModelStatus {
+    case unloaded
+    case loading
+    case loaded
+    case loadingError
+  }
+  
+  var modelStatus = ModelStatus.unloaded
 }

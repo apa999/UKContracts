@@ -26,15 +26,23 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
+
       Constants.backgroundColour
         .ignoresSafeArea()
       
       VStack() {
+        
         if showingList == false {
           headerText
         } else {
-          CFContractListView(cfViewModel: cfViewModel)
+          CFReleaseListView(cfViewModel: cfViewModel)
         }
+      
+        if cfViewModel.cfModel.modelStatus == .loading {
+          Spacer()
+          ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
+        }
+      
         Spacer()
         userOptions
       }

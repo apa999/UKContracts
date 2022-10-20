@@ -18,11 +18,17 @@
  }
  */
 
+import MessageUI
 import SwiftUI
 
 struct CFPartyView: View {
   
   var parties: [Party]
+  
+  /// Support for email
+  @State var result: Result<MFMailComposeResult, Error>? = nil
+  @State var isShowingMailView = false
+  
   
   var body: some View {
     
@@ -45,6 +51,12 @@ struct CFPartyView: View {
       .padding(.horizontal)
     } // Zstack
     .foregroundColor(Constants.textColor)
+    
+    .sheet(isPresented: $isShowingMailView) {
+                MailView(isShowing: self.$isShowingMailView,
+                         result: self.$result)
+            }
+    
   } // body
   
   private func showPartyDetails(_ party: Party) -> some View {
@@ -106,6 +118,16 @@ struct CFPartyView: View {
         Text("Name: \(name)")
       }
       if let email = contactPoint.email {
+        
+        Button {
+          self.isShowingMailView.toggle()
+        }
+      label: {
+        HStack(spacing: 10){
+          Text("Email: ")
+          Image(systemName: "square.and.pencil")
+        }
+      }
         Text("Email: \(email)")
       }
       if let telephone = contactPoint.telephone {
@@ -167,7 +189,7 @@ struct CFPartyView: View {
   } // private func showRoles
   
   
-  
+ 
 } // CFPartyView
 
 struct CFPartyView_Previews: PreviewProvider {

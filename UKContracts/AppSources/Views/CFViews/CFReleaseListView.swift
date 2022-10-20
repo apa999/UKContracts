@@ -1,5 +1,5 @@
 //
-//  CFCLView.swift
+//  CFReleaseListView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CFContractListView: View {
+struct CFReleaseListView: View {
   
   /// Observed object - ViewModel
   @ObservedObject var cfViewModel: CFViewModel

@@ -89,6 +89,7 @@ class CFViewModel: ObservableObject {
   
   //MARK: - Search Intents
   func search()   {
+    cfModel.modelStatus = .loading
     loadMessages(urlString: Constants.searchText)
   } // func search()
   
@@ -102,7 +103,9 @@ class CFViewModel: ObservableObject {
           cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
                                                                 from: url,
                                                                 dateDecodingStrategy: .iso8601)
+          cfModel.modelStatus = .loaded
         } catch {
+          cfModel.modelStatus = .loadingError
           viewModelStatus = .dataLoadFailed(error: EquatableError(error))
           cfModel.cfSearch = cfSearch
         } // catch
