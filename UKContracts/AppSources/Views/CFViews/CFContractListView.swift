@@ -17,7 +17,7 @@ struct CFContractListView: View {
       List {
         ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
           
-          NavigationLink(destination: CFDetailView(release: release))
+          NavigationLink(destination: CFReleaseView(release: release))
           {
             Text(release.tender?.title ?? "Missing tender")
               .foregroundColor(.white)

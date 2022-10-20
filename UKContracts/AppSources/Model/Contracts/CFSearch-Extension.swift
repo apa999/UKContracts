@@ -500,11 +500,8 @@ extension CFSearch {
     return nil
   }
   
-  @MainActor
   static func getTenderHavingStatus(_ status: String = "active") -> Tender? {
-  
     let jsonData = Data(TestDataString.utf8)
-    
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
     
     for release in cfSearch.releases ?? [] {
@@ -512,6 +509,18 @@ extension CFSearch {
         if tender.status == status {
           return tender
         }
+      }
+    }
+    return nil
+  }
+  
+  static func getReleaseHavingType(_ type: String) -> Release? {
+    let jsonData = Data(TestDataString.utf8)
+    let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
+    
+    for release in cfSearch.releases ?? [] {
+      if let initiationType = release.initiationType {
+       print(initiationType)
       }
     }
     return nil

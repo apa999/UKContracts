@@ -63,7 +63,7 @@
 		33B427F028FFE16D00B2165F /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427EF28FFE16D00B2165F /* HierarchyList.swift */; };
 		33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F128FFE1D500B2165F /* Debouncer.swift */; };
 		33B427F428FFE5B200B2165F /* CpvCodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 33B427F328FFE5B200B2165F /* CpvCodes.csv */; };
-		33B4280329005E0E00B2165F /* CFDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280229005E0E00B2165F /* CFDetailView.swift */; };
+		33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280229005E0E00B2165F /* CFReleaseView.swift */; };
 		33B4280529005E3E00B2165F /* CFDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280429005E3E00B2165F /* CFDocumentView.swift */; };
 		33B4280729005E5200B2165F /* CFTenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280629005E5200B2165F /* CFTenderView.swift */; };
 		33B4280929005E6900B2165F /* CFContractListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280829005E6900B2165F /* CFContractListView.swift */; };
@@ -146,7 +146,7 @@
 		33B427EF28FFE16D00B2165F /* HierarchyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HierarchyList.swift; sourceTree = "<group>"; };
 		33B427F128FFE1D500B2165F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		33B427F328FFE5B200B2165F /* CpvCodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CpvCodes.csv; sourceTree = "<group>"; };
-		33B4280229005E0E00B2165F /* CFDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDetailView.swift; sourceTree = "<group>"; };
+		33B4280229005E0E00B2165F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
 		33B4280429005E3E00B2165F /* CFDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDocumentView.swift; sourceTree = "<group>"; };
 		33B4280629005E5200B2165F /* CFTenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView.swift; sourceTree = "<group>"; };
 		33B4280829005E6900B2165F /* CFContractListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContractListView.swift; sourceTree = "<group>"; };
@@ -381,10 +381,10 @@
 		33B427FD29005D2800B2165F /* CFViews */ = {
 			isa = PBXGroup;
 			children = (
-				33B4280229005E0E00B2165F /* CFDetailView.swift */,
-				33B4280429005E3E00B2165F /* CFDocumentView.swift */,
-				33B4280629005E5200B2165F /* CFTenderView.swift */,
 				33B4280829005E6900B2165F /* CFContractListView.swift */,
+				33B4280429005E3E00B2165F /* CFDocumentView.swift */,
+				33B4280229005E0E00B2165F /* CFReleaseView.swift */,
+				33B4280629005E5200B2165F /* CFTenderView.swift */,
 				3311A4BA29011AE000B14B5F /* ClassifacationView.swift */,
 			);
 			path = CFViews;
@@ -535,7 +535,7 @@
 				3311A4C229012DD500B14B5F /* Item.swift in Sources */,
 				3311A4DF29014D2F00B14B5F /* Communication.swift in Sources */,
 				33B427E328FFDE7000B2165F /* Storage.swift in Sources */,
-				33B4280329005E0E00B2165F /* CFDetailView.swift in Sources */,
+				33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */,
 				33B427E528FFDEA700B2165F /* CPV.swift in Sources */,
 				3311A4C429012DFE00B14B5F /* DeliveryAddress.swift in Sources */,
 				3311A4D529014C4F00B14B5F /* Party.swift in Sources */,

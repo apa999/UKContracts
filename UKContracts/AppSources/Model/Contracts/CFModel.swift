@@ -14,11 +14,9 @@ struct CFModel {
 //    didSet {
 //      if let releases = cfSearch.releases {
 //        for release in releases {
-//          print("release: \(release.id)")
+//          print("release: \(release.initiationType)")
 //
-//          if let tender = release.tender {
-//            print("Tender: \(tender.status)")
-//          }
+//
 //        }
 //      }
 //    } // didSet

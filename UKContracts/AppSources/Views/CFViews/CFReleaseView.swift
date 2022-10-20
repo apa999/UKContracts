@@ -1,5 +1,5 @@
 //
-//  CFDV.swift
+//  CFReleaseView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CFDetailView: View {
+struct CFReleaseView: View {
   
   var release: Release
   
@@ -23,7 +23,7 @@ struct CFDetailView: View {
       Constants.backgroundColour
         .ignoresSafeArea()
       VStack(spacing: 10) {
-        Text("Contract details")
+        Text("Contract Details")
           .font(.title2)
         
         VStack {
@@ -56,20 +56,28 @@ struct CFDetailView: View {
   //MARK: - Private vars
   
   private var mainText: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      Text("Date : \(release.formattedDate)")
-      Text("Initiation type : \(release.initiationType ?? "?")")
+    VStack(alignment: .leading, spacing: 20) {
       
-      ForEach(release.parties ?? [] ) { party in
-        Text("Party name: \(party.name   ?? "No party name")")
+      Text("Date : \(release.formattedDate)")
+      
+      if let initiationType = release.initiationType {
+        Text("Type : \(initiationType.capitalizingFirstLetter())")
       }
+      
+      if let parties = release.parties  {
+        ForEach(parties) { party in
+          Text("Party: \(party.name   ?? "No party name")")
+        }
+      }
+      
       
       Text("Buyer: \(release.buyer?.name   ?? "No buyer")")
       
       ForEach(release.awards ?? [] ) { award in
-        Text("Award name: \(award.awardDescription   ?? "No award name")")
+        Text("Award: \(award.awardDescription   ?? "No award name")")
       }
     } // VStack
+    .font(.title3)
   } // mainText
   
   private var tenderButton: some View {
@@ -87,7 +95,7 @@ struct CFDetailView_Previews: PreviewProvider {
   
   static let cfSearch = CFSearch.getTestCFSearch()
   static var previews: some View {
-    CFDetailView(release: cfSearch.releases!.first!)
+    CFReleaseView(release: cfSearch.releases!.first!)
   }
 }
 
