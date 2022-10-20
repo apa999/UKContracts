@@ -61,3 +61,14 @@ struct Tender : Codable {
     case communication
   }
 }
+
+// MARK: - TenderPeriod
+struct TenderPeriod : Codable {
+  let endDate : Date?
+  
+  var formattedEndDate: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E d MMM y, HH:mm"
+    return formatter.string(from: endDate ?? Date())
+  }
+}
