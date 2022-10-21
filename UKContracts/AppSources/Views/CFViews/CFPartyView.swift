@@ -55,11 +55,11 @@ struct CFPartyView: View {
     
     .sheet(isPresented: $isShowingMailView) {
       
-                CFMailView(isShowing: self.$isShowingMailView,
-                         result: self.$result,
-                         recipients: $recipients,
-                         subject: $subject)
-            }
+      CFMailView(isShowing: self.$isShowingMailView,
+                 result: self.$result,
+                 recipients: $recipients,
+                 subject: $subject)
+    }
     
   } // body
   
@@ -121,25 +121,33 @@ struct CFPartyView: View {
       if let name = contactPoint.name {
         Text("Name: \(name)")
       }
+      
       if let email = contactPoint.email {
-        
         Button {
           self.subject    = Constants.mailSubjectLine
           self.recipients = email
           self.isShowingMailView.toggle()
         }
-      label: {
-        HStack(spacing: 10){
-          Text("Email: ")
-          Image(systemName: "square.and.pencil")
+        label: {
+          HStack(spacing: 10) {
+            Image(systemName: "square.and.pencil")
+            Text("\(email)")
+          }
         }
-      }
-        Text("Email: \(email)")
-      }
+      } // if let email =
+      
       if let telephone = contactPoint.telephone {
-        Text("Telephone: \(telephone)")
-      }
-    }
+        Button {
+          TelephoneCaller.call(telephone)
+        }
+        label: {
+          HStack(spacing: 10) {
+            Image(systemName: "phone.fill")
+            Text("\(telephone)")
+          }
+        } // label
+      } // if let telephone =
+    } // VStack
   } // private func showContactPoint
   
   private func showDetails(_ details: Details, party: Party) -> some View {
@@ -195,7 +203,7 @@ struct CFPartyView: View {
   } // private func showRoles
   
   
- 
+  
 } // CFPartyView
 
 struct CFPartyView_Previews: PreviewProvider {
