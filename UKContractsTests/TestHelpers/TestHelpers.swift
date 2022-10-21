@@ -11,6 +11,7 @@ struct TestHelpers {
   
   /// Returns a date from the string or nil if date is invalid
   /// The expected date string format is: "yyyy-MM-dd'T'HH:mm:ssZ"
+  /// Example: TestHelpers.getDateFor("2022-10-19T09:20:00+0000")
   static func getDateFor(_ dateStr: String) -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

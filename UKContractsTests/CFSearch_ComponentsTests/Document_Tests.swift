@@ -53,7 +53,61 @@ final class Document_Tests: XCTestCase {
     XCTAssertEqual(sut.formattedDateModified, "Wed 19 Oct 2022, 13:30")
     XCTAssertEqual(sut.formattedDatePublished, "Thu 1 Sep 2022, 10:20")
     XCTAssertEqual(sut.formattedDocumentType, "Tender notice")
-  } 
+  }
+  
+  func test_FormattedDocumentType() throws {
+    
+    let d0 = Document(id: nil, documentType: "UnknownNotice",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+    
+    let d1 = Document(id: nil, documentType: "awardNotice",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d2 = Document(id: nil, documentType: "biddingDocuments",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d3 = Document(id: nil, documentType: "clarifications",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d4 = Document(id: nil, documentType: "contractNotice",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d5 = Document(id: nil, documentType: "contractSchedule",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d6 = Document(id: nil, documentType: "contractSigned",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d7 = Document(id: nil, documentType: "marketEngagementNotice",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d8 = Document(id: nil, documentType: "technicalSpecifications",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+
+    let d9 = Document(id: nil, documentType: "tenderNotice",
+               documentDescription: nil ,url: nil,datePublished: nil,format: nil ,language: nil,dateModified: nil
+        )
+    
+    XCTAssertEqual(d0.formattedDocumentType, "UnknownNotice")
+    XCTAssertEqual(d1.formattedDocumentType, "Award Notice")
+    XCTAssertEqual(d2.formattedDocumentType, "Bidding Documents")
+    XCTAssertEqual(d3.formattedDocumentType, "Clarifications")
+    XCTAssertEqual(d4.formattedDocumentType, "Contract Notice")
+    XCTAssertEqual(d5.formattedDocumentType, "Contract Schedule")
+    XCTAssertEqual(d6.formattedDocumentType, "Contract Signed")
+    XCTAssertEqual(d7.formattedDocumentType, "Market Engagement Notice")
+    XCTAssertEqual(d8.formattedDocumentType, "Technical Specifications")
+    XCTAssertEqual(d9.formattedDocumentType, "Tender Notice")
+  }
 
   override func setUpWithError() throws {
   }

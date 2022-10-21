@@ -27,13 +27,22 @@ struct Document : Codable, Identifiable {
   /// Format the document type
   var formattedDocumentType: String? {
     if let documentType = documentType {
-      if documentType == "tenderNotice" {
-        return "Tender notice"
+      switch documentType {
+        case  "awardNotice"             : return  "Award Notice"
+        case  "biddingDocuments"        : return  "Bidding Documents"
+        case  "clarifications"          : return  "Clarifications"
+        case  "contractNotice"          : return  "Contract Notice"
+        case  "contractSchedule"        : return  "Contract Schedule"
+        case  "contractSigned"          : return  "Contract Signed"
+        case  "marketEngagementNotice"  : return  "Market Engagement Notice"
+        case  "technicalSpecifications" : return  "Technical Specifications"
+        case  "tenderNotice"            : return  "Tender Notice"
+        default                         : return  documentType
       }
     }
     
     return documentType
-  }
+  } // var formattedDocumentType
   
   /// Format the date published
   var formattedDatePublished: String {
