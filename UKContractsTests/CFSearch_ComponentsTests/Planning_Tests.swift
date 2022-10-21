@@ -54,9 +54,7 @@ final class Planning_Tests: XCTestCase {
     } catch {
       XCTFail("Failed to decode: \(error)")
     }
- 
   }
-  
   
   override func setUpWithError() throws {
   }

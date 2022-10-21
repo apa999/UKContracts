@@ -5,6 +5,21 @@
 //  Created by Anthony Abbott on 18/10/2022.
 //
 
+/*
+ // MARK: - Award
+ struct Award : Codable, Identifiable {
+   let id               : String?
+   let status           : String?
+   let date             : Date?
+   let datePublished    : Date?
+   let value            : MinValue?
+   let suppliers        : [Buyer]?
+   let contractPeriod   : Period?
+   let documents        : [Document]?
+   let awardDescription : String?
+ }
+ */
+
 import XCTest
 @testable import UKContracts
 
@@ -57,6 +72,23 @@ final class Award_Tests: XCTestCase {
     XCTAssertEqual(sut!.value?.fAmount, "£525,934.07")
   }
   
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Award.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      XCTAssertEqual(sut.id, "ocds-b5fd17-7d067852-1260-448e-b84a-186d028f9991-1")
+      XCTAssertEqual(sut.formattedDatePublished, "Tue 10 Nov 2020, 11:04")
+      XCTAssertEqual(sut.awardDescription, "A generous award")
+      XCTAssertEqual(sut.status, "active")
+     
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
   
   override func setUpWithError() throws {
     sut = Award_Tests.award
@@ -66,9 +98,40 @@ final class Award_Tests: XCTestCase {
     sut = nil
   }
   
-  func testPerformanceExample() throws {
-    self.measure {
-    }
-  }
+ let dataStr = """
+                {
+                    "id": "ocds-b5fd17-7d067852-1260-448e-b84a-186d028f9991-1",
+                    "status": "active",
+                    "date": "2020-10-16T00:00:00+01:00",
+                    "datePublished": "2020-11-10T11:04:19Z",
+                    "value": {
+                        "amount": 72508.8,
+                        "currency": "GBP"
+                    },
+                    "suppliers": [
+                        {
+                            "id": "GB-CFS-154774",
+                            "name": "Peakon ApS"
+                        }
+                    ],
+                    "contractPeriod": {
+                        "startDate": "2020-10-22T00:00:00+01:00",
+                        "endDate": "2022-10-21T23:59:59+01:00"
+                    },
+                    "documents": [
+                        {
+                            "id": "1",
+                            "documentType": "awardNotice",
+                            "description": "Awarded contract notice on Contracts Finder",
+                            "url": "https://www.contractsfinder.service.gov.uk/Notice/7d005747-1320-456e-b1fb-79919a74e44f",
+                            "datePublished": "2020-11-10T11:04:19Z",
+                            "dateModified": "2022-10-20T09:42:13+01:00",
+                            "format": "text/html",
+                            "language": "en"
+                        }
+                    ],
+                    "description": "A generous award"
+                }
+"""
 }
 

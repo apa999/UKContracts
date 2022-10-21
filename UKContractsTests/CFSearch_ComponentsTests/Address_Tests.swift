@@ -5,6 +5,16 @@
 //  Created by Anthony Abbott on 18/10/2022.
 //
 
+// MARK: - Address
+/*
+ struct Address : Codable {
+   let streetAddress : String?
+   let locality      : String?
+   let postalCode    : String?
+   let countryName   : String?
+ }
+ */
+
 import XCTest
 @testable import UKContracts
 
@@ -19,18 +29,37 @@ final class Address_Tests: XCTestCase {
     XCTAssertEqual(sut.countryName, "England")
   } 
 
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Address.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      XCTAssertEqual(sut.streetAddress, "Natural England, Guildbourne House, Chatsworth")
+      XCTAssertEqual(sut.locality, "Worthing")
+      XCTAssertEqual(sut.postalCode, "BN11  1LD")
+      XCTAssertEqual(sut.countryName, "England")
+     
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
   
-  func testExample() throws {
-  }
-  
-  func testPerformanceExample() throws {
-    self.measure {
-    }
-  }
+  let dataStr = """
+{
+"streetAddress": "Natural England, Guildbourne House, Chatsworth",
+"locality": "Worthing",
+"postalCode": "BN11  1LD",
+"countryName": "England"
+}
+"""
 }
 

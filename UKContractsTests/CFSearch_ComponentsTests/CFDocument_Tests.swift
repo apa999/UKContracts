@@ -26,7 +26,7 @@ final class CFDocument_Tests: XCTestCase {
     let sut = CFSearch.DocumentTest18
     let url = "https://www.contractsfinder.service.gov.uk/Notice/cefc9804-f06a-4c14-807c-bb48ccfed079"
     XCTAssertEqual(sut.id, "18")
-    XCTAssertEqual(sut.formattedDocumentType, "Tender notice")
+    XCTAssertEqual(sut.formattedDocumentType, "Tender Notice")
     XCTAssertEqual(sut.documentDescription, "Opportunity notice on Contracts Finder")
     XCTAssertEqual(sut.url, url)
     XCTAssertEqual(sut.format, "text/html")
@@ -37,7 +37,7 @@ final class CFDocument_Tests: XCTestCase {
   
   func test_formattedDocumentType() throws {
     let sut = CFSearch.DocumentTest10
-    XCTAssertEqual(sut.formattedDocumentType, "Tender notice")
+    XCTAssertEqual(sut.formattedDocumentType, "Tender Notice")
   }
   
   func test_formattedDatePublished() throws {

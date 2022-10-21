@@ -52,7 +52,7 @@ final class Document_Tests: XCTestCase {
     XCTAssertEqual(sut.language, "en")
     XCTAssertEqual(sut.formattedDateModified, "Wed 19 Oct 2022, 13:30")
     XCTAssertEqual(sut.formattedDatePublished, "Thu 1 Sep 2022, 10:20")
-    XCTAssertEqual(sut.formattedDocumentType, "Tender notice")
+    XCTAssertEqual(sut.formattedDocumentType, "Tender Notice")
   }
   
   func test_FormattedDocumentType() throws {

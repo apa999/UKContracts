@@ -53,7 +53,7 @@ final class Item_Tests: XCTestCase {
     XCTAssertEqual(sut1, sut1)
   }
   
-  func test_Inqquality() throws {
+  func test_InqEquality() throws {
     let sut1 = Item(id: "id", deliveryAddresses: [deliveryAddress1])
     let sut2 = Item(id: "id", deliveryAddresses: [deliveryAddress2])
 
