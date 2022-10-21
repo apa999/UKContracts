@@ -9,7 +9,7 @@ import XCTest
 @testable import UKContracts
 
 final class CFViewModel_Tests: XCTestCase {
-
+  
   
   
   /// Tests that invalid URL's are caught
@@ -18,7 +18,7 @@ final class CFViewModel_Tests: XCTestCase {
     let sut = CFViewModel()
     let invalidUrlString = "An Invalid URL String"
     
-    sut.loadMessages(urlString: invalidUrlString)
+    sut.search(urlString: invalidUrlString)
     
     XCTAssertEqual(sut.viewModelStatus, .invalidUrl(invalidUrl: invalidUrlString) , "Expected invalid url")
   }
@@ -29,7 +29,7 @@ final class CFViewModel_Tests: XCTestCase {
   func test_InvalidUrl_ShouldSetViewModelStatusTo() {
     let sut = CFViewModel()
     
-    sut.loadMessages(urlString: Constants.searchText)
+    sut.search(urlString: Constants.searchText)
     
     XCTAssertEqual(sut.viewModelStatus, .unloaded , "Expected unloaded")
   }
@@ -41,32 +41,22 @@ final class CFViewModel_Tests: XCTestCase {
   func test_InvalidUrl_ShouldLoadData() {
     let sut = CFViewModel()
     
-    sut.loadMessages(urlString: Constants.searchText)
+    sut.search(urlString: Constants.searchText)
   }
   
+  override func setUpWithError() throws {
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+  }
   
+  override func tearDownWithError() throws {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+  }
   
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  func testPerformanceExample() throws {
+    // This is an example of a performance test case.
+    self.measure {
+      // Put the code you want to measure the time of here.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+  }
+  
 }
