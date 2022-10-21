@@ -46,10 +46,6 @@ struct CFReleaseView: View {
         .ignoresSafeArea()
       
       VStack(spacing: 15) {
-        Text("Release Details")
-          .font(.title)
-      
-        
         VStack(alignment: .leading, spacing: 10) {
           if let tenderTitle = release.tender?.title {
             Text("\(tenderTitle)").font(.title2)
@@ -66,10 +62,6 @@ struct CFReleaseView: View {
       .padding(.horizontal)
       .foregroundColor(Constants.textColor)
     } // ZStack
-    
-    .onTapGesture {
-      presentationMode.wrappedValue.dismiss()
-    }
     
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
