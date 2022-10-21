@@ -13,8 +13,14 @@ struct CFReleaseListView: View {
   @ObservedObject var cfViewModel: CFViewModel
   
   var body: some View {
-    NavigationView {
-      List {
+    VStack {
+      
+   Text("Releases")
+        .font(.title2)
+        .foregroundColor(Constants.textColor)
+      
+    NavigationView() {
+      List() {
         ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
           
           NavigationLink(destination: CFReleaseView(release: release))
@@ -27,6 +33,18 @@ struct CFReleaseListView: View {
       } // List
       .background(Constants.backgroundColour)
       .scrollContentBackground(.hidden)
-    }
+    } // NavigationView
+    } // VStack
+    .background(Constants.backgroundColour)
+  } // body
+} // CFReleaseListView
+
+
+struct CFReleaseListView_Previews: PreviewProvider {
+  static let cfViewModel = CFViewModel()
+  
+  static var previews: some View {
+    cfViewModel.search()
+    return CFReleaseListView(cfViewModel: cfViewModel)
   }
 }

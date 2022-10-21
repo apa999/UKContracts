@@ -26,12 +26,9 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
-
-      Constants.backgroundColour
-        .ignoresSafeArea()
+      Constants.backgroundColour.ignoresSafeArea()
       
       VStack() {
-        
         if showingList == false {
           headerText
         } else {
