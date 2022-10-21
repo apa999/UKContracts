@@ -14,7 +14,7 @@ struct Item : Codable, Equatable, Hashable {
   let deliveryAddresses : [DeliveryAddress]?
   
   static func == (lhs: Item, rhs: Item) -> Bool {
-    return lhs.id == rhs.id
+    return lhs.id == rhs.id && lhs.deliveryAddresses == rhs.deliveryAddresses
   }
   
   func hash(into hasher: inout Hasher) {

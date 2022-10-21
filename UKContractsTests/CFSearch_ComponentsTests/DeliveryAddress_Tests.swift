@@ -27,6 +27,14 @@ final class DeliveryAddress_Tests: XCTestCase {
     XCTAssertEqual(sut.fDeliveryAddress, "England, B31 5HQ")
   }
   
+  func test_OnlyRegion() throws {
+    let sut = DeliveryAddress(region: "Portsmouth", countryName: "", postalCode: "")
+    XCTAssertEqual(sut.region, "Portsmouth")
+    XCTAssertEqual(sut.countryName, "")
+    XCTAssertEqual(sut.postalCode, "")
+    XCTAssertEqual(sut.fDeliveryAddress, "Portsmouth")
+  }
+  
   func test_RegionNoCountry() throws {
     let sut = DeliveryAddress(region: "Birmingham", countryName: "", postalCode: "B31 5HQ")
     XCTAssertEqual(sut.region, "Birmingham")

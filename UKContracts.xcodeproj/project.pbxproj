@@ -59,6 +59,7 @@
 		3311A52229020BAB00B14B5F /* Details_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A50C29020BAA00B14B5F /* Details_Tests.swift */; };
 		3311A52329020BAB00B14B5F /* Period_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A50D29020BAA00B14B5F /* Period_Tests.swift */; };
 		3311A52429020BAB00B14B5F /* ContactPoint_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */; };
+		3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A527290271FC00B14B5F /* TestHelpers.swift */; };
 		33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278528FF27CC00B2165F /* UKContractsApp.swift */; };
 		33B4278828FF27CC00B2165F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278728FF27CC00B2165F /* ContentView.swift */; };
 		33B4278A28FF27CD00B2165F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B4278928FF27CD00B2165F /* Assets.xcassets */; };
@@ -165,6 +166,7 @@
 		3311A50C29020BAA00B14B5F /* Details_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details_Tests.swift; sourceTree = "<group>"; };
 		3311A50D29020BAA00B14B5F /* Period_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period_Tests.swift; sourceTree = "<group>"; };
 		3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPoint_Tests.swift; sourceTree = "<group>"; };
+		3311A527290271FC00B14B5F /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		33B4278228FF27CC00B2165F /* UKContracts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKContracts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B4278528FF27CC00B2165F /* UKContractsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKContractsApp.swift; sourceTree = "<group>"; };
 		33B4278728FF27CC00B2165F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,49 @@
 			path = CFSearch;
 			sourceTree = "<group>";
 		};
+		3311A525290271C200B14B5F /* CFSearch_ComponentsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3311A4FD29020BA900B14B5F /* Address_Tests.swift */,
+				3311A50129020BA900B14B5F /* Award_Tests.swift */,
+				3311A4FB29020BA900B14B5F /* Budget_Tests.swift */,
+				3311A50029020BA900B14B5F /* Buyer_Tests.swift */,
+				3311A4F929020BA900B14B5F /* CFSearchTestData.swift */,
+				3311A4FA29020BA900B14B5F /* Classification_Tests.swift */,
+				3311A50929020BAA00B14B5F /* Communication_Tests.swift */,
+				3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */,
+				3311A50629020BAA00B14B5F /* DeliveryAddress_Tests.swift */,
+				3311A50C29020BAA00B14B5F /* Details_Tests.swift */,
+				3311A4FC29020BA900B14B5F /* Document_Tests.swift */,
+				3311A50229020BAA00B14B5F /* Identifier_Tests.swift */,
+				3311A4FE29020BA900B14B5F /* Item_Tests.swift */,
+				3311A4FF29020BA900B14B5F /* Links_Tests.swift */,
+				3311A50429020BAA00B14B5F /* MinValue_Tests.swift */,
+				3311A50529020BAA00B14B5F /* Party_Tests.swift */,
+				3311A50D29020BAA00B14B5F /* Period_Tests.swift */,
+				3311A50329020BAA00B14B5F /* Planning_Tests.swift */,
+				3311A50729020BAA00B14B5F /* Publisher_Tests.swift */,
+				3311A50829020BAA00B14B5F /* Release_Tests.swift */,
+				3311A50A29020BAA00B14B5F /* Suitability_Tests.swift */,
+				3311A50B29020BAA00B14B5F /* Tender_Tests.swift */,
+				33B427C628FF2C9200B2165F /* CFModel_Tests.swift */,
+				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
+				3311A4B82900668800B14B5F /* CFDocument_Tests.swift */,
+				33B427C828FFB86100B2165F /* DummyDataLoader.swift */,
+				33B427CA28FFBFBA00B2165F /* TestData.swift */,
+				33B4279628FF27CD00B2165F /* UKContractsTests.swift */,
+			);
+			path = CFSearch_ComponentsTests;
+			sourceTree = "<group>";
+		};
+		3311A526290271E600B14B5F /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				3311A527290271FC00B14B5F /* TestHelpers.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
 		33B4277928FF27CC00B2165F = {
 			isa = PBXGroup;
 			children = (
@@ -309,34 +354,8 @@
 		33B4279528FF27CD00B2165F /* UKContractsTests */ = {
 			isa = PBXGroup;
 			children = (
-				3311A4FD29020BA900B14B5F /* Address_Tests.swift */,
-				3311A50129020BA900B14B5F /* Award_Tests.swift */,
-				3311A4FB29020BA900B14B5F /* Budget_Tests.swift */,
-				3311A50029020BA900B14B5F /* Buyer_Tests.swift */,
-				3311A4F929020BA900B14B5F /* CFSearchTestData.swift */,
-				3311A4FA29020BA900B14B5F /* Classification_Tests.swift */,
-				3311A50929020BAA00B14B5F /* Communication_Tests.swift */,
-				3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */,
-				3311A50629020BAA00B14B5F /* DeliveryAddress_Tests.swift */,
-				3311A50C29020BAA00B14B5F /* Details_Tests.swift */,
-				3311A4FC29020BA900B14B5F /* Document_Tests.swift */,
-				3311A50229020BAA00B14B5F /* Identifier_Tests.swift */,
-				3311A4FE29020BA900B14B5F /* Item_Tests.swift */,
-				3311A4FF29020BA900B14B5F /* Links_Tests.swift */,
-				3311A50429020BAA00B14B5F /* MinValue_Tests.swift */,
-				3311A50529020BAA00B14B5F /* Party_Tests.swift */,
-				3311A50D29020BAA00B14B5F /* Period_Tests.swift */,
-				3311A50329020BAA00B14B5F /* Planning_Tests.swift */,
-				3311A50729020BAA00B14B5F /* Publisher_Tests.swift */,
-				3311A50829020BAA00B14B5F /* Release_Tests.swift */,
-				3311A50A29020BAA00B14B5F /* Suitability_Tests.swift */,
-				3311A50B29020BAA00B14B5F /* Tender_Tests.swift */,
-				33B427C628FF2C9200B2165F /* CFModel_Tests.swift */,
-				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
-				3311A4B82900668800B14B5F /* CFDocument_Tests.swift */,
-				33B427C828FFB86100B2165F /* DummyDataLoader.swift */,
-				33B427CA28FFBFBA00B2165F /* TestData.swift */,
-				33B4279628FF27CD00B2165F /* UKContractsTests.swift */,
+				3311A526290271E600B14B5F /* TestHelpers */,
+				3311A525290271C200B14B5F /* CFSearch_ComponentsTests */,
 			);
 			path = UKContractsTests;
 			sourceTree = "<group>";
@@ -669,6 +688,7 @@
 			files = (
 				3311A51D29020BAB00B14B5F /* Publisher_Tests.swift in Sources */,
 				33B427C728FF2C9200B2165F /* CFModel_Tests.swift in Sources */,
+				3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */,
 				3311A51729020BAB00B14B5F /* Award_Tests.swift in Sources */,
 				3311A51A29020BAB00B14B5F /* MinValue_Tests.swift in Sources */,
 				3311A51F29020BAB00B14B5F /* Communication_Tests.swift in Sources */,

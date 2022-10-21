@@ -18,7 +18,7 @@ extension URLSession {
         let (data, _) = try await data(from: url)
       
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = keyDecodingStrategy
+        decoder.keyDecodingStrategy  = keyDecodingStrategy
         decoder.dataDecodingStrategy = dataDecodingStrategy
         decoder.dateDecodingStrategy = dateDecodingStrategy
 

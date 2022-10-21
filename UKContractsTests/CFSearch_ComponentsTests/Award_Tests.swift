@@ -13,44 +13,24 @@ final class Award_Tests: XCTestCase {
   var sut : Award?
   
   //MARK: - Test Data
-  static var date0 : Date {
-    let dateAsString = "2022-10-19T09:20:00+0000"
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:dateAsString)!
-    return date
+  static var date0 : Date? {
+    TestHelpers.getDateFor("2022-10-19T09:20:00+0000")
   }
   
-  static var date1 : Date {
-    let dateAsString = "2022-10-20T10:00:00+0000"
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:dateAsString)!
-    return date
+  static var date1 : Date? {
+    TestHelpers.getDateFor("2022-10-20T10:00:00+0000")
   }
   
-  static var date2 : Date {
-    let dateAsString = "2022-10-2T12:30:00+0000"
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:dateAsString)!
-    return date
+  static var date2 : Date? {
+    TestHelpers.getDateFor( "2022-10-2T12:30:00+0000")
   }
   
-  static var date3 : Date {
-    let dateAsString = "2022-10-21T14:15:00+0000"
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:dateAsString)!
-    return date
+  static var date3 : Date? {
+    TestHelpers.getDateFor( "2022-10-21T14:15:00+0000")
   }
   
-  static var date4 : Date {
-    let dateAsString = "2022-10-21T15:55:00+0000"
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:dateAsString)!
-    return date
+  static var date4 : Date? {
+    TestHelpers.getDateFor( "2022-10-21T15:55:00+0000")
   }
   
   static let award = Award(id: "ocds-b5fd17-2adc51f8-1f81-49ad-a2d0-be4dbd74dbf7-1",
