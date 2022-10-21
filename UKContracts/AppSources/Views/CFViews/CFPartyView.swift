@@ -31,7 +31,6 @@ struct CFPartyView: View {
   @State var recipients = "apa999@me.com"
   @State var subject = "Contract Finder Enquiry"
   
-  
   var body: some View {
     
     ZStack {
@@ -125,7 +124,8 @@ struct CFPartyView: View {
       if let email = contactPoint.email {
         
         Button {
-       
+          self.subject    = Constants.mailSubjectLine
+          self.recipients = email
           self.isShowingMailView.toggle()
         }
       label: {
