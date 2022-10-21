@@ -55,7 +55,7 @@ struct CFPartyView: View {
     
     .sheet(isPresented: $isShowingMailView) {
       
-                MailView(isShowing: self.$isShowingMailView,
+                CFMailView(isShowing: self.$isShowingMailView,
                          result: self.$result,
                          recipients: $recipients,
                          subject: $subject)

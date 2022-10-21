@@ -1,5 +1,5 @@
 //
-//  MailView.swift
+//  CFMailView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 20/10/2022.
@@ -23,7 +23,7 @@
  }
  .disabled(!MFMailComposeViewController.canSendMail())
  .sheet(isPresented: $isShowingMailView) {
- MailView(result: self.$result)
+ CFMailView(result: self.$result)
  }
  }
  }
@@ -34,7 +34,7 @@ import SwiftUI
 import UIKit
 
 
-struct MailView: UIViewControllerRepresentable {
+struct CFMailView: UIViewControllerRepresentable {
   
   @Environment(\.presentationMode) var presentation
   
@@ -84,7 +84,7 @@ struct MailView: UIViewControllerRepresentable {
                        subject: $subject)
   }
   
-  func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
+  func makeUIViewController(context: UIViewControllerRepresentableContext<CFMailView>) -> MFMailComposeViewController {
     let vc = MFMailComposeViewController()
     vc.setToRecipients([recipients])
     vc.setSubject(subject)
@@ -93,7 +93,7 @@ struct MailView: UIViewControllerRepresentable {
   }
   
   func updateUIViewController(_ uiViewController: MFMailComposeViewController,
-                              context: UIViewControllerRepresentableContext<MailView>) {
+                              context: UIViewControllerRepresentableContext<CFMailView>) {
     
   }
 }
