@@ -17,7 +17,7 @@ struct CFModel {
         for release in releases {
           if let tender = release.tender {
             if let communication = tender.communication {
-              print(communication)
+//              print(communication)
             }
           }
         }

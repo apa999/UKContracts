@@ -28,6 +28,8 @@ struct CFPartyView: View {
   /// Support for email
   @State var result: Result<MFMailComposeResult, Error>? = nil
   @State var isShowingMailView = false
+  @State var recipients = "apa999@me.com"
+  @State var subject = "Contract Finder Enquiry"
   
   
   var body: some View {
@@ -53,8 +55,11 @@ struct CFPartyView: View {
     .foregroundColor(Constants.textColor)
     
     .sheet(isPresented: $isShowingMailView) {
+      
                 MailView(isShowing: self.$isShowingMailView,
-                         result: self.$result)
+                         result: self.$result,
+                         recipients: $recipients,
+                         subject: $subject)
             }
     
   } // body
@@ -120,6 +125,7 @@ struct CFPartyView: View {
       if let email = contactPoint.email {
         
         Button {
+       
           self.isShowingMailView.toggle()
         }
       label: {
