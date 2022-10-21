@@ -28,8 +28,8 @@ struct CFPartyView: View {
   /// Support for email
   @State var result: Result<MFMailComposeResult, Error>? = nil
   @State var isShowingMailView = false
-  @State var recipients = "apa999@me.com"
-  @State var subject = "Contract Finder Enquiry"
+  @State var recipients = ""
+  @State var subject    = Constants.mailSubjectLine
   
   var body: some View {
     
@@ -44,6 +44,7 @@ struct CFPartyView: View {
           VStack(alignment: .leading, spacing: 10) {
             ForEach(parties) { party in
               showPartyDetails(party)
+              addContactFor(party)
               Constants.divider
             } // ForEach(parties)
           } // VStack
@@ -171,6 +172,18 @@ struct CFPartyView: View {
   } // private func showDetails
   
   
+  private func addContactFor(_ party: Party) -> some View {
+    Button {
+      CFContacts.add(party)
+    }
+    label: {
+      HStack(spacing: 10){
+        Image(systemName: "person.crop.circle.badge.plus")
+        Text("Add contact")
+      }
+   }
+  }
+    
   private func showWebsiteFor(urlString: String) {
     if let url = URL(string: urlString.replacingOccurrences(of: "http://www.", with: "https://www.")) {
       
