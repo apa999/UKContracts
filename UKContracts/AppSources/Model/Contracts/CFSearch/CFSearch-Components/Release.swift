@@ -8,7 +8,8 @@
 import Foundation
 
 // MARK: - Release
-struct Release : Codable, Identifiable {
+struct Release : Codable, Identifiable, Hashable {
+  
   let ocid           : String?
   let id             : String?
   let language       : String?
@@ -32,4 +33,13 @@ struct Release : Codable, Identifiable {
       return ""
     }
   }
+  
+  static func == (lhs: Release, rhs: Release) -> Bool {
+    lhs.id == rhs.id
+  }
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+    hasher.combine(ocid)
+  } // func hasher()
 }
