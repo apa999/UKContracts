@@ -87,16 +87,33 @@ class CFViewModel: ObservableObject {
   } // func toggleVCO()
   
   
+  //MARK: - Short cut to current release
+  var release: Release? {
+    cfModel.currentRelease
+  }
+  
   //MARK: - Search Intents
-  func search()   {
+  
+  /// Tell the model to make the next release current
+  func setNextRelease() {
+    cfModel.setNextRelease()
+  }
+  
+  /// Tell the model to make the prev release current
+  func setPrevRelease() {
+    cfModel.setPrevRelease()
+  }
+  
+  func search(urlString: String = Constants.searchText)   {
     cfModel.modelStatus = .loading
-    loadMessages(urlString: Constants.searchText)
+    loadMessages(urlString: urlString)
   } // func search()
   
-  //MARK: - Private functions
   
-  /// Public for testing
-  func loadMessages (urlString: String) {
+  
+  
+  //MARK: - Private functions
+  private func loadMessages (urlString: String) {
     if let url = URL(string: urlString) {
       Task {
         do {
