@@ -77,8 +77,6 @@ struct CFTenderView: View {
           contractPeriod
           suitability
         }
-        
-        controlButtons
       } // VStack 3
     } // VStack 1
     .padding()
@@ -278,11 +276,17 @@ struct CFTenderView: View {
       }
     }
   label: {
-    Text("Documents")
-      .font(.title3)
+    HStack(spacing: 5) {
+      if tender.documents?.count == 1  {
+        Text("Document")
+        Image(systemName: "doc.fill")
+      } else {
+        Text("Documents")
+        Image(systemName: "doc.on.doc.fill")
+      }
+      
+    }.font(.title3)
   } // label
-  .foregroundColor(Constants.textColor)
-  .font(.title3)
   .opacity( tender.documents != nil ? 1 : 0 )
   } // documentsButton
   
@@ -314,6 +318,8 @@ struct CFTenderView: View {
     return HStack() {
       t1
       t2
+      Spacer()
+      documentsButton
     }.padding(.top)
   } // private func formatStatus
 } // struct TenderView
@@ -327,9 +333,9 @@ struct TenderView_Previews: PreviewProvider {
   static let valueTender = CFSearch.getTenderHavingValue()
   
   /// Known status: active, complete, planned, planning
-  static let statusTender = CFSearch.getTenderHavingStatus("planning")
+  static let statusTender = CFSearch.getTenderHavingStatus("active")
   
   static var previews: some View {
-    CFTenderView(tender: ((statusTender ?? cfSearch.releases?[0].tender!)!))
+    CFTenderView(tender: ((statusTender ?? cfSearch.releases?[2].tender!)!))
   }
 }
