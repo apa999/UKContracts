@@ -5,6 +5,16 @@
 //  Created by Anthony Abbott on 18/10/2022.
 //
 
+
+// MARK: - DeliveryAddress
+/*
+ struct DeliveryAddress : Codable, Hashable {
+   let region      : String?
+   let countryName : String?
+   let postalCode  : String?
+ }
+ */
+
 import XCTest
 @testable import UKContracts
 
@@ -67,18 +77,36 @@ final class DeliveryAddress_Tests: XCTestCase {
     XCTAssertEqual(sut.fDeliveryAddress, "B31 5HQ")
   }
 
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(DeliveryAddress.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.region, "West Midlands")
+      XCTAssertEqual(sut.countryName, "United Kingdom")
+      XCTAssertEqual(sut.postalCode, "B4 7DJ")
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
+  
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
   
-  func testExample() throws {
-  }
-  
-  func testPerformanceExample() throws {
-    self.measure {
-    }
-  }
+  let dataStr = """
+ {
+  "postalCode": "B4 7DJ",
+  "region": "West Midlands",
+  "countryName": "United Kingdom"
+ }
+"""
 }
 
