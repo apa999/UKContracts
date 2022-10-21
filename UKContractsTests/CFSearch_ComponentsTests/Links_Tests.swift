@@ -25,21 +25,27 @@ final class Links_Tests: XCTestCase {
   
   func test_Decode() throws {
     
-    let linkAsString = """
-{"next": "JSON_Link"}
-"""
-    let data = Data(linkAsString.utf8)
+    let data = Data(dataStr.utf8)
     
-    let sut = try TestHelpers.decode(Links.self,from: data)
-    
-    XCTAssertEqual(sut.next, "JSON_Link")
+    do {
+      let sut = try TestHelpers.decode(Links.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.next, "JSON_Link")
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
   }
-
   
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
+  
+  let dataStr = """
+{"next": "JSON_Link"}
+"""
 }
 

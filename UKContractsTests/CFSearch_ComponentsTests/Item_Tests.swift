@@ -60,10 +60,54 @@ final class Item_Tests: XCTestCase {
     XCTAssertNotEqual(sut1, sut2)
   }
   
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Item.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.id, "1")
+      XCTAssertEqual(sut.deliveryAddresses?.count,4)
+      XCTAssertEqual(sut.deliveryAddresses![0].countryName, "United Kingdom")
+      XCTAssertEqual(sut.deliveryAddresses![1].region, "Wales")
+      XCTAssertEqual(sut.deliveryAddresses![3].region, "Northern Ireland")
+    
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
+  
+  let dataStr = """
+                    {
+                        "id": "1",
+                        "deliveryAddresses": [
+                            {
+                                "region": "England",
+                                "countryName": "United Kingdom"
+                            },
+                            {
+                                "region": "Wales",
+                                "countryName": "United Kingdom"
+                            },
+                            {
+                                "region": "Scotland",
+                                "countryName": "United Kingdom"
+                            },
+                            {
+                                "region": "Northern Ireland",
+                                "countryName": "United Kingdom"
+                            }
+                        ]
+                    }
+"""
 }
 

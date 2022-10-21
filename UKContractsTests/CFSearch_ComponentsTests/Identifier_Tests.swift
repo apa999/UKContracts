@@ -27,10 +27,36 @@ final class Identifier_Tests: XCTestCase {
     XCTAssertEqual(sut.id, "id")
   } 
 
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Identifier.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.id, "sid4gov.cabinetoffice.gov.uk/hWvd872d")
+      XCTAssertEqual(sut.scheme, "GB-SRS")
+      XCTAssertEqual(sut.legalName, "Natural England")
+    
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
+  
+  let dataStr = """
+                    {
+                        "legalName": "Natural England",
+                        "scheme": "GB-SRS",
+                        "id": "sid4gov.cabinetoffice.gov.uk/hWvd872d"
+                    }
+"""
 }
 

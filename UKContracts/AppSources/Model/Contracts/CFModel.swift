@@ -15,9 +15,9 @@ struct CFModel {
     didSet {
       if let releases = cfSearch.releases {
         for release in releases {
-          if let planning = release.planning {
-            if let budget = planning.budget {
-              print(budget)
+          if let tender = release.tender {
+            if let communication = tender.communication {
+              print(communication)
             }
           }
         }

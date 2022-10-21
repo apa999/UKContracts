@@ -29,17 +29,19 @@ final class MinValue_Tests: XCTestCase {
   } 
 
   func test_Decode() throws {
-    
-    let dataStr = """
-{"amount": 107230456.87, "currency" : "GBP"}
-"""
     let data = Data(dataStr.utf8)
     
-    let sut = try TestHelpers.decode(MinValue.self,from: data)
-    
-    XCTAssertEqual(sut.amount, 107230456.87)
-    XCTAssertEqual(sut.currency, "GBP")
-    XCTAssertEqual(sut.fAmount, "£107,230,456.87")
+    do {
+      let sut = try TestHelpers.decode(MinValue.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.amount, 107230456.87)
+      XCTAssertEqual(sut.currency, "GBP")
+      XCTAssertEqual(sut.fAmount, "£107,230,456.87")
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
   }
   
   override func setUpWithError() throws {
@@ -47,5 +49,9 @@ final class MinValue_Tests: XCTestCase {
   
   override func tearDownWithError() throws {
   }
+  
+  let dataStr = """
+{"amount": 107230456.87, "currency" : "GBP"}
+"""
 }
 

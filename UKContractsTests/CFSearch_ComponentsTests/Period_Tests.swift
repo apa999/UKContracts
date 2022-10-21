@@ -33,13 +33,18 @@ final class Period_Tests: XCTestCase {
   } 
 
   func test_Decode() throws {
-    
     let data = Data(dataStr.utf8)
     
-    let sut = try TestHelpers.decode(Period.self,from: data)
-    
-    XCTAssertEqual(sut.formattedStartDate, "Fri 25 Nov 2022, 00:00")
-    XCTAssertEqual(sut.formattedEndDate, "Mon 24 Nov 2025, 23:59")
+    do {
+      let sut = try TestHelpers.decode(Period.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.formattedStartDate, "Fri 25 Nov 2022, 00:00")
+      XCTAssertEqual(sut.formattedEndDate, "Mon 24 Nov 2025, 23:59")
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
   }
   
   override func setUpWithError() throws {

@@ -63,6 +63,22 @@ final class Party_Tests: XCTestCase {
     XCTAssertEqual(sut.roles.count, 2)
   }
   
+  func test_Decode() throws {
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Party.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.id, "GB-SRS-sid4gov.cabinetoffice.gov.uk/hWvd872d")
+      XCTAssertEqual(sut.name, "Natural England")
+      XCTAssertEqual(sut.roles.count, 1)
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   func test_Identifier() throws {
     
     let sut = testParty.identifier
@@ -115,16 +131,7 @@ final class Party_Tests: XCTestCase {
   }
   
   
-  func test_Decode() throws {
-    
-    let data = Data(dataStr.utf8)
-    
-    let sut = try TestHelpers.decode(Party.self,from: data)
-    
-    XCTAssertEqual(sut.id, "GB-SRS-sid4gov.cabinetoffice.gov.uk/hWvd872d")
-    XCTAssertEqual(sut.name, "Natural England")
-    XCTAssertEqual(sut.roles.count, 1)
-  }
+ 
   
   override func setUpWithError() throws {
   }

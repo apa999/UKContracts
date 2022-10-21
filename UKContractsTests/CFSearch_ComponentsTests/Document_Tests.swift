@@ -109,10 +109,46 @@ final class Document_Tests: XCTestCase {
     XCTAssertEqual(d9.formattedDocumentType, "Tender Notice")
   }
 
+  func test_Decode() throws {
+    
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Document.self,from: data)
+      
+      XCTAssertNotNil(sut)
+      
+      XCTAssertEqual(sut.id, "1")
+      XCTAssertEqual(sut.documentType, "tenderNotice")
+      XCTAssertEqual(sut.documentDescription, "Opportunity notice on Contracts Finder")
+      XCTAssertEqual(sut.url, "https://www.contractsfinder.service.gov.uk/Notice/21c21591-9f65-4468-a4f4-a187ecc0411e")
+      XCTAssertEqual(sut.formattedDatePublished, "Wed 5 Oct 2022, 15:34")
+      XCTAssertEqual(sut.format, "text/html")
+      XCTAssertEqual(sut.language, "en")
+      XCTAssertEqual(sut.formattedDateModified, "Thu 20 Oct 2022, 09:40")
+
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   override func setUpWithError() throws {
   }
   
   override func tearDownWithError() throws {
   }
+  
+  let dataStr = """
+                    {
+                        "id": "1",
+                        "documentType": "tenderNotice",
+                        "description": "Opportunity notice on Contracts Finder",
+                        "url": "https://www.contractsfinder.service.gov.uk/Notice/21c21591-9f65-4468-a4f4-a187ecc0411e",
+                        "datePublished": "2022-10-05T15:34:44+01:00",
+                        "dateModified": "2022-10-20T09:40:02+01:00",
+                        "format": "text/html",
+                        "language": "en"
+                    }
+"""
 }
 
