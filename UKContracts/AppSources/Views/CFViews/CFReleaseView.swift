@@ -137,6 +137,8 @@ struct CFReleaseView: View {
   //MARK: - Buttons
   private var controlButtons: some View {
     HStack {
+      Spacer()
+      
       if let _ = release.awards {
         awardsButton
         Spacer()
