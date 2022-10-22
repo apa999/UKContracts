@@ -10,6 +10,102 @@ import XCTest
 
 final class CFModel_Tests: XCTestCase {
   
+
+  @MainActor
+  func test_searchStrAllOptionsTrue() throws {
+    let sut               = CFViewModel()
+    let publishedFromDate = TestHelpers.getDateFor("2022-10-21T13:49:07+0000")
+    let publishedToDate   = TestHelpers.getDateFor("2022-10-21T14:49:07+0000")
+    
+    let settings = SettingsModel(award: true,
+                                 implmentation: true,
+                                 planning: true,
+                                 tender: true,
+                                 sme: true,
+                                 vco: true,
+                                 publishedFromDate: publishedFromDate!,
+                                 publishedToDate: publishedToDate!,
+                                 cpvFilteredString: "",
+                                 selectedCPVs: Data(),
+                                 searchedCPVs: Data())
+    
+    sut.settings = settings
+    
+    let searchString = sut.buildSearchString()
+    XCTAssertEqual(searchString, "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?publishedFrom=2022-10-20T13:49:07Z&publishedTo=2022-10-21T14:49:07Z&stages=tender,award,planning,implementation")
+  }
+  
+  @MainActor
+  func test_searchStrAwardOnly() throws {
+    let sut               = CFViewModel()
+    let publishedFromDate = TestHelpers.getDateFor("2022-10-21T13:49:07+0000")
+    let publishedToDate   = TestHelpers.getDateFor("2022-10-21T14:49:07+0000")
+    
+    let settings = SettingsModel(award: true,
+                                 implmentation: false,
+                                 planning: false,
+                                 tender: false,
+                                 sme: true,
+                                 vco: true,
+                                 publishedFromDate: publishedFromDate!,
+                                 publishedToDate: publishedToDate!,
+                                 cpvFilteredString: "",
+                                 selectedCPVs: Data(),
+                                 searchedCPVs: Data())
+    
+    sut.settings = settings
+    
+    let searchString = sut.buildSearchString()
+    XCTAssertEqual(searchString, "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?publishedFrom=2022-10-20T13:49:07Z&publishedTo=2022-10-21T14:49:07Z&stages=award")
+  }
+  
+  @MainActor
+  func test_searchStrPlanningAndImplementation() throws {
+    let sut               = CFViewModel()
+    let publishedFromDate = TestHelpers.getDateFor("2022-10-21T13:49:07+0000")
+    let publishedToDate   = TestHelpers.getDateFor("2022-10-21T14:49:07+0000")
+    
+    let settings = SettingsModel(award: false,
+                                 implmentation: true,
+                                 planning: true,
+                                 tender: false,
+                                 sme: true,
+                                 vco: true,
+                                 publishedFromDate: publishedFromDate!,
+                                 publishedToDate: publishedToDate!,
+                                 cpvFilteredString: "",
+                                 selectedCPVs: Data(),
+                                 searchedCPVs: Data())
+    
+    sut.settings = settings
+    
+    let searchString = sut.buildSearchString()
+    XCTAssertEqual(searchString, "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?publishedFrom=2022-10-20T13:49:07Z&publishedTo=2022-10-21T14:49:07Z&stages=planning,implementation")
+  }
+  
+  @MainActor
+  func test_searchStrEqualDates() throws {
+    let sut               = CFViewModel()
+    let publishedFromDate = TestHelpers.getDateFor("2022-10-21T10:30:00+0000")
+    let publishedToDate   = TestHelpers.getDateFor("2022-10-21T10:30:00+0000")
+    
+    let settings = SettingsModel(award: false,
+                                 implmentation: false,
+                                 planning: false,
+                                 tender: true,
+                                 sme: true,
+                                 vco: true,
+                                 publishedFromDate: publishedFromDate!,
+                                 publishedToDate: publishedToDate!,
+                                 cpvFilteredString: "",
+                                 selectedCPVs: Data(),
+                                 searchedCPVs: Data())
+    
+    sut.settings = settings
+    
+    let searchString = sut.buildSearchString()
+    XCTAssertEqual(searchString, "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?publishedFrom=2022-10-20T10:30:00Z&publishedTo=2022-10-21T10:30:00Z&stages=tender")
+  }
   func test_FilteringWith100()
   {
     var sut             = CFModel()
