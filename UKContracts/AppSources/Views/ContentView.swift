@@ -23,6 +23,8 @@ struct ContentView: View {
   /// True when the list view is visible
   @State private var showingList = false
   
+  /// Return to open screen for fresh search
+  @State private var returnButtonPressed = false
   
   var body: some View {
     ZStack {
@@ -31,6 +33,10 @@ struct ContentView: View {
       VStack() {
         if cfViewModel.cfModel.modelStatus == .unloaded {
           headerText
+          
+        } else if returnButtonPressed {
+          headerText
+          
         } else {
           releaseList
         }
@@ -103,10 +109,11 @@ struct ContentView: View {
   private var userOptions: some View {
     HStack {
       if showingList {
-        showSearchButton
+        showReturnButton
+        Spacer()
+        showSortButton
       } else {
-//        showCpvButton
-//        Spacer()
+
         showSearchButton
         Spacer()
         showSettingsButton
@@ -124,9 +131,23 @@ struct ContentView: View {
   .font(.largeTitle)
   } // showCpvButton
   
+  private var showReturnButton: some View {
+    Button {
+      returnButtonPressed = true
+      showingList = false
+    }
+  label: {
+    Image(systemName: "return")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.largeTitle)
+  } // showReturnButton
+  
+  
   private var showSearchButton: some View {
     Button {
       if showingList == false {
+        returnButtonPressed = false
         cfViewModel.search()
       }
       showingList.toggle()
@@ -137,6 +158,20 @@ struct ContentView: View {
   .foregroundColor(Constants.textColor)
   .font(.largeTitle)
   } // showSearchButton
+  
+  private var showSortButton: some View {
+    Button {
+      if showingList == false {
+        cfViewModel.sort()
+      }
+    }
+  label: {
+    Image(systemName: "arrow.up.arrow.down")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.largeTitle)
+  } // showSortButton
+  
   
   private var showSettingsButton: some View {
     Button { showingSettings = true }

@@ -11,6 +11,10 @@ extension CFViewModel {
   
   //MARK: - Search Intents
   
+  func sort() {
+    print("CFViewModel-ModelExtension.search()")
+  }
+  
   /// Tell the model to make the next release current
   func setNextRelease() {
     cfModel.setNextRelease()
