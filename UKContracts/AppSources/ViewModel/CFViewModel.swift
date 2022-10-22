@@ -34,69 +34,12 @@ class CFViewModel: ObservableObject {
   
   var viewModelStatus = ViewModelStatus.unloaded
   
-  //MARK: - CPV Intents
-  
-
-  
-  
-  //MARK: - Settings Intents
-  
-  /// Toggles the Award flag
-  func toggleAward() {
-      settings.toggleAward()
-  } // func toggleAward()
-  
-  
-  /// Toggles the Implmentation flag
-  func toggleImplmentation() {
-    settings.toggleImplmentation()
-  } // func toggleImplmentation()
-  
-  /// Toggles the Planning flag
-  func togglePlanning() {
-    settings.togglePlanning()
-  } // func togglePlanning()
-  
-  /// Toggles the SME flag
-  func toggleSME() {
-    settings.toggleSME()
-  } // func toggleSME()
-  
-  /// Toggles the Tender flag
-  func toggleTender() {
-    settings.toggleTender()
-  } // func toggleTender()
-  
-  /// Toggles the VCO flag
-  func toggleVCO() {
-    settings.toggleVCO()
-  } // func toggleVCO()
-  
-  
-  //MARK: - Short cut to current release
-  var release: Release? {
-    cfModel.currentRelease
-  }
-  
-  //MARK: - Search Intents
-  
-  /// Tell the model to make the next release current
-  func setNextRelease() {
-    cfModel.setNextRelease()
-  }
-  
-  /// Tell the model to make the prev release current
-  func setPrevRelease() {
-    cfModel.setPrevRelease()
-  }
-  
+ 
+  //MARK: - Public functions
   func search(urlString: String = Constants.searchText)   {
     cfModel.modelStatus = .loading
     loadMessages(urlString: urlString)
   } // func search()
-  
-  
-  
   
   //MARK: - Private functions
   private func loadMessages (urlString: String) {

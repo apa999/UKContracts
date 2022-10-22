@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 /**
  
  CPV will be included in the Prop-version
@@ -15,6 +16,8 @@ import Foundation
 ///CPV Intent(s)
 extension CFViewModel {
   
+ //MARK: - CPV Intents
+ 
   // Deselects all the CPV's
   func deselectAll() {
     cpvModel.deselectAll()
