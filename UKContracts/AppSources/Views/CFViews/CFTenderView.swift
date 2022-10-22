@@ -117,18 +117,18 @@ struct CFTenderView: View {
         if let scheme = classification.scheme,
            let description = classification.classificationDescription,
            let id = classification.id {
+            
+            VStack(alignment: .center, spacing: 5) {
+              Constants.divider
+              Text("Classification")
+                .font(.title3)
+            } // VStack
           
-          VStack(alignment: .center, spacing: 5) {
-            Constants.divider
-            Text("Classification")
-              .font(.title3)
-          } // VStack
-          
-          VStack(alignment: .leading, spacing: 10) {
-            Text("Scheme: \(scheme)")
-            Text("Id: \(id)")
-            Text("Description: \(description)")
-          } // VStack
+            VStack(alignment: .leading, spacing: 10) {
+              Text("Scheme: \(scheme)")
+              cpvButton(id)
+              Text("Description: \(description)")
+            } // VStack
           
         } //if let ...
       } else {
@@ -269,6 +269,19 @@ struct CFTenderView: View {
     }
   } // private var controlButtons
   
+  /// cpvButton
+  private func cpvButton(_ id: String) -> some View {
+    Button {
+      showWebsiteFor(urlString: "http://cpv.data.ac.uk/code-\(id).html")
+    }
+    label: {
+      HStack(spacing: 5) {
+        Image(systemName: "network")
+        Text("\(id)")
+      }.font(.title3)
+    } // label
+  } // cpvButton
+  
   private var documentsButton: some View {
     Button {
       if let _ = tender.documents {
@@ -322,6 +335,15 @@ struct CFTenderView: View {
       documentsButton
     }.padding(.top)
   } // private func formatStatus
+  
+  //TODO: - Duplicate code
+  private func showWebsiteFor(urlString: String) {
+    if let url = URL(string: urlString.replacingOccurrences(of: "http://www.", with: "https://www.")) {
+      
+      UIApplication.shared.open(url, options: [:])
+    }
+  } // private func showWebsiteFor
+  
 } // struct TenderView
 
 
