@@ -26,6 +26,9 @@ struct ContentView: View {
   /// Return to open screen for fresh search
   @State private var returnButtonPressed = false
   
+  /// True if the user has selected a release from the list for display
+  @State private var showingRelease = false
+  
   var body: some View {
     ZStack {
       Constants.backgroundColour.ignoresSafeArea()
@@ -46,8 +49,10 @@ struct ContentView: View {
           ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
         }
       
-        Spacer()
-        userOptions
+        if showingRelease == false {
+          Spacer()
+          userOptions
+        }
       }
       .padding()
     } // ZStack
@@ -75,12 +80,14 @@ struct ContentView: View {
       List() {
         ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
           
-          NavigationLink(destination: CFReleaseView(release: release))
+          NavigationLink(destination: CFReleaseView(release: release),
+          isActive: $showingRelease)
           {
             Text(release.tender?.title ?? "Missing tender")
               .foregroundColor(.white)
           } // NavigationLink
           .listRowBackground(Constants.backgroundColour)
+
         } // ForEach
       } // List
       .background(Constants.backgroundColour)
