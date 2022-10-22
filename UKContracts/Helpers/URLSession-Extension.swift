@@ -17,7 +17,7 @@ extension URLSession {
     ) async throws  -> T {
         let (data, _) = try await data(from: url)
       
-      print(String(data: data, encoding: .utf8))
+//      print(String(data: data, encoding: .utf8))
       
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy  = keyDecodingStrategy

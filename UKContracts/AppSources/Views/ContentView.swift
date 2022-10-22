@@ -98,7 +98,7 @@ struct ContentView: View {
             NavigationLink(destination: CFReleaseView(release: release),
                            isActive: $showingRelease)
             {
-              Text(release.tender.title ?? "Missing tender")
+              Text(release.tender.title)
                 .foregroundColor(.white)
             } // NavigationLink
             .listRowBackground(Constants.backgroundColour)

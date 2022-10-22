@@ -63,7 +63,7 @@ struct CFModel {
         savedRelease = existingReleases
       }
       
-//      cfSearch.releases = filter(by: searchStr)
+      cfSearch.releases = filter(by: searchStr)
     }
   }
   
@@ -87,7 +87,7 @@ struct CFModel {
   
   //MARK: - Private functions
   
-  private func filter(by searchStr: String) {
+  private func filter(by searchStr: String) -> [Release]? {
     
     /// We should have guarded against this before calling
     guard cfSearch.releases != nil else {
@@ -98,16 +98,18 @@ struct CFModel {
     let str = searchStr.lowercased()
     
     /// Filter
-//    let filteredReleases = cfSearch.releases.filter({$0.tender?.title.lowercased().contains(str) ?? ""})
-//
-//    let filteredReleases = cfSearch.releases.filter({$0.tender?.title.lowercased().contains(str)})
-  }
+    if let releases = cfSearch.releases {
+      return releases.filter({$0.tender.title.lowercased().contains(str)})
+    }
+    
+   return nil
+  } // private func filter
   
   
   /// Sorts the releases by the tender title alphabetically
   mutating private func sortAlpha() {
     let sortedReleases = cfSearch.releases?.sorted(by: {
-      $0.tender.title ?? "" < $1.tender.title ?? ""
+      $0.tender.title < $1.tender.title 
     } )
     
     cfSearch.releases = sortedReleases

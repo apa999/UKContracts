@@ -63,7 +63,7 @@ struct CFTenderView: View {
   var tenderDetails: some View {
     VStack(spacing: 10) {
       VStack(alignment: .center, spacing: 10) {
-        Text("\(tender.title ?? "No tender title")")
+        Text("\(tender.title)")
           .font(.title2)
       } // VStack 2
       

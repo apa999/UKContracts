@@ -10,7 +10,10 @@ import Foundation
 // MARK: - Tender
 struct Tender : Codable {
   let id                        : String?
-  let title                     : String?
+  
+  /// There must be a title
+  let title                     : String
+  
   let tenderDescription         : String?
   let datePublished             : Date?
   let status                    : String?
