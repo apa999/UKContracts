@@ -125,9 +125,14 @@ struct CFPartyView: View {
       
       if let email = contactPoint.email {
         Button {
+          
+#if targetEnvironment(simulator)
+          print(Constants.mailOnSimulator)
+#else
           self.subject    = Constants.mailSubjectLine
           self.recipients = email
           self.isShowingMailView.toggle()
+ #endif
         }
         label: {
           HStack(spacing: 10) {
