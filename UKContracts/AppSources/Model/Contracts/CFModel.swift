@@ -9,7 +9,7 @@ import Foundation
 
 struct CFModel {
   
-  /// Main search objects, contauining the releases []
+  /// Main search objects, containing the releases []
   var cfSearch = CFSearch() {
     didSet{
       if let firstRelease = cfSearch.releases?.first {

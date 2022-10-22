@@ -49,6 +49,9 @@ class CFViewModel: ObservableObject {
           cfModel.cfSearch = try await URLSession.shared.decode(CFSearch.self,
                                                                 from: url,
                                                                 dateDecodingStrategy: .iso8601)
+          
+          cfModel.sort()
+          
           cfModel.modelStatus = .loaded
         } catch {
           cfModel.modelStatus = .loadingError

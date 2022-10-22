@@ -147,15 +147,13 @@ struct ContentView: View {
     Image(systemName: "return")
   } // label
   .foregroundColor(Constants.textColor)
-  .font(.largeTitle)
+  .font(.title)
   } // showReturnButton
   
   
   private var showSearchButton: some View {
     Button {
-      
       if showingList == false {
-        print(cfViewModel.cfModel.modelStatus)
         showingList = true
         returnButtonPressed = false
         cfViewModel.search()
@@ -166,20 +164,25 @@ struct ContentView: View {
     Image(systemName: "magnifyingglass")
   } // label
   .foregroundColor(Constants.textColor)
-  .font(.largeTitle)
+  .font(.title)
   } // showSearchButton
   
   private var showSortButton: some View {
     Button {
-      if showingList == false {
+      if showingList == true {
         cfViewModel.sort()
       }
     }
   label: {
+    if cfViewModel.cfModel.sortStatus == .alpha {
+      Text("Date")
+    } else {
+      Text("A-Z")
+    }
     Image(systemName: "arrow.up.arrow.down")
   } // label
   .foregroundColor(Constants.textColor)
-  .font(.largeTitle)
+  .font(.title)
   } // showSortButton
   
   
@@ -189,7 +192,7 @@ struct ContentView: View {
     Image(systemName: "gear")
   } // label
   .foregroundColor(Constants.textColor)
-  .font(.largeTitle)
+  .font(.title)
   } // showSettingsButton
   
 } // ContentView
