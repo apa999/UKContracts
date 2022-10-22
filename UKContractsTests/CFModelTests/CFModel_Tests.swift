@@ -60,13 +60,13 @@ final class CFModel_Tests: XCTestCase {
     
     sut.sort(status: .alpha)
     
-    XCTAssertEqual(sut.cfSearch.releases![0].tender?.title, "2022-10-11 11:00 - QOC472 Ipswich to Doucecroft School, Colchester, Essex - AWARD")
-    XCTAssertEqual(sut.cfSearch.releases![10].tender?.title, "Barred and Advisory List")
-    XCTAssertEqual(sut.cfSearch.releases![40].tender?.title, "Juxtaposed Controls Services - Manned Freight Search")
-    XCTAssertEqual(sut.cfSearch.releases![50].tender?.title, "NUN - Armson Road - EA and QS Services - AWARD")
-    XCTAssertEqual(sut.cfSearch.releases![60].tender?.title, "PRJ1204 Dementia Navigation Service - City & Hackney")
-    XCTAssertEqual(sut.cfSearch.releases![80].tender?.title, "Species Conservation Strategies workshop design, facilitation and analysis")
-    XCTAssertEqual(sut.cfSearch.releases![99].tender?.title, "World Beneath Waves Exhibition- Design & Manage ITT")
+    XCTAssertEqual(sut.cfSearch.releases![0].tender.title, "2022-10-11 11:00 - QOC472 Ipswich to Doucecroft School, Colchester, Essex - AWARD")
+    XCTAssertEqual(sut.cfSearch.releases![10].tender.title, "Barred and Advisory List")
+    XCTAssertEqual(sut.cfSearch.releases![40].tender.title, "Juxtaposed Controls Services - Manned Freight Search")
+    XCTAssertEqual(sut.cfSearch.releases![50].tender.title, "NUN - Armson Road - EA and QS Services - AWARD")
+    XCTAssertEqual(sut.cfSearch.releases![60].tender.title, "PRJ1204 Dementia Navigation Service - City & Hackney")
+    XCTAssertEqual(sut.cfSearch.releases![80].tender.title, "Species Conservation Strategies workshop design, facilitation and analysis")
+    XCTAssertEqual(sut.cfSearch.releases![99].tender.title, "World Beneath Waves Exhibition- Design & Manage ITT")
   }
   
   

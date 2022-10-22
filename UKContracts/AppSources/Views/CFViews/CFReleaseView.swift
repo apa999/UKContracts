@@ -47,7 +47,7 @@ struct CFReleaseView: View {
       
       VStack(spacing: 15) {
         VStack(alignment: .leading, spacing: 10) {
-          if let tenderTitle = release.tender?.title {
+          if let tenderTitle = release.tender.title {
             Text("\(tenderTitle)").font(.title2)
           }
           

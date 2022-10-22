@@ -336,6 +336,6 @@ struct TenderView_Previews: PreviewProvider {
   static let statusTender = CFSearch.getTenderHavingStatus("active")
   
   static var previews: some View {
-    CFTenderView(tender: ((statusTender ?? cfSearch.releases?[2].tender!)!))
+    CFTenderView(tender: ((statusTender ?? cfSearch.releases![2].tender)))
   }
 }

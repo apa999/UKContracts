@@ -28,7 +28,7 @@ struct CFReleaseListView: View {
           
           NavigationLink(destination: CFReleaseView(release: release))
           {
-            Text(release.tender?.title ?? "Missing tender")
+            Text(release.tender.title ?? "Missing tender")
               .foregroundColor(.white)
           } // NavigationLink
           .listRowBackground(Constants.backgroundColour)

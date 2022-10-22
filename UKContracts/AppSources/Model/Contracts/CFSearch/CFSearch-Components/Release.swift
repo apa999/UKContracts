@@ -16,7 +16,10 @@ struct Release : Codable, Identifiable, Hashable {
   let date           : Date?
   let tag            : [String]?
   let initiationType : String?
-  let tender         : Tender?
+  
+  /// Tender is required; without it the release is meaningless
+  let tender         : Tender
+  
   let parties        : [Party]?
   let buyer          : Buyer?
   let awards         : [Award]?

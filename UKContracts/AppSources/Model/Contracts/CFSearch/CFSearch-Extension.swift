@@ -490,11 +490,17 @@ extension CFSearch {
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
     
     for release in cfSearch.releases ?? [] {
-      if let tender = release.tender {
-        if let _ = tender.value {
-          return tender
+//      if let tender = release.tender {
+//        if let _ = tender.value {
+//          return tender
+//        }
+//      }
+      
+      
+      if let _ = release.tender.value {
+        return release.tender
         }
-      }
+     
     }
     return nil
   } // static func getTenderHavingValue()
@@ -505,11 +511,18 @@ extension CFSearch {
     let cfSearch = CFSearch.getTestCFSearch(data: jsonData)
     
     for release in cfSearch.releases ?? [] {
-      if let tender = release.tender {
-        if tender.status == status {
-          return tender
+      
+     
+        if release.tender.status == status {
+          return release.tender
         }
-      }
+   
+      
+//      if let tender = release.tender {
+//        if tender.status == status {
+//          return tender
+//        }
+//      }
     }
     return nil
   } // static func getTenderHavingStatus

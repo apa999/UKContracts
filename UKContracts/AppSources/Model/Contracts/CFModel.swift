@@ -12,9 +12,8 @@ struct CFModel {
   /// Main search objects, containing the releases []
   var cfSearch = CFSearch()
  
-  /// The current selected release - can be optional when user has selected a release
-  /// Actually not used - needed for CPV
-//  var currentRelease: Release?
+  /// Save the releases here when filtering; use this to restore releases
+  var savedRelease: [Release]?
 
   
   //MARK: - init
@@ -53,7 +52,19 @@ struct CFModel {
   
   /// Filters the releases for searchStr
   mutating func search(_ searchStr: String) {
-      print("Filtering for \(searchStr)")
+    
+    /// If it is an empty string, then restore the savedSearch
+    if searchStr.count == 0 {
+      if let savedRelease = savedRelease {
+        cfSearch.releases = savedRelease
+      }
+    } else {
+      if let existingReleases = cfSearch.releases {
+        savedRelease = existingReleases
+      }
+      
+//      cfSearch.releases = filter(by: searchStr)
+    }
   }
   
   /// Sorts the releases alphabetically or by date
@@ -76,10 +87,27 @@ struct CFModel {
   
   //MARK: - Private functions
   
+  private func filter(by searchStr: String) {
+    
+    /// We should have guarded against this before calling
+    guard cfSearch.releases != nil else {
+      fatalError("Program error - trying to filter releasses when none exist")
+    }
+    
+    ///Lower case the search string
+    let str = searchStr.lowercased()
+    
+    /// Filter
+//    let filteredReleases = cfSearch.releases.filter({$0.tender?.title.lowercased().contains(str) ?? ""})
+//
+//    let filteredReleases = cfSearch.releases.filter({$0.tender?.title.lowercased().contains(str)})
+  }
+  
+  
   /// Sorts the releases by the tender title alphabetically
   mutating private func sortAlpha() {
     let sortedReleases = cfSearch.releases?.sorted(by: {
-      $0.tender?.title ?? "" < $1.tender?.title ?? ""
+      $0.tender.title ?? "" < $1.tender.title ?? ""
     } )
     
     cfSearch.releases = sortedReleases
