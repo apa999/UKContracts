@@ -63,6 +63,11 @@ struct CFReleaseView: View {
       .foregroundColor(Constants.textColor)
     } // ZStack
     
+    /// We can dismiss the screen by dragging from the left,
+    /// but I find this awkward
+    .onTapGesture(count: 2) {
+      presentationMode.wrappedValue.dismiss()
+    }
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
         CFTenderView(tender: tender)
