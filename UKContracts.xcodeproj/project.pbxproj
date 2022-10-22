@@ -185,6 +185,8 @@
 		3384BF712903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-SettingsExtension.swift"; sourceTree = "<group>"; };
 		3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-ModelExtension.swift"; sourceTree = "<group>"; };
 		3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestData-HundredReleasesExtension.swift"; sourceTree = "<group>"; };
+		3384BF7B29041ED000BEBD9D /* HundredReleaseTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HundredReleaseTitles.md; sourceTree = "<group>"; };
+		3384BF7C29041FDB00BEBD9D /* FiveReleasesTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FiveReleasesTitles.md; sourceTree = "<group>"; };
 		33B4278228FF27CC00B2165F /* UKContracts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKContracts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B4278528FF27CC00B2165F /* UKContractsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKContractsApp.swift; sourceTree = "<group>"; };
 		33B4278728FF27CC00B2165F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -351,6 +353,8 @@
 			children = (
 				3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */,
 				33B427CA28FFBFBA00B2165F /* TestData.swift */,
+				3384BF7B29041ED000BEBD9D /* HundredReleaseTitles.md */,
+				3384BF7C29041FDB00BEBD9D /* FiveReleasesTitles.md */,
 			);
 			path = TestData;
 			sourceTree = "<group>";

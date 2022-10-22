@@ -10,6 +10,62 @@ import XCTest
 
 final class CFModel_Tests: XCTestCase {
   
+  func test_FilteringWith100()
+  {
+    var sut             = CFModel()
+    let dummyDataLoader = DummyDataLoader()
+    sut.cfSearch        = dummyDataLoader.load(data: TestData.hundredReleasesData)
+    
+    /// Searching for "Estate" should match none
+    sut.search("Estate")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 0)
+   
+    /// Reload the 100 releases
+    sut.cfSearch = dummyDataLoader.load(data: TestData.hundredReleasesData)
+    
+    /// Searching for "Estate" should match one
+    sut.search("Glazing")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 1)
+    
+    /// Reload the 100 releases
+    sut.cfSearch = dummyDataLoader.load(data: TestData.hundredReleasesData)
+    
+    /// Searching for "Estate" should match five
+    sut.search("award")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 5)
+    
+    /// Reload the 100 releases
+    sut.cfSearch = dummyDataLoader.load(data: TestData.hundredReleasesData)
+    
+    /// Searching for "pRoVisIOn" should match eleven (N.B. matches on provisioning as well)
+    sut.search("pRoVisIOn")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 11)
+  } //  func test_FilteringWith100()
+  
+  /// Tests sorting by release date
+  func test_FilteringWith5()
+  {
+    var sut             = CFModel()
+    let dummyDataLoader = DummyDataLoader()
+    sut.cfSearch        = dummyDataLoader.load(data: TestData.fiveReleasesData)
+    
+//    TestHelpers.printReleases(sut.cfSearch.releases!)
+    
+    /// Searching for "Estate" should match two
+    sut.search("Estate")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 1)
+    XCTAssertEqual(sut.cfSearch.releases![0].tender.title, "PQ0382 - Estate Agency Services for First Homes Allocation at Perry Barr Residential Scheme (PBRS)")
+    
+    /// Reload the 5 releases
+    sut.cfSearch = dummyDataLoader.load(data: TestData.fiveReleasesData)
+    
+    /// Searching for "Ref" should match one
+    sut.search("Ref")
+    XCTAssertEqual(sut.cfSearch.releases!.count, 2)
+    XCTAssertEqual(sut.cfSearch.releases![0].tender.title, "Ref 0217/20220801: October 2022 Bus Tenders (Tranche 3)")
+    XCTAssertEqual(sut.cfSearch.releases![1].tender.title, "Ref 0216/20220728: October 2022 Bus Tenders (Tranche 2)")
+  }
+  
   /// Tests sorting by release date
   func test_SortReleaseDateWithOneHundred()
   {

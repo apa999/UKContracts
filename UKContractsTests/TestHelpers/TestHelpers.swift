@@ -5,7 +5,8 @@
 //  Created by Anthony Abbott on 21/10/2022.
 //
 
-import Foundation
+import XCTest
+@testable import UKContracts
 
 struct TestHelpers {
   
@@ -21,8 +22,13 @@ struct TestHelpers {
     return nil
   }
   
+  static func printReleases(_ releases: [Release]) {
+    for release in releases {
+      print(release.tender.title)
+    }
+  }
   
-  
+  /// Decodes the releases string
   static  func decode<T: Decodable>(
     _ type: T.Type = T.self,
     from data: Data,
