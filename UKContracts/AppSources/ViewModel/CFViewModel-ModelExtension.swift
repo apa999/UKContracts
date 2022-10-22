@@ -11,20 +11,15 @@ extension CFViewModel {
   
   //MARK: - Search Intents
   
+  /// User has pressed search button
+  func search(_ searchstr: String) {
+    cfModel.search(searchstr)
+  }
+  
+  /// User has pressed sort button
   func sort() {
     cfModel.sort()
   }
   
-  /// Tell the model to make the next release current
-  func setNextRelease() {
-    cfModel.setNextRelease()
-  }
-  
-  /// Tell the model to make the prev release current
-  func setPrevRelease() {
-    cfModel.setPrevRelease()
-  }
-  
-
   
 } // extension CFViewModel

@@ -10,24 +10,15 @@ import Foundation
 struct CFModel {
   
   /// Main search objects, containing the releases []
-  var cfSearch = CFSearch() {
-    didSet{
-      if let firstRelease = cfSearch.releases?.first {
-        self.currentRelease = firstRelease
-      }
-    }
-  }
+  var cfSearch = CFSearch()
  
   /// The current selected release - can be optional when user has selected a release
   /// Actually not used - needed for CPV
-  var currentRelease: Release?
+//  var currentRelease: Release?
 
   
   //MARK: - init
   init() {
-    if let firstRelease = cfSearch.releases?.first {
-      self.currentRelease = firstRelease
-    }
   }
   
   /// Model status
@@ -58,7 +49,14 @@ struct CFModel {
   
   var sortStatus = SortStatus.unsorted
   
-  //MARK: - model updates
+  //MARK: - Public functions model updates
+  
+  /// Filters the releases for searchStr
+  mutating func search(_ searchStr: String) {
+      print("Filtering for \(searchStr)")
+  }
+  
+  /// Sorts the releases alphabetically or by date
   mutating func sort(status: SortStatus? = nil) {
     
     if let status = status , status != .unsorted {
@@ -67,7 +65,6 @@ struct CFModel {
       sortStatus.next()
     }
     
-    
     switch sortStatus {
       case .unsorted    : fatalError("Program error - invalid sort option")
       case .alpha       : sortAlpha()
@@ -75,27 +72,7 @@ struct CFModel {
     } // switch sortStatus
   } // mutating func sort()
   
-  /// Sets the current release to the next
-  mutating func setNextRelease() {
-    if let currentRelease = currentRelease, let releases = cfSearch.releases {
-      if let firstIndex = releases.firstIndex(where: {$0.id == currentRelease.id }) {
-        if firstIndex < releases.count - 1 {
-          self.currentRelease = releases[firstIndex + 1]
-        }
-      }
-    }
-  } // mutating func setNextRelease
-  
-  /// Sets the current release to the previous
-  mutating func setPrevRelease() {
-    if let currentRelease = currentRelease, let releases = cfSearch.releases {
-      if let firstIndex = releases.firstIndex(where: {$0.id == currentRelease.id }) {
-        if firstIndex > 0 {
-          self.currentRelease = releases[firstIndex - 1]
-        }
-      }
-    }
-  } // mutating func setPrevRelease()
+ 
   
   //MARK: - Private functions
   

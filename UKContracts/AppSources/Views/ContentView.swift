@@ -29,6 +29,12 @@ struct ContentView: View {
   /// True if the user has selected a release from the list for display
   @State private var showingRelease = false
   
+  /// True when user is searching
+  @Environment(\.isSearching) var isSearching
+  
+  /// Search text
+  @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
+  
   var body: some View {
     ZStack {
       Constants.backgroundColour.ignoresSafeArea()
@@ -43,12 +49,12 @@ struct ContentView: View {
         } else {
           releaseList
         }
-      
+        
         if cfViewModel.cfModel.modelStatus == .loading {
           Spacer()
           ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
         }
-      
+        
         if showingRelease == false {
           Spacer()
           userOptions
@@ -57,6 +63,7 @@ struct ContentView: View {
       .padding()
     } // ZStack
     
+    /// Presentations
     .sheet(isPresented: $showingSettings) {
       SettingsView(cfViewModel: cfViewModel)
     }
@@ -64,6 +71,14 @@ struct ContentView: View {
     .sheet(isPresented: $showingCpv) {
       CPVListView(cfViewModel: cfViewModel)
     }
+    
+    /// Searching
+    .searchable(text: $searchText.input,
+                placement: .navigationBarDrawer(displayMode: .always))
+    
+    .onChange(of: searchText.output) {searchText in
+      cfViewModel.search(searchText)
+    } // .onChange
   } // body
   
   //MARK: - Private vars
@@ -72,27 +87,27 @@ struct ContentView: View {
     
     VStack {
       
-   Text("Releases")
+      Text("Releases")
         .font(.title2)
         .foregroundColor(Constants.textColor)
       
-    NavigationView() {
-      List() {
-        ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-          
-          NavigationLink(destination: CFReleaseView(release: release),
-          isActive: $showingRelease)
-          {
-            Text(release.tender?.title ?? "Missing tender")
-              .foregroundColor(.white)
-          } // NavigationLink
-          .listRowBackground(Constants.backgroundColour)
-
-        } // ForEach
-      } // List
-      .background(Constants.backgroundColour)
-      .scrollContentBackground(.hidden)
-    } // NavigationView
+      NavigationView() {
+        List() {
+          ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+            
+            NavigationLink(destination: CFReleaseView(release: release),
+                           isActive: $showingRelease)
+            {
+              Text(release.tender?.title ?? "Missing tender")
+                .foregroundColor(.white)
+            } // NavigationLink
+            .listRowBackground(Constants.backgroundColour)
+            
+          } // ForEach
+        } // List
+        .background(Constants.backgroundColour)
+        .scrollContentBackground(.hidden)
+      } // NavigationView
     } // VStack
     .background(Constants.backgroundColour)
     
@@ -112,7 +127,7 @@ struct ContentView: View {
     .multilineTextAlignment(.center)
     .padding()
   } // headerText
-    
+  
   private var userOptions: some View {
     HStack {
       if showingList {
@@ -120,7 +135,7 @@ struct ContentView: View {
         Spacer()
         showSortButton
       } else {
-
+        
         showSearchButton
         Spacer()
         showSettingsButton

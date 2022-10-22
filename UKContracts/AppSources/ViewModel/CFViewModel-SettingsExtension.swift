@@ -42,10 +42,4 @@ extension CFViewModel {
     settings.toggleVCO()
   } // func toggleVCO()
   
-  
-  //MARK: - Short cut to current release
-  var release: Release? {
-    cfModel.currentRelease
-  }
-  
 } // extension CFViewModel
