@@ -60,7 +60,9 @@ struct CFModel {
       }
     } else {
       if let existingReleases = cfSearch.releases {
-        savedRelease = existingReleases
+        if existingReleases.count > savedRelease?.count ?? 0 {
+          savedRelease = existingReleases
+        }
       }
       
       cfSearch.releases = filter(by: searchStr)

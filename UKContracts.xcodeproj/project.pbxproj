@@ -69,6 +69,10 @@
 		3384BF722903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF712903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift */; };
 		3384BF742903C66200BEBD9D /* CFViewModel-ModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */; };
 		3384BF7A2903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */; };
+		3384BF7E290429B700BEBD9D /* CFModel-SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */; };
+		3384BF80290429EE00BEBD9D /* CFModel-Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF7F290429EE00BEBD9D /* CFModel-Stage.swift */; };
+		3384BF82290430A300BEBD9D /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF81290430A300BEBD9D /* Date-Extension.swift */; };
+		3384BF84290430E700BEBD9D /* Date-Extension_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF83290430E700BEBD9D /* Date-Extension_Tests.swift */; };
 		33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278528FF27CC00B2165F /* UKContractsApp.swift */; };
 		33B4278828FF27CC00B2165F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278728FF27CC00B2165F /* ContentView.swift */; };
 		33B4278A28FF27CD00B2165F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B4278928FF27CD00B2165F /* Assets.xcassets */; };
@@ -187,6 +191,10 @@
 		3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestData-HundredReleasesExtension.swift"; sourceTree = "<group>"; };
 		3384BF7B29041ED000BEBD9D /* HundredReleaseTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HundredReleaseTitles.md; sourceTree = "<group>"; };
 		3384BF7C29041FDB00BEBD9D /* FiveReleasesTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FiveReleasesTitles.md; sourceTree = "<group>"; };
+		3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFModel-SearchOptions.swift"; sourceTree = "<group>"; };
+		3384BF7F290429EE00BEBD9D /* CFModel-Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFModel-Stage.swift"; sourceTree = "<group>"; };
+		3384BF81290430A300BEBD9D /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		3384BF83290430E700BEBD9D /* Date-Extension_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension_Tests.swift"; sourceTree = "<group>"; };
 		33B4278228FF27CC00B2165F /* UKContracts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKContracts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B4278528FF27CC00B2165F /* UKContractsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKContractsApp.swift; sourceTree = "<group>"; };
 		33B4278728FF27CC00B2165F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -344,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				33B427C628FF2C9200B2165F /* CFModel_Tests.swift */,
+				3384BF83290430E700BEBD9D /* Date-Extension_Tests.swift */,
 			);
 			path = CFModelTests;
 			sourceTree = "<group>";
@@ -484,6 +493,7 @@
 				3311A4BF290129F600B14B5F /* String-Extensions.swift */,
 				3311A54F2902E26900B14B5F /* TelephoneCaller.swift */,
 				33B427C028FF292700B2165F /* URLSession-Extension.swift */,
+				3384BF81290430A300BEBD9D /* Date-Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -502,6 +512,8 @@
 			children = (
 				33B427BE28FF28D300B2165F /* CFModel.swift */,
 				3311A4F82901EF1C00B14B5F /* CFSearch */,
+				3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */,
+				3384BF7F290429EE00BEBD9D /* CFModel-Stage.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -682,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B427DC28FFDDE200B2165F /* GradientsView.swift in Sources */,
+				3384BF7E290429B700BEBD9D /* CFModel-SearchOptions.swift in Sources */,
 				3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */,
 				3311A4E329014D5500B14B5F /* Identifier.swift in Sources */,
 				3311A4EF2901733F00B14B5F /* CFModifiers.swift in Sources */,
@@ -701,6 +714,7 @@
 				3311A4C429012DFE00B14B5F /* DeliveryAddress.swift in Sources */,
 				3311A4D529014C4F00B14B5F /* Party.swift in Sources */,
 				33B427BF28FF28D300B2165F /* CFModel.swift in Sources */,
+				3384BF80290429EE00BEBD9D /* CFModel-Stage.swift in Sources */,
 				33B4278828FF27CC00B2165F /* ContentView.swift in Sources */,
 				3311A4F1290182CC00B14B5F /* CFPartyView.swift in Sources */,
 				3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */,
@@ -724,6 +738,7 @@
 				33B427E928FFDEE800B2165F /* CPVModel.swift in Sources */,
 				33B427BB28FF286400B2165F /* Constants.swift in Sources */,
 				33B4280929005E6900B2165F /* CFReleaseListView.swift in Sources */,
+				3384BF82290430A300BEBD9D /* Date-Extension.swift in Sources */,
 				33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */,
 				3311A4CA29013A7300B14B5F /* Award.swift in Sources */,
 				3311A4C829013A5A00B14B5F /* Release.swift in Sources */,
@@ -755,6 +770,7 @@
 				33B427C928FFB86100B2165F /* DummyDataLoader.swift in Sources */,
 				3311A51529020BAB00B14B5F /* Links_Tests.swift in Sources */,
 				3311A51229020BAB00B14B5F /* Document_Tests.swift in Sources */,
+				3384BF84290430E700BEBD9D /* Date-Extension_Tests.swift in Sources */,
 				3311A51129020BAB00B14B5F /* Budget_Tests.swift in Sources */,
 				3384BF7A2903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift in Sources */,
 				3311A51829020BAB00B14B5F /* Identifier_Tests.swift in Sources */,

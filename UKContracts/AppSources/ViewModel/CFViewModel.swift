@@ -38,7 +38,10 @@ class CFViewModel: ObservableObject {
   //MARK: - Public functions
   func search(urlString: String = Constants.searchText)   {
     cfModel.modelStatus = .loading
-    loadMessages(urlString: urlString)
+    
+    let searchStr = buildSearchString()
+    
+    loadMessages(urlString: searchStr)
   } // func search()
   
   //MARK: - Private functions
