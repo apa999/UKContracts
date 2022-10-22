@@ -15,8 +15,9 @@ struct CPVCheckView: View {
   /// Properties
   var cpv : CPV
   
+  //TODO: - Reinstate cpvModel
   func toggle(){
-    cfViewModel.toggleIsSelected(for: cpv)
+    // cfViewModel.toggleIsSelected(for: cpv)
   } // func toggle()
   
   var body: some View {
