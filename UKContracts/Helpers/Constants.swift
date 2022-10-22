@@ -50,7 +50,9 @@ struct Constants {
   static let textColor        = Color.white
   static let noContracts      = "No contracts"
   
-  static let mailOnSimulator = "Mail is not enabled when running on the simulator"
+  static let mailOnSimulator      = "Mail is not enabled when running on the simulator"
+  static let telephoneOnSimulator = "Telephone is not enabled when running on the simulator"
+  
   
   static let searchMessage = """
 Click the magnifying glass to search using the default settings,

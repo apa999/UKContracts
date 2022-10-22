@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CFReleaseListView: View {
   
+  // Environment
+  @Environment(\.presentationMode) var presentationMode
+  
   /// Observed object - ViewModel
   @ObservedObject var cfViewModel: CFViewModel
   

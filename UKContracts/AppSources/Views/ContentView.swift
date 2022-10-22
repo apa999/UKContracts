@@ -29,10 +29,10 @@ struct ContentView: View {
       Constants.backgroundColour.ignoresSafeArea()
       
       VStack() {
-        if showingList == false {
+        if cfViewModel.cfModel.modelStatus == .unloaded {
           headerText
         } else {
-          CFReleaseListView(cfViewModel: cfViewModel)
+          releaseList
         }
       
         if cfViewModel.cfModel.modelStatus == .loading {
@@ -56,6 +56,36 @@ struct ContentView: View {
   } // body
   
   //MARK: - Private vars
+  
+  private var releaseList: some View {
+    
+    VStack {
+      
+   Text("Releases")
+        .font(.title2)
+        .foregroundColor(Constants.textColor)
+      
+    NavigationView() {
+      List() {
+        ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+          
+          NavigationLink(destination: CFReleaseView(release: release))
+          {
+            Text(release.tender?.title ?? "Missing tender")
+              .foregroundColor(.white)
+          } // NavigationLink
+          .listRowBackground(Constants.backgroundColour)
+        } // ForEach
+      } // List
+      .background(Constants.backgroundColour)
+      .scrollContentBackground(.hidden)
+    } // NavigationView
+    } // VStack
+    .background(Constants.backgroundColour)
+    
+  } // releaseList
+  
+  
   private var headerText: some View {
     VStack(spacing: 20) {
       Text("Contract Finder")
