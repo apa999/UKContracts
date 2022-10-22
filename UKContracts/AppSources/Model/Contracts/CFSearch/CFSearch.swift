@@ -18,7 +18,7 @@ struct CFSearch : Codable {
   let publisher         : Publisher
   let license           : String
   let publicationPolicy : String
-  let releases          : [Release]?
+  var releases          : [Release]?
   let links             : Links?
 }
 
