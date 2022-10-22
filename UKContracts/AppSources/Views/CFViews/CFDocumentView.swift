@@ -85,8 +85,8 @@ struct CFDocumentView: View {
         }
       label: {
         HStack(spacing: 10){
-          Text("Website")
           Image(systemName: "network")
+          Text("Website")
         }
         
       } // label

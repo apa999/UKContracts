@@ -100,8 +100,8 @@ struct CFReleaseView: View {
         /// Displays the website for the CPV
         Button(action: showWebsiteFor) {
           HStack {
-            Text("Details: ")
             Image(systemName: "network")
+            Text("Contract details")
           }.font(.title2)
         } // Button
       }

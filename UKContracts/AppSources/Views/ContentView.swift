@@ -75,8 +75,8 @@ struct ContentView: View {
       if showingList {
         showSearchButton
       } else {
-        showCpvButton
-        Spacer()
+//        showCpvButton
+//        Spacer()
         showSearchButton
         Spacer()
         showSettingsButton

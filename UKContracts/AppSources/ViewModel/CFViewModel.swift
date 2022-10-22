@@ -11,9 +11,13 @@ import SwiftUI
 class CFViewModel: ObservableObject {
   
   //MARK: - Published objects
-  @Published var cpvModel = CPVModel()
+  
   @Published var cfModel  = CFModel()
   @Published var settings = SettingsModel()
+  
+  /// CPVModel will be included in second release
+//  @Published var cpvModel = CPVModel()
+
   
   //MARK: - Properties
   var cfSearch = CFSearch()
@@ -32,25 +36,7 @@ class CFViewModel: ObservableObject {
   
   //MARK: - CPV Intents
   
-  // Deselects all the CPV's
-  func deselectAll() {
-    cpvModel.deselectAll()
-  } // func deselectAll()
-  
-  /// Filter the CPV's by the user's search string
-  func filterCPVs(by searchText: String) {
-    cpvModel.filterCPVs(by: searchText, settings: settings)
-  } //  func filterCPVs
-  
-  /// Selects all the CPV's
-  func selectAll() {
-    cpvModel.selectAll()
-  } // func selectAll()
-  
-  /// Toggles the isSelected flag
-  func toggleIsSelected(for cpv: CPV) {
-    cpvModel.toggleIsSelected(for: cpv)
-  } // func toggleIsSelected()
+
   
   
   //MARK: - Settings Intents
@@ -132,4 +118,5 @@ class CFViewModel: ObservableObject {
     }
   } // func loadMessages
 } // CFViewModel
+
 

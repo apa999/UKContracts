@@ -65,6 +65,7 @@
 		3311A5322902AA3A00B14B5F /* CPVModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A5312902AA3A00B14B5F /* CPVModel_Tests.swift */; };
 		3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A54F2902E26900B14B5F /* TelephoneCaller.swift */; };
 		334FEBF52902ED070041F30A /* CFContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FEBF42902ED070041F30A /* CFContacts.swift */; };
+		3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */; };
 		33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278528FF27CC00B2165F /* UKContractsApp.swift */; };
 		33B4278828FF27CC00B2165F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4278728FF27CC00B2165F /* ContentView.swift */; };
 		33B4278A28FF27CD00B2165F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B4278928FF27CD00B2165F /* Assets.xcassets */; };
@@ -177,6 +178,7 @@
 		3311A5312902AA3A00B14B5F /* CPVModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVModel_Tests.swift; sourceTree = "<group>"; };
 		3311A54F2902E26900B14B5F /* TelephoneCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneCaller.swift; sourceTree = "<group>"; };
 		334FEBF42902ED070041F30A /* CFContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContacts.swift; sourceTree = "<group>"; };
+		3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-CPVExtenstion.swift"; sourceTree = "<group>"; };
 		33B4278228FF27CC00B2165F /* UKContracts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UKContracts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B4278528FF27CC00B2165F /* UKContractsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKContractsApp.swift; sourceTree = "<group>"; };
 		33B4278728FF27CC00B2165F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				33B427BC28FF28BA00B2165F /* CFViewModel.swift */,
+				3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				33B427BF28FF28D300B2165F /* CFModel.swift in Sources */,
 				33B4278828FF27CC00B2165F /* ContentView.swift in Sources */,
 				3311A4F1290182CC00B14B5F /* CFPartyView.swift in Sources */,
+				3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */,
 				33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */,
 				3311A4DD29014D1900B14B5F /* Suitability.swift in Sources */,
 				3311A4DB29014CED00B14B5F /* Address.swift in Sources */,
