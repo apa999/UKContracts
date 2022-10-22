@@ -52,7 +52,7 @@ struct Constants {
   
   static let searchMessage = """
 Click the magnifying glass to search using the default settings,
-or select the CPV codes or settings option to set the search parameters.
+or select the settings option to set the search parameters.
 """
 } // struct Constants
 
