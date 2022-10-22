@@ -153,12 +153,15 @@ struct ContentView: View {
   
   private var showSearchButton: some View {
     Button {
+      
       if showingList == false {
+        print(cfViewModel.cfModel.modelStatus)
+        showingList = true
         returnButtonPressed = false
         cfViewModel.search()
       }
-      showingList.toggle()
     }
+    
   label: {
     Image(systemName: "magnifyingglass")
   } // label
