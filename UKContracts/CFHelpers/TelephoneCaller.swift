@@ -25,4 +25,18 @@ struct TelephoneCaller {
     }
  #endif
   } // static func call
+  
+  /// Telephones the given number
+  static func validNumber(_ phoneNumber: String) -> Bool {
+    
+    let phone = "tel://"
+    let phoneNumberformatted = (phone + phoneNumber).filter { !$0.isWhitespace }
+    
+    if let _ = URL(string: phoneNumberformatted) {
+      return true
+    } else {
+     return false
+    }
+  } // static validNumber()
+  
 } // struct TelephoneCaller
