@@ -179,7 +179,7 @@ struct CFPartyView: View {
   
   private func addContactFor(_ party: Party) -> some View {
     Button {
-      CFContacts.add(party)
+      let _ = CFContacts.add(party)
     }
     label: {
       HStack(spacing: 10){

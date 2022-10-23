@@ -106,6 +106,7 @@ final class CFModel_Tests: XCTestCase {
     let searchString = sut.buildSearchString()
     XCTAssertEqual(searchString, "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/search?publishedFrom=2022-10-20T10:30:00Z&publishedTo=2022-10-21T10:30:00Z&stages=tender")
   }
+  
   func test_FilteringWith100()
   {
     var sut             = CFModel()

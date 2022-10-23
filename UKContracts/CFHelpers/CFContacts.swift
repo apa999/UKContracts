@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CFContacts {
   
-  static func add(_ party: Party) {
+  static func add(_ party: Party) ->  CNMutableContact? {
     // Create a mutable object to add to the contact.
     let contact = CNMutableContact()
 
@@ -67,7 +67,8 @@ struct CFContacts {
         try store.execute(saveRequest)
     } catch {
         print("Saving contact failed, error: \(error)")
-        // Handle the error.
+        return nil
     }
+    return contact
   }
 }
