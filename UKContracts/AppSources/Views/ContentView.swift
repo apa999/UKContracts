@@ -92,21 +92,38 @@ struct ContentView: View {
         .foregroundColor(Constants.textColor)
       
       NavigationView() {
-        List() {
-          ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-            
-            NavigationLink(destination: CFReleaseView(release: release),
-                           isActive: $showingRelease)
-            {
-              Text(release.tender.title)
-                .foregroundColor(.white)
-            } // NavigationLink
-            .listRowBackground(Constants.backgroundColour)
-            
-          } // ForEach
-        } // List
-        .background(Constants.backgroundColour)
-        .scrollContentBackground(.hidden)
+        if #available(iOS 16.0, *) {
+          List() {
+            ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+              
+              NavigationLink(destination: CFReleaseView(release: release),
+                             isActive: $showingRelease)
+              {
+                Text(release.tender.title)
+                  .foregroundColor(.white)
+              } // NavigationLink
+              .listRowBackground(Constants.backgroundColour)
+              
+            } // ForEach
+          } // List
+          .background(Constants.backgroundColour)
+          .scrollContentBackground(.hidden)
+        } else {
+          List() {
+            ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+              
+              NavigationLink(destination: CFReleaseView(release: release),
+                             isActive: $showingRelease)
+              {
+                Text(release.tender.title)
+                  .foregroundColor(.white)
+              } // NavigationLink
+              .listRowBackground(Constants.backgroundColour)
+              
+            } // ForEach
+          } // List
+          .background(Constants.backgroundColour)
+        } //  if #available(iOS 16.0, *)
       } // NavigationView
     } // VStack
     .background(Constants.backgroundColour)

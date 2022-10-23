@@ -28,6 +28,21 @@ import XCTest
 
 final class Release_Tests: XCTestCase {
   
+  //TODO: - Incomplete
+  func test_Format() throws {
+    let data = Data(dataStr.utf8)
+    
+    do {
+      let sut = try TestHelpers.decode(Release.self,from: data)
+      
+      XCTAssertNotNil(sut)
+    
+      XCTAssertEqual(sut.formatted.count, 1716)
+    } catch {
+      XCTFail("Failed to decode: \(error)")
+    }
+  }
+  
   func test_Decode() throws {
     
     let data = Data(dataStr.utf8)
