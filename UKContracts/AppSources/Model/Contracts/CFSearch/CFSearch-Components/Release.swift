@@ -25,6 +25,32 @@ struct Release : Codable, Identifiable, Hashable {
   let awards         : [Award]?
   let planning       : Planning?
   
+  //TODO: - Individual components should be responsible for string representation
+  /// formatted version of release for pronting, email, etc
+  var formatted: String {
+    var s = ""
+    
+    s  +=  "Title: \(tender.title)\n"
+    
+    if let date = date {
+      s  +=  "Date : \(date.formatted(date: .long, time: .shortened))\n"
+    }
+    
+    if let tenderDescription = tender.tenderDescription {
+      s  +=  "Description : \(tenderDescription)\n"
+    }
+    
+    if let status = tender.status {
+      s  +=  "Status : \(status)\n"
+    }
+    
+    if let cpvCode = tender.classification?.id {
+      s  +=  "CPV Code : \(cpvCode)\n"
+    }
+    
+    return s
+  }
+  
   /// Format the date
   var formattedDate: String {
     let formatter = DateFormatter()
