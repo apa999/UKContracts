@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Helper class to store CPV strings as an array
 class Storage: NSObject {
   
   static func archiveIntArray(object : [Int]) -> Data {
