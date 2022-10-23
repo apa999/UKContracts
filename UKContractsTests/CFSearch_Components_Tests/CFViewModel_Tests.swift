@@ -11,32 +11,19 @@ import XCTest
 final class CFViewModel_Tests: XCTestCase {
   
   
-  
-  /// Tests that invalid URL's are caught
-  @MainActor
-  func test_InvalidUrl_ShouldSetViewModelStatusToInvalidUrl() {
-    let sut = CFViewModel()
-    let invalidUrlString = "An Invalid URL String"
+  func test_DownloadCFDataData() async throws {
+    let url = URL(string: Constants.searchText)!
     
-    sut.search(urlString: invalidUrlString)
+    let exp = expectation(description: "Download Contract data")
+    URLSession.shared.dataTask(with: url) {data, httpResponse, error in
+      XCTAssertNotNil(data)
+      exp.fulfill()
+    }.resume()
     
-//    XCTAssertEqual(sut.viewModelStatus, .invalidUrl(invalidUrl: invalidUrlString))
+    wait(for: [exp], timeout: 5)
   }
   
-  /// Tests that valid URL's are accepted - The Task is asynchronous so
-  /// the status sahould be unloaded
-  @MainActor
-  func test_InvalidUrl_ShouldSetViewModelStatusTo() {
-    let sut = CFViewModel()
-    
-    sut.search(urlString: Constants.searchText)
-    
-    XCTAssertEqual(sut.viewModelStatus, .unloaded , "Expected unloaded")
-  }
-  
-  //TODO: - Need an async test
-  /// Load data witha valid URL
-  /// This needs a async test
+
   @MainActor
   func test_InvalidUrl_ShouldLoadData() {
     let sut = CFViewModel()
@@ -51,12 +38,4 @@ final class CFViewModel_Tests: XCTestCase {
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
-  
-  func testPerformanceExample() throws {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
-  }
-  
 }
