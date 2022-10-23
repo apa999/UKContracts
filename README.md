@@ -37,5 +37,5 @@ Technical:
 
 Know issues
 •	Xcode occasionally reports: “SwiftUI encountered an issue when pushing a NavigationLink. Please file a bug.” 
-•	No Onboarding in thisversion
+•	No Onboarding in this version
 
