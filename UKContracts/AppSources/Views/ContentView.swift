@@ -35,6 +35,17 @@ struct ContentView: View {
   /// Search text
   @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
   
+
+  //MARK: - Init
+  
+  /// Set the navigation bar appearance - this is shown when the user scrolls upwards
+  init(cfViewModel : CFViewModel) {
+
+    self.cfViewModel = cfViewModel
+    
+    UINavigationBar.appearance().barTintColor = UIColor.systemBlue
+  }
+  
   var body: some View {
     ZStack {
       Constants.backgroundColour.ignoresSafeArea()
@@ -96,6 +107,8 @@ struct ContentView: View {
           List() {
             ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
               
+              //TODO: Resolve this warning - "'init(destination:isActive:label:)' was deprecated in iOS 16.0: use NavigationLink(value:label:) inside a NavigationStack or NavigationSplitView"
+              
               NavigationLink(destination: CFReleaseView(release: release),
                              isActive: $showingRelease)
               {
@@ -123,7 +136,7 @@ struct ContentView: View {
             } // ForEach
           } // List
           .background(Constants.backgroundColour)
-        } //  if #available(iOS 16.0, *)
+        } // if #available(iOS 16.0, *)
       } // NavigationView
     } // VStack
     .background(Constants.backgroundColour)
@@ -228,6 +241,7 @@ struct ContentView: View {
   } // showSettingsButton
   
 } // ContentView
+
 
 struct ContentView_Previews: PreviewProvider {
   static let cfViewModel = CFViewModel()

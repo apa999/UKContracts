@@ -46,7 +46,7 @@ struct Constants {
   
   /// General
   static let mailSubjectLine  = "Contract Finder - Enquiry"
-  static let backgroundColour = Color.blue
+  static let backgroundColour = Color(UIColor.systemBlue)
   static let textColor        = Color.white
   static let noContracts      = "No contracts"
   
