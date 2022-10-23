@@ -1,7 +1,7 @@
 # UKContracts
 
 Introduction
-UKContracts accesses contract information from the UK Government’s Contracts database, see: Contracts Finder.
+UKContracts accesses contract information from the UK Government’s Contracts database, see: https://www.contractsfinder.service.gov.uk/Search.
 
 Functionality:
   •	Search by contract stage (via Settings):
