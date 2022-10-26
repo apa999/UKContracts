@@ -25,6 +25,23 @@ final class Period_Tests: XCTestCase {
 "endDate"  : "2025-11-24T23:59:59Z"
 }
 """
+  
+  func test_periodFormattedDates() throws {
+    let p = Period(startDate: nil, endDate: nil)
+    XCTAssertEqual(p.formattedStartDate, "")
+    XCTAssertEqual(p.formattedEndDate, "")
+    
+    let c = Period(startDate: startDate, endDate: endDate)
+    XCTAssertEqual(c.formattedStartDate, "Thu 19 May 2022, 07:00")
+    XCTAssertEqual(c.formattedEndDate, "Fri 28 Oct 2022, 19:00")
+  }
+  
+  func test_periodNilDates() throws {
+    let p = Period(startDate: nil, endDate: nil)
+    XCTAssertNil(p.startDate)
+    XCTAssertNil(p.endDate)
+  }
+  
   func test_Init() throws {
     let sut = Period(startDate: startDate, endDate: endDate)
     

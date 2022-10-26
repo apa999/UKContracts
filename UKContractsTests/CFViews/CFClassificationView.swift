@@ -10,10 +10,16 @@ import XCTest
 
 final class CFClassificationView_Tests: XCTestCase {
 
+  func test_preview() throws {
+    let sut = ClassifacationView_Previews()
+    XCTAssertNotNil(sut)
+  }
+  
   func test_CFClassificationView() throws {
     let sut = CFClassificationView(classification: Classification(scheme: "Scehme", id: "Id", classificationDescription: "Description"))
 
     XCTAssertNotNil(sut)
+    XCTAssertNotNil(sut.body)
   }
 
   override func setUpWithError() throws {
