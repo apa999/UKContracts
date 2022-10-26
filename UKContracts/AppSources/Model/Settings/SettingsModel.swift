@@ -50,35 +50,7 @@ struct SettingsModel {
     return Storage.loadStringArray(data: selectedCPVs)
   } // func setIsSelected
   
-  /// Save the selected CPV's
-  func saveSelected(cpvs: [CPV]) {
-    var selectedCpvCodes = [String]()
-    
-    for cpv in cpvs {
-      selectedCpvCodes.append(cpv.code)
-    }
-    
-    selectedCPVs = Storage.archiveStringArray(object: selectedCpvCodes)
-  } // func saveSelected()
-  
-  /// Returns an array of the CPV codes that are selected
-  func getFilteredCpvs() -> [String] {
-    Storage.loadStringArray(data: searchedCPVs)
-  } // func getSearched(
-  
-  /// Save the searched CPV's
-  func saveFilteredCpvs(cpvs: [CPV]) {
-    var searchedCpvCodes = [String]()
-    
-    for cpv in cpvs {
-      searchedCpvCodes.append(cpv.code)
-    }
-    
-    searchedCPVs = Storage.archiveStringArray(object: searchedCpvCodes)
-  } // func saveSearched()
  
-  
-  
   //MARK: - Settings Functions
   
   /// Toggles the Award flag
