@@ -47,7 +47,7 @@ struct CFDocumentView: View {
     } // ScrollView
   }
   
-  private func documentDetails(document: Document) -> some View {
+  func documentDetails(document: Document) -> some View {
     VStack(alignment: .leading, spacing: 10) {
       if let documentType =  document.formattedDocumentType {
         Text("Type : \(documentType)")
@@ -81,7 +81,7 @@ struct CFDocumentView: View {
           
       if let urlString = document.url {
         Button {
-          showWbsiteFor(urlString: urlString)
+          let _ = showWebsiteFor(urlString: urlString)
         }
       label: {
         HStack(spacing: 10){
@@ -97,10 +97,12 @@ struct CFDocumentView: View {
   } // documentDetails
   
   /// Displays the website for the CPV
-  private func showWbsiteFor(urlString: String) {
+  func showWebsiteFor(urlString: String) -> Bool {
     if let url = URL(string: urlString ) {
       UIApplication.shared.open(url, options: [:])
+      return true
     }
+    return false
   } // private func showWbsiteFor
   
   
