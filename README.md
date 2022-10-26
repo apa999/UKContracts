@@ -28,12 +28,21 @@ Functionality:
     o	Email (not on simulator)
     o	Add contacts
 
-Technical:
+**Technical:
   •	iPhone only
   •	iOS 16+
   •	Portrait layout
   •	SwiftUI
-  •	Not tested on macOS
+  •	XCode Version 14.0.1 (14A400)
+  •	Not tested on macOS**
+
+**App Architiecture
+This is app is designed using the industry standard MVVM pattern, which is typical for SwiftUI projects. The major components are:
+• Model (struct)
+• ViewModel (observable class)
+• View - (structs) SwiftUI Views**
+
+The ViewwModel is created on applaunch and is passed to the View. The ViewModel creates the Model and publsihes so that it can be observed by the View.
 
 Know issues
 •	Xcode occasionally reports: “SwiftUI encountered an issue when pushing a NavigationLink. Please file a bug.” 
