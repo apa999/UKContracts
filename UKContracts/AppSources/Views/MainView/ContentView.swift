@@ -79,10 +79,6 @@ struct ContentView: View {
       SettingsView(cfViewModel: cfViewModel)
     }
     
-    .sheet(isPresented: $showingCpv) {
-      CPVListView(cfViewModel: cfViewModel)
-    }
-    
     /// Searching
     .searchable(text: $searchText.input,
                 placement: .navigationBarDrawer(displayMode: .always))

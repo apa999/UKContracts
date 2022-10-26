@@ -101,12 +101,6 @@
 		33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427DD28FFDE1C00B2165F /* SettingsView.swift */; };
 		33B427E128FFDE5A00B2165F /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E028FFDE5A00B2165F /* SettingsModel.swift */; };
 		33B427E328FFDE7000B2165F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E228FFDE7000B2165F /* Storage.swift */; };
-		33B427E528FFDEA700B2165F /* CPV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E428FFDEA700B2165F /* CPV.swift */; };
-		33B427E728FFDEC700B2165F /* CPVLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E628FFDEC700B2165F /* CPVLoader.swift */; };
-		33B427E928FFDEE800B2165F /* CPVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E828FFDEE800B2165F /* CPVModel.swift */; };
-		33B427EC28FFE13700B2165F /* CPVCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427EB28FFE13700B2165F /* CPVCheckView.swift */; };
-		33B427EE28FFE15200B2165F /* CPVListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427ED28FFE15200B2165F /* CPVListView.swift */; };
-		33B427F028FFE16D00B2165F /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427EF28FFE16D00B2165F /* HierarchyList.swift */; };
 		33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F128FFE1D500B2165F /* Debouncer.swift */; };
 		33B427F428FFE5B200B2165F /* CpvCodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 33B427F328FFE5B200B2165F /* CpvCodes.csv */; };
 		33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280229005E0E00B2165F /* CFReleaseView.swift */; };
@@ -231,12 +225,6 @@
 		33B427DD28FFDE1C00B2165F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		33B427E028FFDE5A00B2165F /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		33B427E228FFDE7000B2165F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		33B427E428FFDEA700B2165F /* CPV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPV.swift; sourceTree = "<group>"; };
-		33B427E628FFDEC700B2165F /* CPVLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVLoader.swift; sourceTree = "<group>"; };
-		33B427E828FFDEE800B2165F /* CPVModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVModel.swift; sourceTree = "<group>"; };
-		33B427EB28FFE13700B2165F /* CPVCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVCheckView.swift; sourceTree = "<group>"; };
-		33B427ED28FFE15200B2165F /* CPVListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVListView.swift; sourceTree = "<group>"; };
-		33B427EF28FFE16D00B2165F /* HierarchyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HierarchyList.swift; sourceTree = "<group>"; };
 		33B427F128FFE1D500B2165F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		33B427F328FFE5B200B2165F /* CpvCodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CpvCodes.csv; sourceTree = "<group>"; };
 		33B4280229005E0E00B2165F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
@@ -358,6 +346,23 @@
 			path = CPV_Tests;
 			sourceTree = "<group>";
 		};
+		338404532908E001006E552F /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				33B427DB28FFDDE200B2165F /* GradientsView.swift */,
+				33B427DD28FFDE1C00B2165F /* SettingsView.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		338404542908E00A006E552F /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				33B4278728FF27CC00B2165F /* ContentView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		3384BF752903E7EB00BEBD9D /* CFModel_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,10 +476,8 @@
 			isa = PBXGroup;
 			children = (
 				33B427FD29005D2800B2165F /* CFViews */,
-				33B4278728FF27CC00B2165F /* ContentView.swift */,
-				33B427EA28FFE11C00B2165F /* CPV Views */,
-				33B427DB28FFDDE200B2165F /* GradientsView.swift */,
-				33B427DD28FFDE1C00B2165F /* SettingsView.swift */,
+				338404532908E001006E552F /* HelperViews */,
+				338404542908E00A006E552F /* MainView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				33B427B628FF283400B2165F /* Contracts */,
-				33B427B728FF283D00B2165F /* CPV */,
 				33B427DF28FFDE4000B2165F /* Settings */,
 			);
 			path = Model;
@@ -550,16 +552,6 @@
 			path = Contracts;
 			sourceTree = "<group>";
 		};
-		33B427B728FF283D00B2165F /* CPV */ = {
-			isa = PBXGroup;
-			children = (
-				33B427E428FFDEA700B2165F /* CPV.swift */,
-				33B427E628FFDEC700B2165F /* CPVLoader.swift */,
-				33B427E828FFDEE800B2165F /* CPVModel.swift */,
-			);
-			path = CPV;
-			sourceTree = "<group>";
-		};
 		33B427DF28FFDE4000B2165F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,16 +559,6 @@
 				33B427E228FFDE7000B2165F /* Storage.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		33B427EA28FFE11C00B2165F /* CPV Views */ = {
-			isa = PBXGroup;
-			children = (
-				33B427EB28FFE13700B2165F /* CPVCheckView.swift */,
-				33B427ED28FFE15200B2165F /* CPVListView.swift */,
-				33B427EF28FFE16D00B2165F /* HierarchyList.swift */,
-			);
-			path = "CPV Views";
 			sourceTree = "<group>";
 		};
 		33B427FD29005D2800B2165F /* CFViews */ = {
@@ -730,18 +712,15 @@
 				3311A4E329014D5500B14B5F /* Identifier.swift in Sources */,
 				3311A4EF2901733F00B14B5F /* CFModifiers.swift in Sources */,
 				3311A4CC29013AA100B14B5F /* Period.swift in Sources */,
-				33B427F028FFE16D00B2165F /* HierarchyList.swift in Sources */,
 				33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */,
 				3311A4D729014C6800B14B5F /* Budget.swift in Sources */,
 				3311A4E529014D6300B14B5F /* Details.swift in Sources */,
 				3311A4ED29014DAF00B14B5F /* Links.swift in Sources */,
-				33B427EC28FFE13700B2165F /* CPVCheckView.swift in Sources */,
 				3311A4E129014D3E00B14B5F /* Planning.swift in Sources */,
 				3311A4C229012DD500B14B5F /* Item.swift in Sources */,
 				3311A4DF29014D2F00B14B5F /* Communication.swift in Sources */,
 				33B427E328FFDE7000B2165F /* Storage.swift in Sources */,
 				33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */,
-				33B427E528FFDEA700B2165F /* CPV.swift in Sources */,
 				3311A4C429012DFE00B14B5F /* DeliveryAddress.swift in Sources */,
 				3311A4D529014C4F00B14B5F /* Party.swift in Sources */,
 				33B427BF28FF28D300B2165F /* CFModel.swift in Sources */,
@@ -761,12 +740,10 @@
 				3311A4F3290195C300B14B5F /* CFAwardsView.swift in Sources */,
 				334FEBF52902ED070041F30A /* CFContacts.swift in Sources */,
 				3311A4F72901EA4800B14B5F /* CFMailView.swift in Sources */,
-				33B427E728FFDEC700B2165F /* CPVLoader.swift in Sources */,
 				3384BF742903C66200BEBD9D /* CFViewModel-ModelExtension.swift in Sources */,
 				3384BF722903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift in Sources */,
 				3311A4F52901C28D00B14B5F /* DashedLine.swift in Sources */,
 				3311A4E729014D7600B14B5F /* ContactPoint.swift in Sources */,
-				33B427E928FFDEE800B2165F /* CPVModel.swift in Sources */,
 				33B427BB28FF286400B2165F /* Constants.swift in Sources */,
 				3384BF82290430A300BEBD9D /* Date-Extension.swift in Sources */,
 				33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */,
@@ -781,7 +758,6 @@
 				33B427CF28FFC7A700B2165F /* EquatableError.swift in Sources */,
 				3311A4E929014D9200B14B5F /* MinValue.swift in Sources */,
 				3311A4D12901445B00B14B5F /* CFSearchTestData.swift in Sources */,
-				33B427EE28FFE15200B2165F /* CPVListView.swift in Sources */,
 				33B427E128FFDE5A00B2165F /* SettingsModel.swift in Sources */,
 				33B4280729005E5200B2165F /* CFTenderView.swift in Sources */,
 				3311A4D329014C3900B14B5F /* Publisher.swift in Sources */,
