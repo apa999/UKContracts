@@ -108,8 +108,39 @@ struct CFDocumentView: View {
 
 struct DocumentView_Previews: PreviewProvider {
   
+    //MARK: - Document test data
+    static let DocumentTest1 = Document(id: "1",
+            documentType: "tenderNotice",
+            documentDescription: "Opportunity notice on Contracts Finder" ,
+            url: "https://www.contractsfinder.service.gov.uk/Notice/a0943966-090b-469d-9756-223cde76a5f2",
+                                        datePublished: Date(),
+                                        format: "text/html" ,
+                                        language: "en",
+                                        dateModified: nil
+     )
+  
+    static let DocumentTest2 = Document(id: "2",
+            documentType: "tenderNotice",
+            documentDescription: "Opportunity notice on Contracts Finder" ,
+            url: "https://www.contractsfinder.service.gov.uk/Notice/4c84fe67-e384-4302-972e-cd99c4a7e85e",
+                                        datePublished: Date(),
+                                        format: "text/html" ,
+                                        language: "en",
+                                        dateModified: nil
+     )
+  
+    static let DocumentTest3 = Document(id: "3",
+            documentType: "tenderNotice",
+            documentDescription: "Opportunity notice on Contracts Finder" ,
+            url: "https://www.contractsfinder.service.gov.uk/Notice/0074298d-4a64-4684-8e47-8e94f3afcfc3",
+                                        datePublished: Date(),
+                                        format: "text/html" ,
+                                        language: "en",
+                                        dateModified: nil
+     )
+  
   static var previews: some View {
-    CFDocumentView(documents: [CFSearch.DocumentTest1, CFSearch.DocumentTest2,CFSearch.DocumentTest3
+    CFDocumentView(documents: [DocumentTest1, DocumentTest2,DocumentTest3
                               ])
   }
 }

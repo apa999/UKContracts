@@ -349,15 +349,10 @@ struct CFTenderView: View {
 
 
 struct TenderView_Previews: PreviewProvider {
-  static let cfSearch = CFSearch.getTestData()
-  static let rNum     = Int.random(in: 0..<(cfSearch.releases?.count ?? 1) )
-
-  static let valueTender = CFSearch.getTenderHavingValue()
   
-  /// Known status: active, complete, planned, planning
-  static let statusTender = CFSearch.getTenderHavingStatus("active")
+  static let tender = Tender(id: "", title: "", tenderDescription: "", datePublished: Date(), status: "", classification: nil, items: nil, minValue: nil, value: nil, procurementMethod: "", procurementMethodDetails: "", tenderPeriod: nil, contractPeriod: nil, suitability: nil, mainProcurementCategory: "", documents: nil, additionalClassifications: nil, communication: nil)
   
   static var previews: some View {
-    CFTenderView(tender: ((statusTender ?? cfSearch.releases![2].tender)))
+    CFTenderView(tender: tender)
   }
 }

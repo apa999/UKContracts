@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GradientsView: View {
+struct xGradientsView: View {
   
   let gradientType: Int = 1
   

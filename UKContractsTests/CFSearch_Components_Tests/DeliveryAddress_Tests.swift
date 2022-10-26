@@ -20,6 +20,31 @@ import XCTest
 
 final class DeliveryAddress_Tests: XCTestCase {
   
+  /*
+   if let region, region.count > 0 {
+     address = (postalCode?.count ?? 0 > 0 || countryName?.count ?? 0 > 0) ? "\(region), \(address)" : region
+   }
+   */
+  
+  func test_fDeliveryAddress() throws {
+    var sut = DeliveryAddress(region: "", countryName: "England", postalCode: "B31 5HQ")
+    XCTAssertEqual(sut.fDeliveryAddress, "England, B31 5HQ")
+    
+    sut = DeliveryAddress(region: "Portsmouth", countryName: "England", postalCode: "B31 5HQ")
+    XCTAssertEqual(sut.fDeliveryAddress, "Portsmouth, England, B31 5HQ")
+    
+    sut = DeliveryAddress(region: "", countryName: "", postalCode: "B31 5HQ")
+    XCTAssertEqual(sut.fDeliveryAddress, "B31 5HQ")
+    
+    sut = DeliveryAddress(region: "", countryName: "", postalCode: "")
+    XCTAssertEqual(sut.fDeliveryAddress, "")
+    
+    sut = DeliveryAddress(region: "Northfield", countryName: "", postalCode: "")
+    XCTAssertEqual(sut.fDeliveryAddress, "Northfield")
+    
+    sut = DeliveryAddress(region: "Northfield", countryName: "Scotland", postalCode: "")
+    XCTAssertEqual(sut.fDeliveryAddress, "Northfield, Scotland")
+  }
   
   func test_allFields() throws {
     let sut = DeliveryAddress(region: "Birmingham", countryName: "England", postalCode: "B31 5HQ")

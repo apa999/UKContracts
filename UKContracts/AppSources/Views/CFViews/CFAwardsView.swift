@@ -48,7 +48,7 @@ struct CFAwardsView: View {
     .foregroundColor(Constants.textColor)
   }
   
-  private func showAwardDetails(_ award: Award) -> some View {
+  func showAwardDetails(_ award: Award) -> some View {
     return VStack(alignment: .leading, spacing: 10) {
     
       if let id = award.id {
@@ -80,7 +80,7 @@ struct CFAwardsView: View {
   
   
   //MARK: - Private functions
-  private func showSuppliers(_ suppliers: [Buyer]) -> some View {
+  func showSuppliers(_ suppliers: [Buyer]) -> some View {
     return VStack(alignment: .leading, spacing: 10) {
       ForEach(suppliers, id: \.self) { supplier in
         
@@ -98,7 +98,7 @@ struct CFAwardsView: View {
     } // VStack
   } // private func showSuppliers
   
-  private func showValues(_ minValue: MinValue) -> some View {
+  func showValues(_ minValue: MinValue) -> some View {
     return VStack(alignment: .leading, spacing: 10) {
       if let _ = minValue.amount {
         Text("Minimum value: \(minValue.fAmount)")
@@ -109,7 +109,7 @@ struct CFAwardsView: View {
   
   
   //TODO: - Duplicate function - see also CFTenderView -
-  private func formatStatus(_ status: String) -> some View {
+  func formatStatus(_ status: String) -> some View {
     let uStatus = status.capitalizingFirstLetter()
     
     var t1 = Text("")
@@ -144,9 +144,11 @@ struct CFAwardsView: View {
 struct CFAwardsView_Previews: PreviewProvider {
   
   /// Known status: active, complete, planned, planning
-  static let awards = CFSearch.getAwards(1)
+  static let awards = [
+  Award(id: "id", status: "status", date: Date(), datePublished: Date(), value: MinValue(amount: 200, currency: "GBP"), suppliers: nil, contractPeriod: nil, documents: nil, awardDescription: "awardDescription")
+  ]
   
   static var previews: some View {
-    CFAwardsView(awards: awards ?? [])
+    CFAwardsView(awards: awards)
   }
 }

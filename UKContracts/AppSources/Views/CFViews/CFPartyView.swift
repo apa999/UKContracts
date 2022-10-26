@@ -144,7 +144,7 @@ struct CFPartyView: View {
       
       if let telephone = contactPoint.telephone {
         Button {
-          TelephoneCaller.call(telephone)
+          let _ = TelephoneCaller.call(telephone)
         }
         label: {
           HStack(spacing: 10) {
@@ -227,9 +227,12 @@ struct CFPartyView: View {
 struct CFPartyView_Previews: PreviewProvider {
   
   /// Known status: active, complete, planned, planning
-  static let parties = CFSearch.getParties(3)
+  static let parties = [
+  Party(id: "", name: "", identifier: nil, address: nil, contactPoint: nil, details: nil, roles: [""])
+  
+  ]
   
   static var previews: some View {
-    CFPartyView(parties: parties ?? [])
+    CFPartyView(parties: parties)
   }
 }

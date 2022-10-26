@@ -1,20 +1,21 @@
 //
-//  TelephoneCaller_Tests.swift
+//  Constants_Tests.swift
 //  UKContractsTests
 //
-//  Created by Anthony Abbott on 23/10/2022.
+//  Created by Anthony Abbott on 26/10/2022.
 //
 
 import XCTest
 @testable import UKContracts
 
-final class TelephoneCaller_Tests: XCTestCase {
+final class Constants_Tests: XCTestCase {
   
-  func test_telephone() throws {
-    
-    XCTAssertTrue(TelephoneCaller.call("01214503929"))
-    XCTAssertFalse(TelephoneCaller.call(""))
+  
+  func test_constants() {
+    XCTAssertNotNil(Constants.divider)
+    XCTAssertNotNil(Constants.dashedLine)
   }
+  
   
   override func setUpWithError() throws {
     // Put setup code here. This method is called before the invocation of each test method in the class.

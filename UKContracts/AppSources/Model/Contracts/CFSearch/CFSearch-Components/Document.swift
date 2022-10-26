@@ -70,37 +70,3 @@ struct Document : Codable, Identifiable {
   }
 }
 
-extension Document {
-  init(id                  : String?,
-       documentType        : String?,
-       documentDescription : String?,
-       url                 : String?,
-       datePublishedStr    : String?,
-       format              : String?,
-       language            : String?,
-       dateModifiedStr     : String?) {
-    self.id                  = id
-    self.documentType        = documentType
-    self.documentDescription = documentDescription
-    self.url                 = url
-    self.format              = format
-    self.language            = language
-    
-    let formatter = DateFormatter()
-    
-    /// Expected format : "2022-10-06 10:56:33 +0000"
-    formatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
-    
-    if let datePublishedStr = datePublishedStr {
-      datePublished = formatter.date(from: datePublishedStr) ?? nil
-    } else {
-      self.datePublished = nil
-    }
-    
-    if let dateModifiedStr = dateModifiedStr {
-      dateModified = formatter.date(from: dateModifiedStr) ?? nil
-    } else {
-      dateModified = nil
-    }
-  }
-}

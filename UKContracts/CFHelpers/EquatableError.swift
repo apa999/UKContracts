@@ -23,10 +23,10 @@ struct EquatableError: Error, Equatable, CustomStringConvertible {
         self.equals = { String(reflecting: $0) == String(reflecting: base) }
     }
 
-    init<Base: Error & Equatable>(_ base: Base) {
-        self.base = base
-        self.equals = { ($0 as? Base) == base }
-    }
+//    init<Base: Error & Equatable>(_ base: Base) {
+//        self.base = base
+//        self.equals = { ($0 as? Base) == base }
+//    }
 
     static func ==(lhs: EquatableError, rhs: EquatableError) -> Bool {
         lhs.equals(rhs.base)
@@ -36,9 +36,9 @@ struct EquatableError: Error, Equatable, CustomStringConvertible {
         "\(self.base)"
     }
 
-    func asError<Base: Error>(type: Base.Type) -> Base? {
-        self.base as? Base
-    }
+//    func asError<Base: Error>(type: Base.Type) -> Base? {
+//        self.base as? Base
+//    }
 
     var localizedDescription: String {
         self.base.localizedDescription
@@ -51,8 +51,8 @@ extension Error where Self: Equatable {
     }
 }
 
-extension Error {
-    func toEquatableError() -> EquatableError {
-        EquatableError(self)
-    }
-}
+//extension Error {
+//    func toEquatableError() -> EquatableError {
+//        EquatableError(self)
+//    }
+//}

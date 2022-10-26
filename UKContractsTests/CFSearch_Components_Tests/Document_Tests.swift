@@ -42,6 +42,62 @@ final class Document_Tests: XCTestCase {
           dateModified: dateModified
    )
 
+  static let document2 = Document(id: "2",
+          documentType: "tenderNotice",
+          documentDescription: "Opportunity notice on Contracts Finder" ,
+          url: "https://www.contractsfinder.service.gov.uk/Notice/a0943966-090b-469d-9756-223cde76a5f2",
+          datePublished: nil,
+          format: "text/html" ,
+          language: "en",
+          dateModified: nil
+   )
+  
+  func test_statics1() throws {
+    let document9 = Document(id: "9",
+            documentType: "tenderNotice",
+            documentDescription: "Opportunity notice on Contracts Finder" ,
+            url: "https://www.contractsfinder.service.gov.uk/Notice/a0943966-090b-469d-9756-223cde76a5f2",
+                             datePublished: Document_Tests.dateModified,
+            format: "text/html" ,
+            language: "en",
+                             dateModified: Document_Tests.datePublished
+     )
+    
+    XCTAssertNotNil(document9)
+  }
+  
+  func test_statics0() throws {
+    let document9 = Document(id: "9",
+            documentType: "tenderNotice",
+            documentDescription: "Opportunity notice on Contracts Finder" ,
+            url: "https://www.contractsfinder.service.gov.uk/Notice/a0943966-090b-469d-9756-223cde76a5f2",
+            datePublished: nil,
+            format: "text/html" ,
+            language: "en",
+            dateModified: nil
+     )
+    
+    XCTAssertNotNil(document9)
+  }
+  
+  func test_NilDates() throws {
+    let sut = Document_Tests.document2
+    
+    XCTAssertNil(sut.datePublished)
+    XCTAssertEqual(sut.formattedDatePublished, "")
+    XCTAssertNil(sut.dateModified)
+    XCTAssertEqual(sut.formattedDateModified, "")
+  }
+  
+  func test_Dates() throws {
+    let sut = Document_Tests.document1
+    
+    XCTAssertEqual(sut.datePublished, TestHelpers.getDateFor("2022-09-01T09:20:00+0000"))
+    XCTAssertEqual(sut.formattedDatePublished, "Thu 1 Sep 2022, 10:20")
+    XCTAssertEqual(sut.dateModified, TestHelpers.getDateFor("2022-10-19T12:30:00+0000"))
+    XCTAssertEqual(sut.formattedDateModified, "Wed 19 Oct 2022, 13:30")
+  }
+  
   func test_Init() throws {
     let sut = Document_Tests.document1
     

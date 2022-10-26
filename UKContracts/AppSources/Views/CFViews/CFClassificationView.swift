@@ -1,5 +1,5 @@
 //
-//  CFClassifacationView.swift
+//  CFClassificationView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 20/10/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CFClassifacationView: View {
+struct CFClassificationView: View {
   var classification : Classification
     var body: some View {
       VStack(spacing: 10) {
@@ -30,7 +30,13 @@ struct CFClassifacationView: View {
 } // struct ClassifacationView
 
 struct ClassifacationView_Previews: PreviewProvider {
+  
+  
+    static let classification1 =
+  Classification(scheme: "CPV", id: "48000000",
+                 classificationDescription: "Software package and information systems")
+  
     static var previews: some View {
-      CFClassifacationView(classification: CFSearch.classification1)
+      CFClassificationView(classification: classification1)
     }
 }

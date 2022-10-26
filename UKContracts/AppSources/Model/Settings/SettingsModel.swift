@@ -44,13 +44,6 @@ struct SettingsModel {
     static let publishedToDate   = "CF.publishedToDate"
   } // keys
   
-  /// Returns an array of the CPV codes that are selected
-  func getIsSelected() -> [String] {
-    
-    return Storage.loadStringArray(data: selectedCPVs)
-  } // func setIsSelected
-  
- 
   //MARK: - Settings Functions
   
   /// Toggles the Award flag

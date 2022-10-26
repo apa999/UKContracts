@@ -20,6 +20,7 @@ class Debouncer<T>: ObservableObject {
   init(initialValue: T, delay: Double = 1) {
     self.input  = initialValue
     self.output = initialValue
+    
     textDebounce = $input
       .debounce(for: .seconds(delay), scheduler: DispatchQueue.main)
       .sink { [weak self] in

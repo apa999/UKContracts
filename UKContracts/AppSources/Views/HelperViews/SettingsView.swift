@@ -37,7 +37,7 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       ZStack {
-        GradientsView()
+        Constants.backgroundColour.ignoresSafeArea()
         
         Form{
           

@@ -10,33 +10,23 @@ import SwiftUI
 struct TelephoneCaller {
   
   /// Telephones the given number
-  static func call(_ phoneNumber: String) {
+  @discardableResult static func call(_ phoneNumber: String) -> Bool {
     
-#if targetEnvironment(simulator)
-          print(Constants.telephoneOnSimulator)
-#else
     let phone = "tel://"
     let phoneNumberformatted = (phone + phoneNumber).filter { !$0.isWhitespace }
+    
+    if phoneNumberformatted.count < 10 {
+      return false
+    }
     
     if let url = URL(string: phoneNumberformatted) {
+#if targetEnvironment(simulator)
+#else
       UIApplication.shared.open(url)
-    } else {
-     print("Invalid number: \(phoneNumberformatted)")
-    }
- #endif
-  } // static func call
-  
-  /// Telephones the given number
-  static func validNumber(_ phoneNumber: String) -> Bool {
-    
-    let phone = "tel://"
-    let phoneNumberformatted = (phone + phoneNumber).filter { !$0.isWhitespace }
-    
-    if let _ = URL(string: phoneNumberformatted) {
+#endif
       return true
     } else {
-     return false
+      return false
     }
-  } // static validNumber()
-  
+  } // static func call
 } // struct TelephoneCaller

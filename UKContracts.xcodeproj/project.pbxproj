@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3311A4B92900668800B14B5F /* CFDocument_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4B82900668800B14B5F /* CFDocument_Tests.swift */; };
-		3311A4BB29011AE000B14B5F /* CFClassifacationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4BA29011AE000B14B5F /* CFClassifacationView.swift */; };
+		3311A4BB29011AE000B14B5F /* CFClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4BA29011AE000B14B5F /* CFClassificationView.swift */; };
 		3311A4BD2901294000B14B5F /* Tender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4BC2901294000B14B5F /* Tender.swift */; };
 		3311A4C0290129F600B14B5F /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4BF290129F600B14B5F /* String-Extensions.swift */; };
 		3311A4C229012DD500B14B5F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A4C129012DD500B14B5F /* Item.swift */; };
@@ -60,19 +60,29 @@
 		3311A52329020BAB00B14B5F /* Period_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A50D29020BAA00B14B5F /* Period_Tests.swift */; };
 		3311A52429020BAB00B14B5F /* ContactPoint_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */; };
 		3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A527290271FC00B14B5F /* TestHelpers.swift */; };
-		3311A52E2902AA0E00B14B5F /* CPV_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A52D2902AA0E00B14B5F /* CPV_Tests.swift */; };
-		3311A5302902AA2400B14B5F /* CPVLoader_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A52F2902AA2400B14B5F /* CPVLoader_Tests.swift */; };
-		3311A5322902AA3A00B14B5F /* CPVModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A5312902AA3A00B14B5F /* CPVModel_Tests.swift */; };
 		3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A54F2902E26900B14B5F /* TelephoneCaller.swift */; };
 		334FEBF52902ED070041F30A /* CFContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FEBF42902ED070041F30A /* CFContacts.swift */; };
+		338404562908E61E006E552F /* URLSession-Extension_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404552908E61E006E552F /* URLSession-Extension_Tests.swift */; };
+		3384045A2908FA51006E552F /* EquatableError_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404592908FA51006E552F /* EquatableError_Tests.swift */; };
+		3384045C29090CF6006E552F /* Debouncer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045B29090CF6006E552F /* Debouncer_Tests.swift */; };
+		3384045E29090FC0006E552F /* DashedLine_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045D29090FC0006E552F /* DashedLine_Tests.swift */; };
+		33840460290910EB006E552F /* Constants_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045F290910EB006E552F /* Constants_Tests.swift */; };
+		3384046329091402006E552F /* CFAwardsView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384046229091402006E552F /* CFAwardsView_Tests.swift */; };
+		3384047129091F93006E552F /* CFMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047029091F93006E552F /* CFMailView.swift */; };
+		3384047329091FA3006E552F /* CFDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047229091FA3006E552F /* CFDocumentView.swift */; };
+		3384047529091FAE006E552F /* CFPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047429091FAE006E552F /* CFPartyView.swift */; };
+		3384047729091FB9006E552F /* CFClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047629091FB9006E552F /* CFClassificationView.swift */; };
+		3384047929091FC1006E552F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047829091FC1006E552F /* CFReleaseView.swift */; };
+		3384047B29091FC8006E552F /* CFTenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047A29091FC8006E552F /* CFTenderView.swift */; };
+		3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047C2909295C006E552F /* SearchOptions_Tests.swift */; };
+		3384048129092E9A006E552F /* CFModifiers_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384048029092E9A006E552F /* CFModifiers_Tests.swift */; };
+		338404822909331A006E552F /* CFSearch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */; };
 		3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */; };
-		3384BF722903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF712903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift */; };
 		3384BF742903C66200BEBD9D /* CFViewModel-ModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */; };
 		3384BF7A2903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */; };
 		3384BF7E290429B700BEBD9D /* CFModel-SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */; };
 		3384BF80290429EE00BEBD9D /* CFModel-Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF7F290429EE00BEBD9D /* CFModel-Stage.swift */; };
 		3384BF82290430A300BEBD9D /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF81290430A300BEBD9D /* Date-Extension.swift */; };
-		3384BF8629044B4200BEBD9D /* CFReleaseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF8529044B4200BEBD9D /* CFReleaseFormatter.swift */; };
 		3384BF892904F9AB00BEBD9D /* CFContacts_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF882904F9AB00BEBD9D /* CFContacts_Tests.swift */; };
 		3384BF8B290500AA00BEBD9D /* StatusModifier_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF8A290500AA00BEBD9D /* StatusModifier_Tests.swift */; };
 		3384BF8D2905040600BEBD9D /* Date-Extensions_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF8C2905040600BEBD9D /* Date-Extensions_Tests.swift */; };
@@ -91,16 +101,13 @@
 		33B427BD28FF28BA00B2165F /* CFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427BC28FF28BA00B2165F /* CFViewModel.swift */; };
 		33B427BF28FF28D300B2165F /* CFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427BE28FF28D300B2165F /* CFModel.swift */; };
 		33B427C128FF292700B2165F /* URLSession-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C028FF292700B2165F /* URLSession-Extension.swift */; };
-		33B427C528FF2AA800B2165F /* CFSearch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */; };
 		33B427C728FF2C9200B2165F /* CFModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C628FF2C9200B2165F /* CFModel_Tests.swift */; };
 		33B427C928FFB86100B2165F /* DummyDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C828FFB86100B2165F /* DummyDataLoader.swift */; };
 		33B427CB28FFBFBA00B2165F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427CA28FFBFBA00B2165F /* TestData.swift */; };
 		33B427CD28FFC30900B2165F /* CFViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */; };
 		33B427CF28FFC7A700B2165F /* EquatableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427CE28FFC7A700B2165F /* EquatableError.swift */; };
-		33B427DC28FFDDE200B2165F /* GradientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427DB28FFDDE200B2165F /* GradientsView.swift */; };
 		33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427DD28FFDE1C00B2165F /* SettingsView.swift */; };
 		33B427E128FFDE5A00B2165F /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E028FFDE5A00B2165F /* SettingsModel.swift */; };
-		33B427E328FFDE7000B2165F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427E228FFDE7000B2165F /* Storage.swift */; };
 		33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427F128FFE1D500B2165F /* Debouncer.swift */; };
 		33B427F428FFE5B200B2165F /* CpvCodes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 33B427F328FFE5B200B2165F /* CpvCodes.csv */; };
 		33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280229005E0E00B2165F /* CFReleaseView.swift */; };
@@ -127,7 +134,7 @@
 
 /* Begin PBXFileReference section */
 		3311A4B82900668800B14B5F /* CFDocument_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDocument_Tests.swift; sourceTree = "<group>"; };
-		3311A4BA29011AE000B14B5F /* CFClassifacationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFClassifacationView.swift; sourceTree = "<group>"; };
+		3311A4BA29011AE000B14B5F /* CFClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFClassificationView.swift; sourceTree = "<group>"; };
 		3311A4BC2901294000B14B5F /* Tender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tender.swift; sourceTree = "<group>"; };
 		3311A4BF290129F600B14B5F /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
 		3311A4C129012DD500B14B5F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -179,13 +186,23 @@
 		3311A50D29020BAA00B14B5F /* Period_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period_Tests.swift; sourceTree = "<group>"; };
 		3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPoint_Tests.swift; sourceTree = "<group>"; };
 		3311A527290271FC00B14B5F /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
-		3311A52D2902AA0E00B14B5F /* CPV_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPV_Tests.swift; sourceTree = "<group>"; };
-		3311A52F2902AA2400B14B5F /* CPVLoader_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVLoader_Tests.swift; sourceTree = "<group>"; };
-		3311A5312902AA3A00B14B5F /* CPVModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVModel_Tests.swift; sourceTree = "<group>"; };
 		3311A54F2902E26900B14B5F /* TelephoneCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneCaller.swift; sourceTree = "<group>"; };
 		334FEBF42902ED070041F30A /* CFContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContacts.swift; sourceTree = "<group>"; };
+		338404552908E61E006E552F /* URLSession-Extension_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession-Extension_Tests.swift"; sourceTree = "<group>"; };
+		338404592908FA51006E552F /* EquatableError_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquatableError_Tests.swift; sourceTree = "<group>"; };
+		3384045B29090CF6006E552F /* Debouncer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer_Tests.swift; sourceTree = "<group>"; };
+		3384045D29090FC0006E552F /* DashedLine_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine_Tests.swift; sourceTree = "<group>"; };
+		3384045F290910EB006E552F /* Constants_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants_Tests.swift; sourceTree = "<group>"; };
+		3384046229091402006E552F /* CFAwardsView_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAwardsView_Tests.swift; sourceTree = "<group>"; };
+		3384047029091F93006E552F /* CFMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFMailView.swift; sourceTree = "<group>"; };
+		3384047229091FA3006E552F /* CFDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDocumentView.swift; sourceTree = "<group>"; };
+		3384047429091FAE006E552F /* CFPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFPartyView.swift; sourceTree = "<group>"; };
+		3384047629091FB9006E552F /* CFClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFClassificationView.swift; sourceTree = "<group>"; };
+		3384047829091FC1006E552F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
+		3384047A29091FC8006E552F /* CFTenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView.swift; sourceTree = "<group>"; };
+		3384047C2909295C006E552F /* SearchOptions_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions_Tests.swift; sourceTree = "<group>"; };
+		3384048029092E9A006E552F /* CFModifiers_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFModifiers_Tests.swift; sourceTree = "<group>"; };
 		3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-CPVExtenstion.swift"; sourceTree = "<group>"; };
-		3384BF712903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-SettingsExtension.swift"; sourceTree = "<group>"; };
 		3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-ModelExtension.swift"; sourceTree = "<group>"; };
 		3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestData-HundredReleasesExtension.swift"; sourceTree = "<group>"; };
 		3384BF7B29041ED000BEBD9D /* HundredReleaseTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HundredReleaseTitles.md; sourceTree = "<group>"; };
@@ -193,7 +210,6 @@
 		3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFModel-SearchOptions.swift"; sourceTree = "<group>"; };
 		3384BF7F290429EE00BEBD9D /* CFModel-Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFModel-Stage.swift"; sourceTree = "<group>"; };
 		3384BF81290430A300BEBD9D /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
-		3384BF8529044B4200BEBD9D /* CFReleaseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseFormatter.swift; sourceTree = "<group>"; };
 		3384BF882904F9AB00BEBD9D /* CFContacts_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContacts_Tests.swift; sourceTree = "<group>"; };
 		3384BF8A290500AA00BEBD9D /* StatusModifier_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModifier_Tests.swift; sourceTree = "<group>"; };
 		3384BF8C2905040600BEBD9D /* Date-Extensions_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extensions_Tests.swift"; sourceTree = "<group>"; };
@@ -221,10 +237,8 @@
 		33B427CA28FFBFBA00B2165F /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFViewModel_Tests.swift; sourceTree = "<group>"; };
 		33B427CE28FFC7A700B2165F /* EquatableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquatableError.swift; sourceTree = "<group>"; };
-		33B427DB28FFDDE200B2165F /* GradientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientsView.swift; sourceTree = "<group>"; };
 		33B427DD28FFDE1C00B2165F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		33B427E028FFDE5A00B2165F /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		33B427E228FFDE7000B2165F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		33B427F128FFE1D500B2165F /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		33B427F328FFE5B200B2165F /* CpvCodes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CpvCodes.csv; sourceTree = "<group>"; };
 		33B4280229005E0E00B2165F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
@@ -289,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				3311A4BE2901297A00B14B5F /* CFSearch-Components */,
-				33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */,
 				33B427B828FF285500B2165F /* CFSearch.swift */,
 			);
 			path = CFSearch;
@@ -298,17 +311,21 @@
 		3311A525290271C200B14B5F /* CFSearch_Components_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */,
 				3311A4FD29020BA900B14B5F /* Address_Tests.swift */,
 				3311A50129020BA900B14B5F /* Award_Tests.swift */,
 				3311A4FB29020BA900B14B5F /* Budget_Tests.swift */,
 				3311A50029020BA900B14B5F /* Buyer_Tests.swift */,
+				3311A4B82900668800B14B5F /* CFDocument_Tests.swift */,
 				3311A4F929020BA900B14B5F /* CFSearchTestData.swift */,
+				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
 				3311A4FA29020BA900B14B5F /* Classification_Tests.swift */,
 				3311A50929020BAA00B14B5F /* Communication_Tests.swift */,
 				3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */,
 				3311A50629020BAA00B14B5F /* DeliveryAddress_Tests.swift */,
 				3311A50C29020BAA00B14B5F /* Details_Tests.swift */,
 				3311A4FC29020BA900B14B5F /* Document_Tests.swift */,
+				33B427C828FFB86100B2165F /* DummyDataLoader.swift */,
 				3311A50229020BAA00B14B5F /* Identifier_Tests.swift */,
 				3311A4FE29020BA900B14B5F /* Item_Tests.swift */,
 				3311A4FF29020BA900B14B5F /* Links_Tests.swift */,
@@ -318,11 +335,9 @@
 				3311A50329020BAA00B14B5F /* Planning_Tests.swift */,
 				3311A50729020BAA00B14B5F /* Publisher_Tests.swift */,
 				3311A50829020BAA00B14B5F /* Release_Tests.swift */,
+				3384047C2909295C006E552F /* SearchOptions_Tests.swift */,
 				3311A50A29020BAA00B14B5F /* Suitability_Tests.swift */,
 				3311A50B29020BAA00B14B5F /* Tender_Tests.swift */,
-				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
-				3311A4B82900668800B14B5F /* CFDocument_Tests.swift */,
-				33B427C828FFB86100B2165F /* DummyDataLoader.swift */,
 				33B4279628FF27CD00B2165F /* UKContractsTests.swift */,
 			);
 			path = CFSearch_Components_Tests;
@@ -336,20 +351,9 @@
 			path = TestHelpers;
 			sourceTree = "<group>";
 		};
-		3311A52C2902A9DF00B14B5F /* CPV_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				3311A52D2902AA0E00B14B5F /* CPV_Tests.swift */,
-				3311A52F2902AA2400B14B5F /* CPVLoader_Tests.swift */,
-				3311A5312902AA3A00B14B5F /* CPVModel_Tests.swift */,
-			);
-			path = CPV_Tests;
-			sourceTree = "<group>";
-		};
 		338404532908E001006E552F /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
-				33B427DB28FFDDE200B2165F /* GradientsView.swift */,
 				33B427DD28FFDE1C00B2165F /* SettingsView.swift */,
 			);
 			path = HelperViews;
@@ -361,6 +365,20 @@
 				33B4278728FF27CC00B2165F /* ContentView.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		33840461290913DF006E552F /* CFViews */ = {
+			isa = PBXGroup;
+			children = (
+				3384046229091402006E552F /* CFAwardsView_Tests.swift */,
+				3384047029091F93006E552F /* CFMailView.swift */,
+				3384047229091FA3006E552F /* CFDocumentView.swift */,
+				3384047429091FAE006E552F /* CFPartyView.swift */,
+				3384047629091FB9006E552F /* CFClassificationView.swift */,
+				3384047829091FC1006E552F /* CFReleaseView.swift */,
+				3384047A29091FC8006E552F /* CFTenderView.swift */,
+			);
+			path = CFViews;
 			sourceTree = "<group>";
 		};
 		3384BF752903E7EB00BEBD9D /* CFModel_Tests */ = {
@@ -387,9 +405,15 @@
 			children = (
 				3384BF882904F9AB00BEBD9D /* CFContacts_Tests.swift */,
 				3384BF8C2905040600BEBD9D /* Date-Extensions_Tests.swift */,
+				3384045B29090CF6006E552F /* Debouncer_Tests.swift */,
+				338404592908FA51006E552F /* EquatableError_Tests.swift */,
 				3384BF8A290500AA00BEBD9D /* StatusModifier_Tests.swift */,
 				3384BF8E2905075500BEBD9D /* String-Extensions_Tests.swift */,
 				3384BF90290508CB00BEBD9D /* TelephoneCaller_Tests.swift */,
+				338404552908E61E006E552F /* URLSession-Extension_Tests.swift */,
+				3384045D29090FC0006E552F /* DashedLine_Tests.swift */,
+				3384045F290910EB006E552F /* Constants_Tests.swift */,
+				3384048029092E9A006E552F /* CFModifiers_Tests.swift */,
 			);
 			path = CFHelpers_Tests;
 			sourceTree = "<group>";
@@ -444,13 +468,13 @@
 		33B4279528FF27CD00B2165F /* UKContractsTests */ = {
 			isa = PBXGroup;
 			children = (
-				3384BF92290546EF00BEBD9D /* Settings_Tests */,
 				3384BF872904F97E00BEBD9D /* CFHelpers_Tests */,
-				3384BF782903EC3B00BEBD9D /* TestData */,
 				3384BF752903E7EB00BEBD9D /* CFModel_Tests */,
-				3311A52C2902A9DF00B14B5F /* CPV_Tests */,
-				3311A526290271E600B14B5F /* TestHelpers */,
 				3311A525290271C200B14B5F /* CFSearch_Components_Tests */,
+				33840461290913DF006E552F /* CFViews */,
+				3384BF92290546EF00BEBD9D /* Settings_Tests */,
+				3384BF782903EC3B00BEBD9D /* TestData */,
+				3311A526290271E600B14B5F /* TestHelpers */,
 			);
 			path = UKContractsTests;
 			sourceTree = "<group>";
@@ -507,7 +531,6 @@
 			children = (
 				33B427BC28FF28BA00B2165F /* CFViewModel.swift */,
 				3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */,
-				3384BF712903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift */,
 				3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */,
 			);
 			path = ViewModel;
@@ -518,7 +541,6 @@
 			children = (
 				334FEBF42902ED070041F30A /* CFContacts.swift */,
 				3311A4EE2901733F00B14B5F /* CFModifiers.swift */,
-				3384BF8529044B4200BEBD9D /* CFReleaseFormatter.swift */,
 				3311A4CF290143DE00B14B5F /* CFSearchTestData.swift */,
 				33B427BA28FF286400B2165F /* Constants.swift */,
 				3311A4F42901C28D00B14B5F /* DashedLine.swift */,
@@ -556,7 +578,6 @@
 			isa = PBXGroup;
 			children = (
 				33B427E028FFDE5A00B2165F /* SettingsModel.swift */,
-				33B427E228FFDE7000B2165F /* Storage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -570,7 +591,7 @@
 				3311A4F0290182CC00B14B5F /* CFPartyView.swift */,
 				33B4280229005E0E00B2165F /* CFReleaseView.swift */,
 				33B4280629005E5200B2165F /* CFTenderView.swift */,
-				3311A4BA29011AE000B14B5F /* CFClassifacationView.swift */,
+				3311A4BA29011AE000B14B5F /* CFClassificationView.swift */,
 			);
 			path = CFViews;
 			sourceTree = "<group>";
@@ -706,7 +727,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B427DC28FFDDE200B2165F /* GradientsView.swift in Sources */,
 				3384BF7E290429B700BEBD9D /* CFModel-SearchOptions.swift in Sources */,
 				3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */,
 				3311A4E329014D5500B14B5F /* Identifier.swift in Sources */,
@@ -719,7 +739,6 @@
 				3311A4E129014D3E00B14B5F /* Planning.swift in Sources */,
 				3311A4C229012DD500B14B5F /* Item.swift in Sources */,
 				3311A4DF29014D2F00B14B5F /* Communication.swift in Sources */,
-				33B427E328FFDE7000B2165F /* Storage.swift in Sources */,
 				33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */,
 				3311A4C429012DFE00B14B5F /* DeliveryAddress.swift in Sources */,
 				3311A4D529014C4F00B14B5F /* Party.swift in Sources */,
@@ -735,13 +754,11 @@
 				33B427B928FF285500B2165F /* CFSearch.swift in Sources */,
 				3311A4C6290130D500B14B5F /* Document.swift in Sources */,
 				3311A4EB29014D9E00B14B5F /* Buyer.swift in Sources */,
-				33B427C528FF2AA800B2165F /* CFSearch-Extension.swift in Sources */,
 				3311A4D929014CA200B14B5F /* Classification.swift in Sources */,
 				3311A4F3290195C300B14B5F /* CFAwardsView.swift in Sources */,
 				334FEBF52902ED070041F30A /* CFContacts.swift in Sources */,
 				3311A4F72901EA4800B14B5F /* CFMailView.swift in Sources */,
 				3384BF742903C66200BEBD9D /* CFViewModel-ModelExtension.swift in Sources */,
-				3384BF722903C5FC00BEBD9D /* CFViewModel-SettingsExtension.swift in Sources */,
 				3311A4F52901C28D00B14B5F /* DashedLine.swift in Sources */,
 				3311A4E729014D7600B14B5F /* ContactPoint.swift in Sources */,
 				33B427BB28FF286400B2165F /* Constants.swift in Sources */,
@@ -750,11 +767,10 @@
 				3311A4CA29013A7300B14B5F /* Award.swift in Sources */,
 				3311A4C829013A5A00B14B5F /* Release.swift in Sources */,
 				33B427BD28FF28BA00B2165F /* CFViewModel.swift in Sources */,
-				3384BF8629044B4200BEBD9D /* CFReleaseFormatter.swift in Sources */,
 				3311A4BD2901294000B14B5F /* Tender.swift in Sources */,
 				33B4280529005E3E00B2165F /* CFDocumentView.swift in Sources */,
 				3311A4C0290129F600B14B5F /* String-Extensions.swift in Sources */,
-				3311A4BB29011AE000B14B5F /* CFClassifacationView.swift in Sources */,
+				3311A4BB29011AE000B14B5F /* CFClassificationView.swift in Sources */,
 				33B427CF28FFC7A700B2165F /* EquatableError.swift in Sources */,
 				3311A4E929014D9200B14B5F /* MinValue.swift in Sources */,
 				3311A4D12901445B00B14B5F /* CFSearchTestData.swift in Sources */,
@@ -771,29 +787,39 @@
 				3311A51D29020BAB00B14B5F /* Publisher_Tests.swift in Sources */,
 				3384BF91290508CB00BEBD9D /* TelephoneCaller_Tests.swift in Sources */,
 				33B427C728FF2C9200B2165F /* CFModel_Tests.swift in Sources */,
+				3384047B29091FC8006E552F /* CFTenderView.swift in Sources */,
+				3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */,
 				3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */,
+				338404562908E61E006E552F /* URLSession-Extension_Tests.swift in Sources */,
 				3384BF8F2905075500BEBD9D /* String-Extensions_Tests.swift in Sources */,
 				3384BF892904F9AB00BEBD9D /* CFContacts_Tests.swift in Sources */,
 				3311A51729020BAB00B14B5F /* Award_Tests.swift in Sources */,
 				3311A51A29020BAB00B14B5F /* MinValue_Tests.swift in Sources */,
+				3384046329091402006E552F /* CFAwardsView_Tests.swift in Sources */,
 				3384BF8B290500AA00BEBD9D /* StatusModifier_Tests.swift in Sources */,
 				3384BF8D2905040600BEBD9D /* Date-Extensions_Tests.swift in Sources */,
 				3311A51F29020BAB00B14B5F /* Communication_Tests.swift in Sources */,
+				3384045E29090FC0006E552F /* DashedLine_Tests.swift in Sources */,
 				33B427C928FFB86100B2165F /* DummyDataLoader.swift in Sources */,
+				3384047529091FAE006E552F /* CFPartyView.swift in Sources */,
 				3311A51529020BAB00B14B5F /* Links_Tests.swift in Sources */,
 				3311A51229020BAB00B14B5F /* Document_Tests.swift in Sources */,
 				3311A51129020BAB00B14B5F /* Budget_Tests.swift in Sources */,
 				3384BF7A2903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift in Sources */,
 				3311A51829020BAB00B14B5F /* Identifier_Tests.swift in Sources */,
-				3311A52E2902AA0E00B14B5F /* CPV_Tests.swift in Sources */,
+				3384048129092E9A006E552F /* CFModifiers_Tests.swift in Sources */,
 				3311A51929020BAB00B14B5F /* Planning_Tests.swift in Sources */,
 				3311A51629020BAB00B14B5F /* Buyer_Tests.swift in Sources */,
+				3384045A2908FA51006E552F /* EquatableError_Tests.swift in Sources */,
 				3311A51C29020BAB00B14B5F /* DeliveryAddress_Tests.swift in Sources */,
-				3311A5302902AA2400B14B5F /* CPVLoader_Tests.swift in Sources */,
 				3311A51429020BAB00B14B5F /* Item_Tests.swift in Sources */,
+				3384047929091FC1006E552F /* CFReleaseView.swift in Sources */,
+				33840460290910EB006E552F /* Constants_Tests.swift in Sources */,
 				3311A50F29020BAB00B14B5F /* CFSearchTestData.swift in Sources */,
+				3384045C29090CF6006E552F /* Debouncer_Tests.swift in Sources */,
 				3311A52129020BAB00B14B5F /* Tender_Tests.swift in Sources */,
 				3311A52029020BAB00B14B5F /* Suitability_Tests.swift in Sources */,
+				3384047329091FA3006E552F /* CFDocumentView.swift in Sources */,
 				3311A52329020BAB00B14B5F /* Period_Tests.swift in Sources */,
 				3311A51029020BAB00B14B5F /* Classification_Tests.swift in Sources */,
 				3311A51E29020BAB00B14B5F /* Release_Tests.swift in Sources */,
@@ -801,12 +827,14 @@
 				33B427CD28FFC30900B2165F /* CFViewModel_Tests.swift in Sources */,
 				33B4279728FF27CD00B2165F /* UKContractsTests.swift in Sources */,
 				3311A52429020BAB00B14B5F /* ContactPoint_Tests.swift in Sources */,
-				3311A5322902AA3A00B14B5F /* CPVModel_Tests.swift in Sources */,
 				3384BF942905470C00BEBD9D /* Settings_Tests.swift in Sources */,
 				3311A51B29020BAB00B14B5F /* Party_Tests.swift in Sources */,
 				33B427CB28FFBFBA00B2165F /* TestData.swift in Sources */,
 				3311A52229020BAB00B14B5F /* Details_Tests.swift in Sources */,
 				3311A51329020BAB00B14B5F /* Address_Tests.swift in Sources */,
+				338404822909331A006E552F /* CFSearch-Extension.swift in Sources */,
+				3384047129091F93006E552F /* CFMailView.swift in Sources */,
+				3384047729091FB9006E552F /* CFClassificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

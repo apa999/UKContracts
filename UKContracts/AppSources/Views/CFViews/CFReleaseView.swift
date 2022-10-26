@@ -191,11 +191,11 @@ struct CFReleaseView: View {
   
 } // CFDetailView
 
-struct CFDetailView_Previews: PreviewProvider {
-  
-  static let cfSearch = CFSearch.getTestCFSearch()
-  static var previews: some View {
-    CFReleaseView(release: cfSearch.releases!.first!)
-  }
-}
+//struct CFDetailView_Previews: PreviewProvider {
+//  
+//  static let cfSearch = CFSearch.getTestCFSearch()
+//  static var previews: some View {
+//    CFReleaseView(release: cfSearch.releases!.first!)
+//  }
+//}
 

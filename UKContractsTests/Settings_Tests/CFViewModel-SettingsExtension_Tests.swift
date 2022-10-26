@@ -1,19 +1,20 @@
 //
-//  TelephoneCaller_Tests.swift
+//  CFViewModel-SettingsExtension_Tests.swift
 //  UKContractsTests
 //
-//  Created by Anthony Abbott on 23/10/2022.
+//  Created by Anthony Abbott on 26/10/2022.
 //
 
 import XCTest
 @testable import UKContracts
 
-final class TelephoneCaller_Tests: XCTestCase {
+final class CFViewModel_SettingsExtension_Tests: XCTestCase {
   
-  func test_telephone() throws {
+  func test_settingsExtension() throws {
+    /// Get the Settings Model
+    let sut = SettingsModel()
     
-    XCTAssertTrue(TelephoneCaller.call("01214503929"))
-    XCTAssertFalse(TelephoneCaller.call(""))
+    
   }
   
   override func setUpWithError() throws {
@@ -23,4 +24,6 @@ final class TelephoneCaller_Tests: XCTestCase {
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
+  
+  
 }

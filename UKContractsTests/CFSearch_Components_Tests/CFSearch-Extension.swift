@@ -5,9 +5,13 @@
 //  Created by Anthony Abbott on 18/10/2022.
 //
 
-import Foundation
+import XCTest
+@testable import UKContracts
 
 /// Static data and function for testing only
+///
+
+
 extension CFSearch {
   
   

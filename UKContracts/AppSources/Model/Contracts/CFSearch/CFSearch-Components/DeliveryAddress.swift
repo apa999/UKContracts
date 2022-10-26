@@ -25,7 +25,11 @@ struct DeliveryAddress : Codable, Hashable {
     }
     
     if let region, region.count > 0 {
-      address = (postalCode?.count ?? 0 > 0 || countryName?.count ?? 0 > 0) ? "\(region), \(address)" : region
+    
+      if address.count > 0 {
+        
+      }
+      address =  address.count > 0 ? "\(region), \(address)" : "\(region)"
     }
     
     return address

@@ -17,6 +17,12 @@ import XCTest
 
 final class Communication_Tests: XCTestCase {
   
+  func test_c() throws {
+    let sut = Communication(futureNoticeDate: nil)
+    
+    XCTAssertEqual(sut.formattedFutureNoticeDate, "")
+  }
+  
   func test_Init() throws {
     let futureNoticeDate = TestHelpers.getDateFor("2022-10-19T09:20:00+0000")
     let sut = Communication(futureNoticeDate: futureNoticeDate)
