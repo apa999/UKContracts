@@ -68,7 +68,6 @@
 		3384045E29090FC0006E552F /* DashedLine_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045D29090FC0006E552F /* DashedLine_Tests.swift */; };
 		33840460290910EB006E552F /* Constants_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045F290910EB006E552F /* Constants_Tests.swift */; };
 		3384046329091402006E552F /* CFAwardsView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384046229091402006E552F /* CFAwardsView_Tests.swift */; };
-		3384047129091F93006E552F /* CFMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047029091F93006E552F /* CFMailView.swift */; };
 		3384047329091FA3006E552F /* CFDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047229091FA3006E552F /* CFDocumentView.swift */; };
 		3384047529091FAE006E552F /* CFPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047429091FAE006E552F /* CFPartyView.swift */; };
 		3384047729091FB9006E552F /* CFClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047629091FB9006E552F /* CFClassificationView.swift */; };
@@ -77,7 +76,6 @@
 		3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047C2909295C006E552F /* SearchOptions_Tests.swift */; };
 		3384048129092E9A006E552F /* CFModifiers_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384048029092E9A006E552F /* CFModifiers_Tests.swift */; };
 		338404822909331A006E552F /* CFSearch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */; };
-		3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */; };
 		3384BF742903C66200BEBD9D /* CFViewModel-ModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */; };
 		3384BF7A2903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */; };
 		3384BF7E290429B700BEBD9D /* CFModel-SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384BF7D290429B700BEBD9D /* CFModel-SearchOptions.swift */; };
@@ -113,6 +111,9 @@
 		33B4280329005E0E00B2165F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280229005E0E00B2165F /* CFReleaseView.swift */; };
 		33B4280529005E3E00B2165F /* CFDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280429005E3E00B2165F /* CFDocumentView.swift */; };
 		33B4280729005E5200B2165F /* CFTenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4280629005E5200B2165F /* CFTenderView.swift */; };
+		33EAB4F9290ABFBB00EAA97C /* Deboucer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4F7290ABFBB00EAA97C /* Deboucer_Tests.swift */; };
+		33EAB4FA290ABFBB00EAA97C /* CFMailView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */; };
+		33EAB4FC290ABFEF00EAA97C /* CFMailViewTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,7 +195,6 @@
 		3384045D29090FC0006E552F /* DashedLine_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine_Tests.swift; sourceTree = "<group>"; };
 		3384045F290910EB006E552F /* Constants_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants_Tests.swift; sourceTree = "<group>"; };
 		3384046229091402006E552F /* CFAwardsView_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAwardsView_Tests.swift; sourceTree = "<group>"; };
-		3384047029091F93006E552F /* CFMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFMailView.swift; sourceTree = "<group>"; };
 		3384047229091FA3006E552F /* CFDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDocumentView.swift; sourceTree = "<group>"; };
 		3384047429091FAE006E552F /* CFPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFPartyView.swift; sourceTree = "<group>"; };
 		3384047629091FB9006E552F /* CFClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFClassificationView.swift; sourceTree = "<group>"; };
@@ -202,7 +202,6 @@
 		3384047A29091FC8006E552F /* CFTenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView.swift; sourceTree = "<group>"; };
 		3384047C2909295C006E552F /* SearchOptions_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions_Tests.swift; sourceTree = "<group>"; };
 		3384048029092E9A006E552F /* CFModifiers_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFModifiers_Tests.swift; sourceTree = "<group>"; };
-		3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-CPVExtenstion.swift"; sourceTree = "<group>"; };
 		3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-ModelExtension.swift"; sourceTree = "<group>"; };
 		3384BF792903EC6600BEBD9D /* TestData-HundredReleasesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestData-HundredReleasesExtension.swift"; sourceTree = "<group>"; };
 		3384BF7B29041ED000BEBD9D /* HundredReleaseTitles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HundredReleaseTitles.md; sourceTree = "<group>"; };
@@ -244,6 +243,9 @@
 		33B4280229005E0E00B2165F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
 		33B4280429005E3E00B2165F /* CFDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFDocumentView.swift; sourceTree = "<group>"; };
 		33B4280629005E5200B2165F /* CFTenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView.swift; sourceTree = "<group>"; };
+		33EAB4F7290ABFBB00EAA97C /* Deboucer_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deboucer_Tests.swift; sourceTree = "<group>"; };
+		33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailView_Tests.swift; sourceTree = "<group>"; };
+		33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailViewTester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				3384046229091402006E552F /* CFAwardsView_Tests.swift */,
-				3384047029091F93006E552F /* CFMailView.swift */,
 				3384047229091FA3006E552F /* CFDocumentView.swift */,
 				3384047429091FAE006E552F /* CFPartyView.swift */,
 				3384047629091FB9006E552F /* CFClassificationView.swift */,
@@ -403,6 +404,8 @@
 		3384BF872904F97E00BEBD9D /* CFHelpers_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */,
+				33EAB4F7290ABFBB00EAA97C /* Deboucer_Tests.swift */,
 				3384BF882904F9AB00BEBD9D /* CFContacts_Tests.swift */,
 				3384BF8C2905040600BEBD9D /* Date-Extensions_Tests.swift */,
 				3384045B29090CF6006E552F /* Debouncer_Tests.swift */,
@@ -530,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				33B427BC28FF28BA00B2165F /* CFViewModel.swift */,
-				3384BF6F2903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift */,
 				3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */,
 			);
 			path = ViewModel;
@@ -588,6 +590,7 @@
 				3311A4F2290195C300B14B5F /* CFAwardsView.swift */,
 				33B4280429005E3E00B2165F /* CFDocumentView.swift */,
 				3311A4F62901EA4800B14B5F /* CFMailView.swift */,
+				33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */,
 				3311A4F0290182CC00B14B5F /* CFPartyView.swift */,
 				33B4280229005E0E00B2165F /* CFReleaseView.swift */,
 				33B4280629005E5200B2165F /* CFTenderView.swift */,
@@ -746,7 +749,6 @@
 				3384BF80290429EE00BEBD9D /* CFModel-Stage.swift in Sources */,
 				33B4278828FF27CC00B2165F /* ContentView.swift in Sources */,
 				3311A4F1290182CC00B14B5F /* CFPartyView.swift in Sources */,
-				3384BF702903B6A300BEBD9D /* CFViewModel-CPVExtenstion.swift in Sources */,
 				33B4278628FF27CC00B2165F /* UKContractsApp.swift in Sources */,
 				3311A4DD29014D1900B14B5F /* Suitability.swift in Sources */,
 				3311A4DB29014CED00B14B5F /* Address.swift in Sources */,
@@ -755,6 +757,7 @@
 				3311A4C6290130D500B14B5F /* Document.swift in Sources */,
 				3311A4EB29014D9E00B14B5F /* Buyer.swift in Sources */,
 				3311A4D929014CA200B14B5F /* Classification.swift in Sources */,
+				33EAB4FC290ABFEF00EAA97C /* CFMailViewTester.swift in Sources */,
 				3311A4F3290195C300B14B5F /* CFAwardsView.swift in Sources */,
 				334FEBF52902ED070041F30A /* CFContacts.swift in Sources */,
 				3311A4F72901EA4800B14B5F /* CFMailView.swift in Sources */,
@@ -788,6 +791,7 @@
 				3384BF91290508CB00BEBD9D /* TelephoneCaller_Tests.swift in Sources */,
 				33B427C728FF2C9200B2165F /* CFModel_Tests.swift in Sources */,
 				3384047B29091FC8006E552F /* CFTenderView.swift in Sources */,
+				33EAB4FA290ABFBB00EAA97C /* CFMailView_Tests.swift in Sources */,
 				3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */,
 				3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */,
 				338404562908E61E006E552F /* URLSession-Extension_Tests.swift in Sources */,
@@ -833,7 +837,7 @@
 				3311A52229020BAB00B14B5F /* Details_Tests.swift in Sources */,
 				3311A51329020BAB00B14B5F /* Address_Tests.swift in Sources */,
 				338404822909331A006E552F /* CFSearch-Extension.swift in Sources */,
-				3384047129091F93006E552F /* CFMailView.swift in Sources */,
+				33EAB4F9290ABFBB00EAA97C /* Deboucer_Tests.swift in Sources */,
 				3384047729091FB9006E552F /* CFClassificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
