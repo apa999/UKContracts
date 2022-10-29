@@ -30,6 +30,8 @@ struct CFReleaseView: View {
   
   @Environment(\.presentationMode) var presentationMode
   
+//  @Binding var showingRelease: Bool
+  
   /// True when the tender details view is visible
   @State private var showingTender = false
   
@@ -62,6 +64,10 @@ struct CFReleaseView: View {
       .padding(.horizontal)
       .foregroundColor(Constants.textColor)
     } // ZStack
+    
+//    .onAppear {
+//      showingRelease = true
+//    }
     
     /// We can dismiss the screen by dragging from the left,
     /// but I find this awkward

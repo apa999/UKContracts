@@ -58,8 +58,8 @@ class CFViewModel: ObservableObject {
           cfModel.modelStatus = .loaded
         } catch {
           cfModel.modelStatus = .loadingError
-          viewModelStatus = .dataLoadFailed(error: EquatableError(error))
-          cfModel.cfSearch = cfSearch
+          viewModelStatus     = .dataLoadFailed(error: EquatableError(error))
+          cfModel.cfSearch    = cfSearch
         } // catch
       } // Task
     } else {

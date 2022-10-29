@@ -62,6 +62,7 @@
 		3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A527290271FC00B14B5F /* TestHelpers.swift */; };
 		3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A54F2902E26900B14B5F /* TelephoneCaller.swift */; };
 		334FEBF52902ED070041F30A /* CFContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FEBF42902ED070041F30A /* CFContacts.swift */; };
+		3355B623290D2BF6007FA9C4 /* CFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3355B622290D2BF6007FA9C4 /* CFListView.swift */; };
 		338404562908E61E006E552F /* URLSession-Extension_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404552908E61E006E552F /* URLSession-Extension_Tests.swift */; };
 		3384045A2908FA51006E552F /* EquatableError_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404592908FA51006E552F /* EquatableError_Tests.swift */; };
 		3384045C29090CF6006E552F /* Debouncer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384045B29090CF6006E552F /* Debouncer_Tests.swift */; };
@@ -189,6 +190,7 @@
 		3311A527290271FC00B14B5F /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		3311A54F2902E26900B14B5F /* TelephoneCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneCaller.swift; sourceTree = "<group>"; };
 		334FEBF42902ED070041F30A /* CFContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContacts.swift; sourceTree = "<group>"; };
+		3355B622290D2BF6007FA9C4 /* CFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFListView.swift; sourceTree = "<group>"; };
 		338404552908E61E006E552F /* URLSession-Extension_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession-Extension_Tests.swift"; sourceTree = "<group>"; };
 		338404592908FA51006E552F /* EquatableError_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquatableError_Tests.swift; sourceTree = "<group>"; };
 		3384045B29090CF6006E552F /* Debouncer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer_Tests.swift; sourceTree = "<group>"; };
@@ -588,13 +590,14 @@
 			isa = PBXGroup;
 			children = (
 				3311A4F2290195C300B14B5F /* CFAwardsView.swift */,
+				3311A4BA29011AE000B14B5F /* CFClassificationView.swift */,
 				33B4280429005E3E00B2165F /* CFDocumentView.swift */,
+				3355B622290D2BF6007FA9C4 /* CFListView.swift */,
 				3311A4F62901EA4800B14B5F /* CFMailView.swift */,
 				33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */,
 				3311A4F0290182CC00B14B5F /* CFPartyView.swift */,
 				33B4280229005E0E00B2165F /* CFReleaseView.swift */,
 				33B4280629005E5200B2165F /* CFTenderView.swift */,
-				3311A4BA29011AE000B14B5F /* CFClassificationView.swift */,
 			);
 			path = CFViews;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				3311A4E729014D7600B14B5F /* ContactPoint.swift in Sources */,
 				33B427BB28FF286400B2165F /* Constants.swift in Sources */,
 				3384BF82290430A300BEBD9D /* Date-Extension.swift in Sources */,
+				3355B623290D2BF6007FA9C4 /* CFListView.swift in Sources */,
 				33B427DE28FFDE1C00B2165F /* SettingsView.swift in Sources */,
 				3311A4CA29013A7300B14B5F /* Award.swift in Sources */,
 				3311A4C829013A5A00B14B5F /* Release.swift in Sources */,
@@ -987,7 +991,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"UKContracts/Preview Content\"";
 				DEVELOPMENT_TEAM = JV455MTU52;
 				ENABLE_PREVIEWS = YES;
@@ -1013,7 +1017,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1023,7 +1027,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"UKContracts/Preview Content\"";
 				DEVELOPMENT_TEAM = JV455MTU52;
 				ENABLE_PREVIEWS = YES;
@@ -1049,7 +1053,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
