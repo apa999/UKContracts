@@ -1,5 +1,5 @@
 //
-//  CFReleaseView.swift
+//  CFContractDetailView.swift
 //  UKContractsTests
 //
 //  Created by Anthony Abbott on 26/10/2022.
@@ -11,7 +11,7 @@ import XCTest
 final class CFReleaseView_Tests: XCTestCase {
 
   func test_CFReleaseView() throws {
-//    let sut = CFReleaseView()
+//    let sut = CFContractDetailView()
 //
 //    XCTAssertNotNil(sut)
   }

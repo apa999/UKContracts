@@ -1,5 +1,5 @@
 //
-//  CFReleaseView.swift
+//  CFContractDetailView.swift
 //  UKContracts
 //
 //  Created by Anthony Abbott on 19/10/2022.
@@ -24,7 +24,7 @@
 
 import SwiftUI
 
-struct CFReleaseView: View {
+struct CFContractDetailView: View {
   
   var release: Release
   
@@ -69,7 +69,6 @@ struct CFReleaseView: View {
       .foregroundColor(Constants.textColor)
     } // ZStack
     
-  
     .onAppear{
       isShowingRelease = true
     }
@@ -204,7 +203,7 @@ struct CFReleaseView: View {
 //  
 //  static let cfSearch = CFSearch.getTestCFSearch()
 //  static var previews: some View {
-//    CFReleaseView(release: cfSearch.releases!.first!)
+//    CFContractDetailView(release: cfSearch.releases!.first!)
 //  }
 //}
 
