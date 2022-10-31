@@ -21,6 +21,10 @@ struct CFContractListView: View {
   /// Search text
   @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
   
+  @State var selectedRelease: Release?
+  
+  
+  
   /// Set the navigation bar appearance - this is shown when the user scrolls upwards
   init(cfViewModel : CFViewModel) {
     
@@ -39,25 +43,29 @@ struct CFContractListView: View {
           .font(.title2)
           .foregroundColor(.white)
         
-        NavigationStack {
-          List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-            NavigationLink(release.tender.title) {
-              CFContractDetailView(release: release,
-                                   isShowingContractDetail: $isShowingContractDetail)
-            }
-            .foregroundColor(.white)
-            .listRowBackground(Constants.backgroundColour)
-          } // List
-          .background(Constants.backgroundColour)
-          .scrollContentBackground(.hidden)
-        } // NavigationStack
-        .accentColor(.white)
+        
+        List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+          Text(release.tender.title).onTapGesture
+          {
+            selectedRelease = release
+          }
+          .foregroundColor(.white)
+          .listRowBackground(Constants.backgroundColour)
+        } // List
+        .background(Constants.backgroundColour)
+        .scrollContentBackground(.hidden)
+        
         
         if isShowingContractDetail == false {
           userOptions
         }
       } // VStack
     } // ZStack
+    
+    .sheet(item: $selectedRelease) { release in
+      CFContractDetailView(release: release,
+                           isShowingContractDetail: $isShowingContractDetail)
+    }
     
     /// Searching
     .searchable(text: $searchText.input,

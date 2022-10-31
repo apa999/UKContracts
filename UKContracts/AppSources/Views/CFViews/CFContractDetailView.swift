@@ -74,10 +74,6 @@ struct CFContractDetailView: View {
       isShowingContractDetail = false
     }
     
-    /// This disables the drag-down to dimiss. The problem here is that if the user
-    /// drags-down to dismiss the contract detail view, it dismisses the list view as well
-    .interactiveDismissDisabled(true)
-    
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
         CFTenderView(tender: tender)
