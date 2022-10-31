@@ -45,8 +45,7 @@ struct CFContractListView: View {
         
         
         List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-          Text(release.tender.title).onTapGesture
-          {
+          Text(getTextFor(release)).onTapGesture {
             selectedRelease = release
           }
           .foregroundColor(.white)
@@ -74,6 +73,15 @@ struct CFContractListView: View {
     .onChange(of: searchText.output) {searchText in
       cfViewModel.search(searchText)
     } // .onChange
+  }
+  
+  private func getTextFor(_ release: Release) -> String {
+    
+    if cfViewModel.cfModel.sortType == .alpha {
+      return release.tender.title
+    } else {
+      return "\(release.formattedDate) - \(release.tender.title)"
+    }
   }
   
   private var userOptions: some View {

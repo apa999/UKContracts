@@ -40,7 +40,7 @@ struct CFModel {
   enum SortType {
     case alpha, releaseDate
   }
-  
+  var sortType              = SortType.alpha
   var alphaSortStatus       = SortStatus.alphaDown
   var releasedateSortStatus = SortStatus.releaseDateDown
   
@@ -100,6 +100,8 @@ struct CFModel {
     
     var sortedReleases: [Release]?
     
+    sortType = .alpha
+    
     alphaSortStatus = alphaSortStatus == .alphaUp ? .alphaDown : .alphaUp
     
     if alphaSortStatus == .alphaUp {
@@ -119,6 +121,8 @@ struct CFModel {
   mutating private func sortReleaseDate() {
     
     var sortedReleases: [Release]?
+    
+    sortType = .releaseDate
     
     releasedateSortStatus = releasedateSortStatus == .releaseDateUp ? .releaseDateDown : .releaseDateUp
     
