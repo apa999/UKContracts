@@ -53,7 +53,7 @@ class CFViewModel: ObservableObject {
                                                                 from: url,
                                                                 dateDecodingStrategy: .iso8601)
           
-          cfModel.sort()
+          cfModel.sort(CFModel.SortType.alpha)
           
           cfModel.modelStatus = .loaded
         } catch {

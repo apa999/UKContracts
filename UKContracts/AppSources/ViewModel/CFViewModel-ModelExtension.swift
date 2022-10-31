@@ -55,8 +55,8 @@ extension CFViewModel {
   }
   
   /// User has pressed sort button
-  func sort() {
-    cfModel.sort()
+  func sort(_ sortType: CFModel.SortType) {
+    cfModel.sort(sortType)
   }
   
  

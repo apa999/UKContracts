@@ -88,12 +88,17 @@ struct CFContractListView: View {
   //MARK: - Buttons
   private var showSortButtonAlpha: some View {
     Button {
-      cfViewModel.cfModel.sortStatus = .alpha
-      cfViewModel.sort()
+      cfViewModel.sort(CFModel.SortType.alpha)
     }
   label: {
-    Text("A-Z")
-    Image(systemName: "arrow.up.arrow.down")
+    if cfViewModel.cfModel.alphaSortStatus == .alphaDown {
+      Text("A-Z")
+      Image(systemName: "arrow.up")
+    } else {
+      Text("Z-A")
+      Image(systemName: "arrow.down")
+    }
+
   } // label
   .foregroundColor(Constants.textColor)
   .font(.title)
@@ -101,12 +106,15 @@ struct CFContractListView: View {
   
   private var showSortButtonReleaseData: some View {
     Button {
-      cfViewModel.cfModel.sortStatus = .releaseDate
-      cfViewModel.sort()
+      cfViewModel.sort(CFModel.SortType.releaseDate)
     }
   label: {
     Text("Date")
-    Image(systemName: "arrow.up.arrow.down")
+    if cfViewModel.cfModel.releasedateSortStatus == .releaseDateDown {
+      Image(systemName: "arrow.up")
+    } else {
+      Image(systemName: "arrow.down")
+    }
   } // label
   .foregroundColor(Constants.textColor)
   .font(.title)

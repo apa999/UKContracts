@@ -33,20 +33,16 @@ struct CFModel {
   
   /// Track the sort status - unsorted, alphabetical, release date
   enum SortStatus {
-    case unsorted
-    case alpha
-    case releaseDate
-    
-    mutating func next() {
-      switch self {
-        case .unsorted    : self = .alpha
-        case .alpha       : self = .releaseDate
-        case .releaseDate : self = .alpha
-      }
-    }
+    case unsorted, alphaUp, alphaDown, releaseDateUp, releaseDateDown
   }
   
-  var sortStatus = SortStatus.unsorted
+  /// What type of sort
+  enum SortType {
+    case alpha, releaseDate
+  }
+  
+  var alphaSortStatus       = SortStatus.alphaDown
+  var releasedateSortStatus = SortStatus.releaseDateDown
   
   //MARK: - Public functions model updates
   
@@ -70,12 +66,11 @@ struct CFModel {
   }
   
   /// Sorts the releases alphabetically or by date
-  mutating func sort() {
-    switch sortStatus {
-      case .unsorted    : return
-      case .alpha       : sortAlpha()
-      case .releaseDate : sortReleaseDate()
-    } // switch sortStatus
+  mutating func sort(_ sortType: SortType) {
+    switch sortType {
+      case .alpha         : sortAlpha()
+      case .releaseDate   : sortReleaseDate()
+    } // switch sortType
   } // mutating func sort()
   
  
@@ -102,17 +97,37 @@ struct CFModel {
   
   /// Sorts the releases by the tender title alphabetically
   mutating private func sortAlpha() {
-    let sortedReleases = cfSearch.releases?.sorted(by: {
-      $0.tender.title < $1.tender.title 
-    } )
     
+    var sortedReleases: [Release]?
+    
+    alphaSortStatus = alphaSortStatus == .alphaUp ? .alphaDown : .alphaUp
+    
+    if alphaSortStatus == .alphaUp {
+      sortedReleases = cfSearch.releases?.sorted(by: {
+        $0.tender.title < $1.tender.title
+      } )
+    } else {
+      sortedReleases = cfSearch.releases?.sorted(by: {
+        $0.tender.title > $1.tender.title
+      } )
+    }
+   
     cfSearch.releases = sortedReleases
   }
   
   /// Sorts the releases by date with recent first
   mutating private func sortReleaseDate() {
-    if let releases = cfSearch.releases {
-      cfSearch.releases = releases.sorted { $0.date ?? Date() > $1.date ?? Date() }
+    
+    var sortedReleases: [Release]?
+    
+    releasedateSortStatus = releasedateSortStatus == .releaseDateUp ? .releaseDateDown : .releaseDateUp
+    
+    if releasedateSortStatus == .releaseDateUp {
+      sortedReleases = cfSearch.releases?.sorted { $0.date ?? Date() > $1.date ?? Date() }
+    } else {
+      sortedReleases = cfSearch.releases?.sorted { $0.date ?? Date() < $1.date ?? Date() }
     }
+    
+    cfSearch.releases = sortedReleases
   }
 }
