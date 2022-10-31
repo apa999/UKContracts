@@ -46,13 +46,17 @@ struct CFContractDetailView: View {
       Constants.backgroundColour
         .ignoresSafeArea()
   
-      VStack(spacing: 15) {
+      VStack(alignment: .center, spacing: 15) {
+        
+        Text("Contract Details")
+          .font(.title)
+        
+        if let tenderTitle = release.tender.title {
+          Text("\(tenderTitle)").font(.title2)
+        }
+        
         VStack(alignment: .leading, spacing: 10) {
-          
-          if let tenderTitle = release.tender.title {
-            Text("\(tenderTitle)").font(.title2)
-          }
-          
+       
           mainText
           
           Spacer()
@@ -197,9 +201,13 @@ struct CFContractDetailView: View {
 } // CFDetailView
 
 //struct CFDetailView_Previews: PreviewProvider {
-//  
-//  static let cfSearch = CFSearch.getTestCFSearch()
+//
+//  static let cfViewModel = CFViewModel()
+//
+//
 //  static var previews: some View {
-//    CFContractDetailView(release: cfSearch.releases!.first!)
+//
+//
+//    return CFContractDetailView(release: (cfViewModel.cfModel.cfSearch.releases?.first)!, isShowingContractDetail: Binding.constant(false))
 //  }
 //}

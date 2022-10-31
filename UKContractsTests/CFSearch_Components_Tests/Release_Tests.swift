@@ -8,17 +8,17 @@
 
 /*
  struct Release : Codable, Identifiable {
-   let ocid           : String?
-   let id             : String?
-   let language       : String?
-   let date           : Date?
-   let tag            : [String]?
-   let initiationType : String?
-   let tender         : Tender?
-   let parties        : [Party]?
-   let buyer          : Buyer?
-   let awards         : [Award]?
-   let planning       : Planning?
+ let ocid           : String?
+ let id             : String?
+ let language       : String?
+ let date           : Date?
+ let tag            : [String]?
+ let initiationType : String?
+ let tender         : Tender?
+ let parties        : [Party]?
+ let buyer          : Buyer?
+ let awards         : [Award]?
+ let planning       : Planning?
  }
  */
 
@@ -36,7 +36,7 @@ final class Release_Tests: XCTestCase {
       let sut = try TestHelpers.decode(Release.self,from: data)
       
       XCTAssertNotNil(sut)
-    
+      
       XCTAssertEqual(sut.formatted.count, 1716)
     } catch {
       XCTFail("Failed to decode: \(error)")
@@ -60,7 +60,7 @@ final class Release_Tests: XCTestCase {
       
       XCTAssertEqual(sut.tag?.count, 1)
       XCTAssertEqual(sut.tag![0], "award")
-     
+      
     } catch {
       XCTFail("Failed to decode: \(error)")
     }
