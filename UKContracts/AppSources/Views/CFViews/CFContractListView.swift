@@ -43,22 +43,29 @@ struct CFContractListView: View {
           .font(.title2)
           .foregroundColor(.white)
         
+        /// Avoid an empty list - this gives us a white background
+        if let _ = cfViewModel.cfModel.cfSearch.releases {
+          List(cfViewModel.cfModel.cfSearch.releases!) { release in
+            Text(getTextFor(release)).onTapGesture {
+              selectedRelease = release
+            }
+            .foregroundColor(.white)
+            .listRowBackground(Constants.backgroundColour)
+          } // List
+          .background(Constants.backgroundColour)
+          .scrollContentBackground(.hidden)
         
-        List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-          Text(getTextFor(release)).onTapGesture {
-            selectedRelease = release
-          }
-          .foregroundColor(.white)
-          .listRowBackground(Constants.backgroundColour)
-        } // List
-        .background(Constants.backgroundColour)
-        .scrollContentBackground(.hidden)
-        
-        
-        if isShowingContractDetail == false {
-          userOptions
+           if isShowingContractDetail == false {
+             userOptions
+           }
+        } else {
+          Spacer()
+            ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
+          Spacer()
         }
+    
       } // VStack
+      .background(Constants.backgroundColour)
     } // ZStack
     
     .sheet(item: $selectedRelease) { release in
