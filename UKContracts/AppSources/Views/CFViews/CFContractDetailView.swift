@@ -28,7 +28,7 @@ struct CFContractDetailView: View {
   
   var release: Release
   
-  @Binding var isShowingRelease: Bool
+  @Binding var isShowingContractDetail: Bool
   
   /// True when the tender details view is visible
   @State private var showingTender = false
@@ -44,12 +44,8 @@ struct CFContractDetailView: View {
     
     ZStack(alignment: .top) {
       Constants.backgroundColour
-        /*
-         This causes problems with navigation
-         .ignoresSafeArea()
-         */
-        
-      
+        .ignoresSafeArea()
+  
       VStack(spacing: 15) {
         VStack(alignment: .leading, spacing: 10) {
           
@@ -69,13 +65,18 @@ struct CFContractDetailView: View {
       .foregroundColor(Constants.textColor)
     } // ZStack
     
+    /// Use the isShowingContractDetail binding to hide the List's buttons
     .onAppear{
-      isShowingRelease = true
+      isShowingContractDetail = true
     }
     
     .onDisappear{
-      isShowingRelease = false
+      isShowingContractDetail = false
     }
+    
+    /// This disables the drag-down to dimiss. The problem here is that if the user
+    /// drags-down to dismiss the contract detail view, it dismisses the list view as well
+    .interactiveDismissDisabled(true)
     
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
@@ -206,4 +207,3 @@ struct CFContractDetailView: View {
 //    CFContractDetailView(release: cfSearch.releases!.first!)
 //  }
 //}
-

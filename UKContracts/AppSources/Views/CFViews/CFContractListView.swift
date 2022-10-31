@@ -15,8 +15,8 @@ struct CFContractListView: View {
   /// True when user is searching
   @Environment(\.isSearching) var isSearching
   
-  /// True when user is searching
-  @State var isShowingRelease = false
+  /// True when contract details are visible
+  @State var isShowingContractDetail = false
   
   /// Search text
   @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
@@ -43,7 +43,7 @@ struct CFContractListView: View {
           List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
             NavigationLink(release.tender.title) {
               CFContractDetailView(release: release,
-                                   isShowingRelease: $isShowingRelease)
+                                   isShowingContractDetail: $isShowingContractDetail)
             }
             .foregroundColor(.white)
             .listRowBackground(Constants.backgroundColour)
@@ -51,8 +51,9 @@ struct CFContractListView: View {
           .background(Constants.backgroundColour)
           .scrollContentBackground(.hidden)
         } // NavigationStack
+        .accentColor(.white)
         
-        if isShowingRelease == false {
+        if isShowingContractDetail == false {
           userOptions
         }
       } // VStack
