@@ -27,26 +27,15 @@ struct ContentView: View {
   
   //MARK: - Init
   
-  /// Set the navigation bar appearance - this is shown when the user scrolls upwards
-  init(cfViewModel : CFViewModel) {
-    
-    self.cfViewModel = cfViewModel
-    
-    UINavigationBar.appearance().barTintColor = UIColor.systemBlue
-  }
+ 
   
   var body: some View {
     ZStack {
       Constants.backgroundColour.ignoresSafeArea()
       
       VStack() {
-        
         headerText
         Spacer()
-        
-        if cfViewModel.cfModel.modelStatus == .loading {
-          ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
-        }
         userOptions
       }
       .padding()
@@ -61,8 +50,6 @@ struct ContentView: View {
     .sheet(isPresented: $showingSettings) {
       SettingsView(cfViewModel: cfViewModel)
     }
-    
- 
   } // body
   
   //MARK: - Private vars

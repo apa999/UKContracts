@@ -70,23 +70,15 @@ struct CFModel {
   }
   
   /// Sorts the releases alphabetically or by date
-  mutating func sort(status: SortStatus? = nil) {
-    
-    if let status = status , status != .unsorted {
-      sortStatus = status
-    } else {
-      sortStatus.next()
-    }
-    
+  mutating func sort() {
     switch sortStatus {
-      case .unsorted    : fatalError("Program error - invalid sort option")
+      case .unsorted    : return
       case .alpha       : sortAlpha()
       case .releaseDate : sortReleaseDate()
     } // switch sortStatus
   } // mutating func sort()
   
  
-  
   //MARK: - Private functions
   
   private func filter(by searchStr: String) -> [Release]? {

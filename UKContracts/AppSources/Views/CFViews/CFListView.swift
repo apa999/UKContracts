@@ -9,17 +9,25 @@ import SwiftUI
 
 struct CFListView: View {
   
-  // Environment
-  @Environment(\.presentationMode) var presentationMode
-  
   /// Observed object - ViewModel
   @ObservedObject var cfViewModel: CFViewModel
   
   /// True when user is searching
   @Environment(\.isSearching) var isSearching
   
+  /// True when user is searching
+  @State var isShowingRelease = false
+  
   /// Search text
   @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
+  
+  /// Set the navigation bar appearance - this is shown when the user scrolls upwards
+  init(cfViewModel : CFViewModel) {
+    
+    self.cfViewModel = cfViewModel
+    
+    UINavigationBar.appearance().barTintColor = UIColor.systemBlue
+  }
   
   var body: some View {
     ZStack(alignment: .top) {
@@ -27,29 +35,28 @@ struct CFListView: View {
         .ignoresSafeArea()
       
       VStack {
-        
         Text("Contracts")
           .font(.title2)
-          .foregroundColor(Constants.textColor)
+          .foregroundColor(.white)
         
         NavigationStack {
-          List {
-            ForEach(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
-              
-              NavigationLink(destination: CFReleaseView(release: release)) {
-                Text(release.tender.title)
-                  .foregroundColor(.white)
-              }
-              
-              .listRowBackground(Constants.backgroundColour)
-            } // ForEach
+          List(cfViewModel.cfModel.cfSearch.releases ?? []) { release in
+            NavigationLink(release.tender.title) {
+              CFReleaseView(release: release, isShowingRelease: $isShowingRelease)
+            }
+            .foregroundColor(.white)
+            .listRowBackground(Constants.backgroundColour)
           } // List
           .background(Constants.backgroundColour)
           .scrollContentBackground(.hidden)
         } // NavigationStack
         
-        Spacer()
-        userOptions
+        /// Show the options if the release details are not displayed
+        if isShowingRelease == false {
+          userOptions
+        }
+        
+        
       } // VStack
     } // ZStack
     
@@ -60,46 +67,44 @@ struct CFListView: View {
     .onChange(of: searchText.output) {searchText in
       cfViewModel.search(searchText)
     } // .onChange
-    
   }
   
   private var userOptions: some View {
     HStack {
-      showReturnButton
+      showSortButtonAlpha
       Spacer()
-      showSortButton
+      showSortButtonReleaseData
     }
     .padding()
   } // userOptions
   
   //MARK: - Buttons
-  private var showReturnButton: some View {
+  private var showSortButtonAlpha: some View {
     Button {
-      presentationMode.wrappedValue.dismiss()
-    }
-  label: {
-    Image(systemName: "return")
-  } // label
-  .foregroundColor(Constants.textColor)
-  .font(.title)
-  } // showReturnButton
-  
-  
-  private var showSortButton: some View {
-    Button {
+      cfViewModel.cfModel.sortStatus = .alpha
       cfViewModel.sort()
     }
   label: {
-    if cfViewModel.cfModel.sortStatus == .alpha {
-      Text("Date")
-    } else {
-      Text("A-Z")
-    }
+    Text("A-Z")
     Image(systemName: "arrow.up.arrow.down")
   } // label
   .foregroundColor(Constants.textColor)
   .font(.title)
-  } // showSortButton
+  } // showSortButtonAlpha
+  
+  private var showSortButtonReleaseData: some View {
+    Button {
+      cfViewModel.cfModel.sortStatus = .releaseDate
+      cfViewModel.sort()
+    }
+  label: {
+    Text("Date")
+    Image(systemName: "arrow.up.arrow.down")
+  } // label
+  .foregroundColor(Constants.textColor)
+  .font(.title)
+  } // showSortButtonReleaseData
+  
 }
 
 struct CFListView_Previews: PreviewProvider {

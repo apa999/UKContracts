@@ -28,9 +28,7 @@ struct CFReleaseView: View {
   
   var release: Release
   
-  @Environment(\.presentationMode) var presentationMode
-  
-//  @Binding var showingRelease: Bool
+  @Binding var isShowingRelease: Bool
   
   /// True when the tender details view is visible
   @State private var showingTender = false
@@ -41,14 +39,20 @@ struct CFReleaseView: View {
   /// True when the awards details view is visible
   @State private var showingAwards = false
   
+ 
   var body: some View {
     
     ZStack(alignment: .top) {
       Constants.backgroundColour
-        .ignoresSafeArea()
+        /*
+         This causes problems with navigation
+         .ignoresSafeArea()
+         */
+        
       
       VStack(spacing: 15) {
         VStack(alignment: .leading, spacing: 10) {
+          
           if let tenderTitle = release.tender.title {
             Text("\(tenderTitle)").font(.title2)
           }
@@ -61,19 +65,19 @@ struct CFReleaseView: View {
           
         } // VStack 2
       } // VStack 1
-      .padding(.horizontal)
+      .padding()
       .foregroundColor(Constants.textColor)
     } // ZStack
     
-//    .onAppear {
-//      showingRelease = true
-//    }
-    
-    /// We can dismiss the screen by dragging from the left,
-    /// but I find this awkward
-    .onTapGesture(count: 2) {
-      presentationMode.wrappedValue.dismiss()
+  
+    .onAppear{
+      isShowingRelease = true
     }
+    
+    .onDisappear{
+      isShowingRelease = false
+    }
+    
     .sheet(isPresented: $showingTender) {
       if let tender = release.tender {
         CFTenderView(tender: tender)
@@ -91,7 +95,6 @@ struct CFReleaseView: View {
         CFAwardsView(awards: awards)
       }
     }
-    
   } // body
   
   //MARK: - Private vars
