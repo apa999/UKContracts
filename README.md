@@ -1,7 +1,10 @@
 # UKContracts
 
 Introduction
-UKContracts accesses contract information from the UK Government’s Contracts database, see: https://www.contractsfinder.service.gov.uk/Search.
+UKContracts accesses contract information from the UK Government’s contracts database, see: https://www.contractsfinder.service.gov.uk/Search.
+
+The contract data is retrieved in JSON format and conforms to the Open Contracts Data Standard (OCDS) see: https://www.open-contracting.org/data-standard/
+
 
 Functionality:
   •	Search by contract stage (via Settings):
@@ -33,7 +36,7 @@ Functionality:
   •	iOS 16+
   •	Portrait layout
   •	SwiftUI
-  •	XCode Version 14.0.1 (14A400)
+  •	XCode Version 14.0.1 (14A400)  xCode 13.0 compatible
   •	Not tested on macOS**
 
 **App Architiecture
