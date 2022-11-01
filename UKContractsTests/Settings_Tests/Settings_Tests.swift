@@ -13,19 +13,56 @@ final class Settings_Tests: XCTestCase {
  
   func test_Settings_Award() throws {
     
+    let publishedFromDate = TestHelpers.getDateFor("2022-10-21T13:49:07+0000")
+    let publishedToDate   = TestHelpers.getDateFor("2022-10-21T14:49:07+0000")
+    
+    let settings = SettingsModel(award: false,
+                                 implmentation: false,
+                                 planning: true,
+                                 tender: true,
+                                 sme: true,
+                                 vco: false,
+                                 publishedFromDate: publishedFromDate!,
+                                 publishedToDate: publishedToDate!,
+                                 cpvFilteredString: "",
+                                 selectedCPVs: Data(),
+                                 searchedCPVs: Data())
+    
     /// Get the Settings Model
-    var sut = SettingsModel()
+    var sut = settings
     
-    /// Uninitialised clean install will default to false
+    /// Awards
     XCTAssertFalse(sut.award)
-    
-    /// Toggle the flag - should now be true
     sut.toggleAward()
     XCTAssertTrue(sut.award)
-
-    /// Toggle the flag - should now be false
     sut.toggleAward()
     XCTAssertFalse(sut.award)
+    
+    /// Implmentation
+    XCTAssertFalse(sut.implmentation)
+    sut.toggleImplmentation()
+    XCTAssertTrue(sut.implmentation)
+    sut.toggleImplmentation()
+    XCTAssertFalse(sut.implmentation)
+    
+
+    /// Planning
+    XCTAssertTrue(sut.planning)
+    sut.togglePlanning()
+    XCTAssertFalse(sut.planning)
+    sut.togglePlanning()
+    XCTAssertTrue(sut.planning)
+    
+    /// Tender
+    XCTAssertTrue(sut.tender)
+    sut.toggleTender()
+    XCTAssertFalse(sut.tender)
+    sut.toggleTender()
+    XCTAssertTrue(sut.tender)
+    
+    XCTAssertTrue(sut.sme)
+    XCTAssertFalse(sut.vco)
+    XCTAssertEqual(sut.cpvFilteredString, "")
   }
 
 

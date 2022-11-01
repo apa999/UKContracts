@@ -62,6 +62,7 @@
 		3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A527290271FC00B14B5F /* TestHelpers.swift */; };
 		3311A5502902E26900B14B5F /* TelephoneCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3311A54F2902E26900B14B5F /* TelephoneCaller.swift */; };
 		332DD350290FAFE0003909BC /* CFContractListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332DD34F290FAFE0003909BC /* CFContractListView.swift */; };
+		332EA38D2911026400BCCCC1 /* CFTenderView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332EA38C2911026400BCCCC1 /* CFTenderView_Tests.swift */; };
 		334FEBF52902ED070041F30A /* CFContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FEBF42902ED070041F30A /* CFContacts.swift */; };
 		338404562908E61E006E552F /* URLSession-Extension_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404552908E61E006E552F /* URLSession-Extension_Tests.swift */; };
 		3384045A2908FA51006E552F /* EquatableError_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338404592908FA51006E552F /* EquatableError_Tests.swift */; };
@@ -73,7 +74,6 @@
 		3384047529091FAE006E552F /* CFPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047429091FAE006E552F /* CFPartyView.swift */; };
 		3384047729091FB9006E552F /* CFClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047629091FB9006E552F /* CFClassificationView.swift */; };
 		3384047929091FC1006E552F /* CFReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047829091FC1006E552F /* CFReleaseView.swift */; };
-		3384047B29091FC8006E552F /* CFTenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047A29091FC8006E552F /* CFTenderView.swift */; };
 		3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384047C2909295C006E552F /* SearchOptions_Tests.swift */; };
 		3384048129092E9A006E552F /* CFModifiers_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384048029092E9A006E552F /* CFModifiers_Tests.swift */; };
 		338404822909331A006E552F /* CFSearch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B427C428FF2AA800B2165F /* CFSearch-Extension.swift */; };
@@ -190,6 +190,7 @@
 		3311A527290271FC00B14B5F /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		3311A54F2902E26900B14B5F /* TelephoneCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneCaller.swift; sourceTree = "<group>"; };
 		332DD34F290FAFE0003909BC /* CFContractListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFContractListView.swift; sourceTree = "<group>"; };
+		332EA38C2911026400BCCCC1 /* CFTenderView_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView_Tests.swift; sourceTree = "<group>"; };
 		334FEBF42902ED070041F30A /* CFContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFContacts.swift; sourceTree = "<group>"; };
 		338404552908E61E006E552F /* URLSession-Extension_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession-Extension_Tests.swift"; sourceTree = "<group>"; };
 		338404592908FA51006E552F /* EquatableError_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquatableError_Tests.swift; sourceTree = "<group>"; };
@@ -201,7 +202,6 @@
 		3384047429091FAE006E552F /* CFPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFPartyView.swift; sourceTree = "<group>"; };
 		3384047629091FB9006E552F /* CFClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFClassificationView.swift; sourceTree = "<group>"; };
 		3384047829091FC1006E552F /* CFReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFReleaseView.swift; sourceTree = "<group>"; };
-		3384047A29091FC8006E552F /* CFTenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTenderView.swift; sourceTree = "<group>"; };
 		3384047C2909295C006E552F /* SearchOptions_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions_Tests.swift; sourceTree = "<group>"; };
 		3384048029092E9A006E552F /* CFModifiers_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFModifiers_Tests.swift; sourceTree = "<group>"; };
 		3384BF732903C66200BEBD9D /* CFViewModel-ModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFViewModel-ModelExtension.swift"; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 				3384047429091FAE006E552F /* CFPartyView.swift */,
 				3384047629091FB9006E552F /* CFClassificationView.swift */,
 				3384047829091FC1006E552F /* CFReleaseView.swift */,
-				3384047A29091FC8006E552F /* CFTenderView.swift */,
+				332EA38C2911026400BCCCC1 /* CFTenderView_Tests.swift */,
 			);
 			path = CFViews;
 			sourceTree = "<group>";
@@ -802,7 +802,6 @@
 				3311A51D29020BAB00B14B5F /* Publisher_Tests.swift in Sources */,
 				3384BF91290508CB00BEBD9D /* TelephoneCaller_Tests.swift in Sources */,
 				33B427C728FF2C9200B2165F /* CFModel_Tests.swift in Sources */,
-				3384047B29091FC8006E552F /* CFTenderView.swift in Sources */,
 				33EAB4FA290ABFBB00EAA97C /* CFMailView_Tests.swift in Sources */,
 				3384047D2909295C006E552F /* SearchOptions_Tests.swift in Sources */,
 				3311A528290271FC00B14B5F /* TestHelpers.swift in Sources */,
@@ -835,6 +834,7 @@
 				3384045C29090CF6006E552F /* Debouncer_Tests.swift in Sources */,
 				3311A52129020BAB00B14B5F /* Tender_Tests.swift in Sources */,
 				3311A52029020BAB00B14B5F /* Suitability_Tests.swift in Sources */,
+				332EA38D2911026400BCCCC1 /* CFTenderView_Tests.swift in Sources */,
 				3384047329091FA3006E552F /* CFDocumentView.swift in Sources */,
 				3311A52329020BAB00B14B5F /* Period_Tests.swift in Sources */,
 				3311A51029020BAB00B14B5F /* Classification_Tests.swift in Sources */,

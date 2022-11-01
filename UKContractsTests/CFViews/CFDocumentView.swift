@@ -18,7 +18,6 @@ final class CFDocumentView_Tests: XCTestCase {
 
     XCTAssertNotNil(sut)
     
-    
     XCTAssertNotNil(sut.documentDetails(document: document))
   }
   

@@ -10,7 +10,7 @@ import XCTest
 
 final class UKContractsUITests: XCTestCase {
   
-  func test_SelectTender() throws {
+  func test_SelectAwards() throws {
     //Launch the application
     let app = XCUIApplication()
     app.launch()
@@ -19,21 +19,30 @@ final class UKContractsUITests: XCTestCase {
     XCTAssertTrue(button.exists)
     button.tap()
     
-    /// Date sort button
-    if app.buttons["Date"].waitForExistence(timeout: 5) {}
-    XCTAssert(app.buttons["Date"].exists)
+    /// We're on the contract list, select a contract and tap it
+    let staticTexts = app.descendants(matching: .staticText)
+    let releaseText = staticTexts["0-19 Children's Public Health Nursing Service"]
+    XCTAssertNotNil(releaseText)
+    releaseText.tap()
     
-    /// Check that there are more that two buttons
-    XCTAssertGreaterThan(app.buttons.count,2)
+    /// We're now on the contract details. There should be three buttons, award, parties and tenders
+    let contractDetailButtons = app.descendants(matching: .button)
+    let contractDetailTexts   = app.descendants(matching: .staticText)
     
-    // Query for all buttons
-    let buttonQuery = app.descendants(matching: .button)
+    XCTAssertEqual(contractDetailButtons.count, 6)
+    XCTAssertEqual(contractDetailTexts.count, 22)
     
-    // We know that we have three or more buttons
-    let releaseButton = buttonQuery.element(boundBy: 2)
-    XCTAssertTrue(releaseButton.exists)
-    releaseButton.tap()
-  } // test_SelectTender
+    let awardsButton = app.buttons["Awards"]
+    XCTAssertTrue(awardsButton.exists)
+    awardsButton.tap()
+    
+    let awardsTitle     = app.staticTexts["Awards"]
+    let awardsDetail    = app.staticTexts["Id: ocds-b5fd17-d0f18f36-c88c-4885-bcc2-042dcfef9b7d-1"]
+  
+    XCTAssertNotNil(awardsTitle)
+    XCTAssertNotNil(awardsDetail)
+    
+  } // test_SelectAwards
   
   func test_SelectParties() throws {
     //Launch the application
@@ -44,22 +53,72 @@ final class UKContractsUITests: XCTestCase {
     XCTAssertTrue(button.exists)
     button.tap()
     
-    /// Date sort button
-    if app.buttons["Date"].waitForExistence(timeout: 5) { }
-    XCTAssert(app.buttons["Date"].exists)
+    /// We're on the contract list, select a contract and tap it
+    let staticTexts = app.descendants(matching: .staticText)
+    let releaseText = staticTexts["0-19 Children's Public Health Nursing Service"]
+    XCTAssertNotNil(releaseText)
+    releaseText.tap()
     
-    /// Check that there are more that two buttons
-    XCTAssertGreaterThan(app.buttons.count,2)
+    /// We're now on the contract details. There should be three buttons, award, parties and tenders
+    let contractDetailButtons = app.descendants(matching: .button)
+    let contractDetailTexts   = app.descendants(matching: .staticText)
     
-    // Query for all buttons
-    let buttonQuery = app.descendants(matching: .button)
+    XCTAssertEqual(contractDetailButtons.count, 6)
+    XCTAssertEqual(contractDetailTexts.count, 22)
     
-    // We know that we have three or more buttons
-    let releaseButton = buttonQuery.element(boundBy: 2)
-    XCTAssertTrue(releaseButton.exists)
-    releaseButton.tap()
+    let partiesButton = app.buttons["Parties"]
+    XCTAssertTrue(partiesButton.exists)
+    partiesButton.tap()
+    
+    let partiesTitle     = app.staticTexts["Parties"]
+    let partiesDetail    = app.staticTexts["Buyer: Rotherham Metropolitan Borough Council"]
+    let partiesWebButton = app.buttons["Website"]
+    
+    
+    XCTAssertNotNil(partiesTitle)
+    XCTAssertNotNil(partiesDetail)
+    XCTAssertNotNil(partiesWebButton)
     
   } // test_SelectParties
+  
+  func test_SelectTender() throws {
+    //Launch the application
+    let app = XCUIApplication()
+    app.launch()
+    
+    let button = app.buttons["Search"]
+    XCTAssertTrue(button.exists)
+    button.tap()
+    
+    /// We're on the contract list, select a contract and tap it
+    let staticTexts = app.descendants(matching: .staticText)
+    let releaseText = staticTexts["0-19 Children's Public Health Nursing Service"]
+    XCTAssertNotNil(releaseText)
+    releaseText.tap()
+    
+    /// We're now on the contract details. There should be three buttons, award, parties and tenders
+    let contractDetailButtons = app.descendants(matching: .button)
+    let contractDetailTexts   = app.descendants(matching: .staticText)
+    
+    XCTAssertEqual(contractDetailButtons.count, 6)
+    XCTAssertEqual(contractDetailTexts.count, 22)
+    
+    let tenderButton = app.buttons["Tender"]
+    XCTAssertTrue(tenderButton.exists)
+    tenderButton.tap()
+    
+    let tenderTitle     = app.staticTexts["Tender"]
+    let tenderDetail    = app.staticTexts["0-19 Children's Public Health Nursing Service"]
+    let tenderWebButton = app.buttons["85000000"]
+    
+    
+    XCTAssertNotNil(tenderTitle)
+    XCTAssertNotNil(tenderDetail)
+    XCTAssertNotNil(tenderWebButton)
+    
+  } // test_SelectTender
+  
+  
   
   func test_UserPressesSearchButtonAndThenSelectsRow() throws {
     //Launch the application

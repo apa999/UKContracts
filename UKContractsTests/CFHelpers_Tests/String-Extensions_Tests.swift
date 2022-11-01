@@ -10,6 +10,12 @@ import XCTest
 
 final class String_Extensions_Tests: XCTestCase {
   
+  func test_capitalizeFirstLetter() throws {
+    var sut = "anthony"
+    sut.capitalizeFirstLetter()
+    XCTAssertEqual(sut, "Anthony")
+  }
+  
   func test_capitalizingFirstLetter() throws {
     let sut = "anthony".capitalizingFirstLetter()
     XCTAssertEqual(sut, "Anthony")
