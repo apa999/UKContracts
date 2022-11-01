@@ -19,10 +19,6 @@ final class UKContractsUITests: XCTestCase {
     XCTAssertTrue(button.exists)
     button.tap()
     
-    /// Return button
-    if app.buttons["Return"].waitForExistence(timeout: 5) {}
-    XCTAssert(app.buttons["Return"].exists)
-    
     /// Date sort button
     if app.buttons["Date"].waitForExistence(timeout: 5) {}
     XCTAssert(app.buttons["Date"].exists)
@@ -37,18 +33,6 @@ final class UKContractsUITests: XCTestCase {
     let releaseButton = buttonQuery.element(boundBy: 2)
     XCTAssertTrue(releaseButton.exists)
     releaseButton.tap()
-    
-    /// Parties
-    if app.buttons["Parties"].waitForExistence(timeout: 5) { }
-    XCTAssert(app.buttons["Parties"].exists)
-    
-    /// Tender
-    if app.buttons["Tender"].waitForExistence(timeout: 5) {   }
-    XCTAssert(app.buttons["Tender"].exists)
-    
-    let tenderButton = app.buttons["Tender"]
-    XCTAssertTrue(tenderButton.exists)
-    tenderButton.tap()
   } // test_SelectTender
   
   func test_SelectParties() throws {
@@ -59,10 +43,6 @@ final class UKContractsUITests: XCTestCase {
     let button = app.buttons["Search"]
     XCTAssertTrue(button.exists)
     button.tap()
-    
-    /// Return button
-    if app.buttons["Return"].waitForExistence(timeout: 5) { }
-    XCTAssert(app.buttons["Return"].exists)
     
     /// Date sort button
     if app.buttons["Date"].waitForExistence(timeout: 5) { }
@@ -79,18 +59,6 @@ final class UKContractsUITests: XCTestCase {
     XCTAssertTrue(releaseButton.exists)
     releaseButton.tap()
     
-    /// Parties
-    if app.buttons["Parties"].waitForExistence(timeout: 5) { }
-    XCTAssert(app.buttons["Parties"].exists)
-    
-    /// Tender
-    if app.buttons["Tender"].waitForExistence(timeout: 5) {  }
-    XCTAssert(app.buttons["Tender"].exists)
-    
-    let partyButton = app.buttons["Parties"]
-    XCTAssertTrue(partyButton.exists)
-    partyButton.tap()
-    
   } // test_SelectParties
   
   func test_UserPressesSearchButtonAndThenSelectsRow() throws {
@@ -101,11 +69,6 @@ final class UKContractsUITests: XCTestCase {
     let button = app.buttons["Search"]
     XCTAssertTrue(button.exists)
     button.tap()
-    
-    /// Return button
-    if app.buttons["Return"].waitForExistence(timeout: 5) {  }
-    XCTAssert(app.buttons["Return"].exists)
-    
     
     /// Date sort button
     if app.buttons["Date"].waitForExistence(timeout: 5) {  }
@@ -121,14 +84,6 @@ final class UKContractsUITests: XCTestCase {
     let releaseButton = buttonQuery.element(boundBy: 2)
     XCTAssertTrue(releaseButton.exists)
     releaseButton.tap()
-    
-    /// Return button
-    if app.buttons["Parties"].waitForExistence(timeout: 5) {  }
-    XCTAssert(app.buttons["Parties"].exists)
-    
-    /// Date sort button
-    if app.buttons["Tender"].waitForExistence(timeout: 5) {  }
-    XCTAssert(app.buttons["Tender"].exists)
   } // test_UserPressesSearchButtonAndThenSelectsRow
   
   func test_UserPressesSettingsButtonCheckDatePickers() throws {
@@ -283,18 +238,6 @@ final class UKContractsUITests: XCTestCase {
     if app.buttons["Date"].waitForExistence(timeout: 5) {
       XCTAssert(app.buttons["Date"].exists)
     }
-    
-    /// Tap the return button
-    let returnButton = app.buttons["Return"]
-    XCTAssertTrue(returnButton.exists)
-    returnButton.tap()
-    
-    if app.buttons["Search"].waitForExistence(timeout: 5) {
-      XCTAssert(app.buttons["Search"].exists)
-      
-      /// Check the title label - it should now be back to "Contract Finder"
-      XCTAssertEqual(app.staticTexts["Contract Finder"].label, "Contract Finder")
-    }
   } // test_UserPressesSearchButtonAndThenTheBackButton
   
   func test_UserPressesSearchButton() throws {
@@ -308,12 +251,6 @@ final class UKContractsUITests: XCTestCase {
     
     /// Check the buttons on the screen
     XCTAssertEqual(app.buttons.count, 2)
-    
-    /// Check for the search button
-    XCTAssert(app.buttons["Return"].exists)
-    
-    XCTAssert(app.staticTexts["Releases"].exists)
-    XCTAssertEqual(app.staticTexts["Releases"].label, "Releases")
     
     /// Check for the search button
     if app.buttons["Date"].waitForExistence(timeout: 5) {

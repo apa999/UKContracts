@@ -50,6 +50,7 @@ struct CFContractDetailView: View {
         
         Text("Contract Details")
           .font(.title)
+          .padding(.top)
         
         if let tenderTitle = release.tender.title {
           Text("\(tenderTitle)").font(.title2)

@@ -42,6 +42,7 @@ struct CFContractListView: View {
         Text("Contracts")
           .font(.title)
           .foregroundColor(.white)
+          .padding(.top)
         
         /// Avoid an empty list - this gives us a white background
         if let _ = cfViewModel.cfModel.cfSearch.releases {

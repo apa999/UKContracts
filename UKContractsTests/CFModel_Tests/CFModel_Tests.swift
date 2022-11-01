@@ -180,7 +180,7 @@ final class CFModel_Tests: XCTestCase {
     XCTAssertNotNil(sut.cfSearch)
     
     /// Move us on to alpha
-    sut.sort(status: .releaseDate)
+    sut.sort(.releaseDate)
     
     XCTAssertEqual(sut.cfSearch.releases![0].date,  TestHelpers.getDateFor("2022-10-22T09:01:26+0000"))
     XCTAssertEqual(sut.cfSearch.releases![10].date, TestHelpers.getDateFor("2022-10-21T18:44:28+0000"))
@@ -211,7 +211,7 @@ final class CFModel_Tests: XCTestCase {
     sut.cfSearch = cfSearch
     XCTAssertNotNil(sut.cfSearch)
     
-    sut.sort(status: .alpha)
+    sut.sort(.alpha)
     
     XCTAssertEqual(sut.cfSearch.releases![0].tender.title, "2022-10-11 11:00 - QOC472 Ipswich to Doucecroft School, Colchester, Essex - AWARD")
     XCTAssertEqual(sut.cfSearch.releases![10].tender.title, "Barred and Advisory List")
@@ -223,37 +223,14 @@ final class CFModel_Tests: XCTestCase {
   }
   
   
-  /// Create an empty model and checks that the sort status in unsorted
-  func test_SortStatusNextShouldRollThrough()
-  {
-    var sut = CFModel()
-    
-    XCTAssertEqual(sut.sortStatus, .unsorted)
-    
-    /// Starts unsorted - should be alpha
-    sut.sortStatus.next()
-    XCTAssertEqual(sut.sortStatus, .alpha)
-    
-    /// Is alpha, should move to releaseDate
-    sut.sortStatus.next()
-    XCTAssertEqual(sut.sortStatus, .releaseDate)
-    
-    /// Is release date, should move to alpha
-    sut.sortStatus.next()
-    XCTAssertEqual(sut.sortStatus, .alpha)
-    
-    /// Is alpha, should move to releaseDate
-    sut.sortStatus.next()
-    XCTAssertEqual(sut.sortStatus, .releaseDate)
-  }
-  
+ 
   
   /// Create an empty model and checks that the sort status in unsorted
   func test_SortStatusShouldBeUnsorted()
   {
     let sut = CFModel()
     
-    XCTAssertEqual(sut.sortStatus, .unsorted)
+    XCTAssertEqual(sut.sortType, .alpha)
   }
   
   /// Create an empty model and checks that the model status in unloaded
@@ -324,14 +301,4 @@ final class CFModel_Tests: XCTestCase {
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
-  
-
-  //TODO: -
-  func testPerformanceExample() throws {
-    // This is an example of a performance test case.
-//    self.measure {
-//      // Put the code you want to measure the time of here.
-//    }
-  }
-  
 }

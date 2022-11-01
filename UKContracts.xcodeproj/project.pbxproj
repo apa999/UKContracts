@@ -322,7 +322,6 @@
 				3311A50029020BA900B14B5F /* Buyer_Tests.swift */,
 				3311A4B82900668800B14B5F /* CFDocument_Tests.swift */,
 				3311A4F929020BA900B14B5F /* CFSearchTestData.swift */,
-				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
 				3311A4FA29020BA900B14B5F /* Classification_Tests.swift */,
 				3311A50929020BAA00B14B5F /* Communication_Tests.swift */,
 				3311A50E29020BAA00B14B5F /* ContactPoint_Tests.swift */,
@@ -353,6 +352,14 @@
 				3311A527290271FC00B14B5F /* TestHelpers.swift */,
 			);
 			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		332EA38B2910F44F00BCCCC1 /* CFViewModel_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				33B427CC28FFC30900B2165F /* CFViewModel_Tests.swift */,
+			);
+			path = CFViewModel_Tests;
 			sourceTree = "<group>";
 		};
 		338404532908E001006E552F /* HelperViews */ = {
@@ -473,6 +480,7 @@
 		33B4279528FF27CD00B2165F /* UKContractsTests */ = {
 			isa = PBXGroup;
 			children = (
+				332EA38B2910F44F00BCCCC1 /* CFViewModel_Tests */,
 				3384BF872904F97E00BEBD9D /* CFHelpers_Tests */,
 				3384BF752903E7EB00BEBD9D /* CFModel_Tests */,
 				3311A525290271C200B14B5F /* CFSearch_Components_Tests */,
