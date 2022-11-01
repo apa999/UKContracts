@@ -54,7 +54,7 @@ struct Constants {
   static let telephoneOnSimulator = "Telephone is not enabled when running on the simulator"
   
   static let searchMessage = """
-Click the magnifying glass to search using the default settings,
+Tap the magnifying glass to search using the default settings,
 or select the settings option to set the search parameters.
 """
 } // struct Constants

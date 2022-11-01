@@ -30,7 +30,7 @@ final class UKContractsUITests: XCTestCase {
     let contractDetailTexts   = app.descendants(matching: .staticText)
     
     XCTAssertEqual(contractDetailButtons.count, 6)
-    XCTAssertEqual(contractDetailTexts.count, 22)
+    XCTAssertEqual(contractDetailTexts.count, 23)
     
     let awardsButton = app.buttons["Awards"]
     XCTAssertTrue(awardsButton.exists)
@@ -64,7 +64,7 @@ final class UKContractsUITests: XCTestCase {
     let contractDetailTexts   = app.descendants(matching: .staticText)
     
     XCTAssertEqual(contractDetailButtons.count, 6)
-    XCTAssertEqual(contractDetailTexts.count, 22)
+    XCTAssertEqual(contractDetailTexts.count, 23)
     
     let partiesButton = app.buttons["Parties"]
     XCTAssertTrue(partiesButton.exists)
@@ -101,7 +101,7 @@ final class UKContractsUITests: XCTestCase {
     let contractDetailTexts   = app.descendants(matching: .staticText)
     
     XCTAssertEqual(contractDetailButtons.count, 6)
-    XCTAssertEqual(contractDetailTexts.count, 22)
+    XCTAssertEqual(contractDetailTexts.count, 23)
     
     let tenderButton = app.buttons["Tender"]
     XCTAssertTrue(tenderButton.exists)
