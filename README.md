@@ -48,6 +48,5 @@ This is app is designed using the industry standard MVVM pattern, which is typic
 The ViewwModel is created on app launch and is passed to the View. The ViewModel creates the Model and publsihes so that it can be observed by the View.
 
 Know issues
-•	Xcode occasionally reports: “SwiftUI encountered an issue when pushing a NavigationLink. Please file a bug.” 
 •	No Onboarding in this version
 
