@@ -40,7 +40,7 @@ struct CFContractListView: View {
       
       VStack {
         Text("Contracts")
-          .font(.title2)
+          .font(.title)
           .foregroundColor(.white)
         
         /// Avoid an empty list - this gives us a white background
