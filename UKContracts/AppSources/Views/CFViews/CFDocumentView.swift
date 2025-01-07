@@ -57,17 +57,28 @@ struct CFDocumentView: View {
         Text("\(documentDescription)")
       }
       
-      if let datePublished =  document.formattedDatePublished {
-        if datePublished.isEmpty == false {
-          Text("Date published : \(datePublished )")
+//      if let datePublished =  document.formattedDatePublished {
+//        if datePublished.isEmpty == false {
+//          Text("Date published : \(datePublished )")
+//        }
+//      }
+      
+    
+        if document.formattedDatePublished.isEmpty == false {
+          Text("Date published : \(document.formattedDatePublished )")
         }
+      
+      
+//      if let dateModified =  document.formattedDateModified {
+//        if dateModified.isEmpty == false {
+//          Text("Date modified : \(dateModified)")
+//        }
+//      }
+      
+      if document.formattedDateModified.isEmpty == false {
+        Text("Date modified : \(document.formattedDateModified)")
       }
       
-      if let dateModified =  document.formattedDateModified {
-        if dateModified.isEmpty == false {
-          Text("Date modified : \(dateModified)")
-        }
-      }
       
       if let format =  document.format {
         Text("Format : \(format)")

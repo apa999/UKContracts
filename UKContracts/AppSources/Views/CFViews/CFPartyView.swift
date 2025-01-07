@@ -93,9 +93,10 @@ struct CFPartyView: View {
         showIdentifier(identifier)
       }
       
-      if let roles = party.roles {
-        showRoles(roles)
-      }
+//      if let roles = party.roles {
+//        showRoles(roles)
+//      }
+      showRoles(party.roles)
     } // VStack
   }
   
@@ -123,24 +124,24 @@ struct CFPartyView: View {
         Text("Name: \(name)")
       }
       
-      if let email = contactPoint.email {
+//      if let email = contactPoint.email {
         Button {
           
 #if targetEnvironment(simulator)
           print(Constants.mailOnSimulator)
 #else
           self.subject    = Constants.mailSubjectLine
-          self.recipients = email
+          self.recipients = contactPoint.email
           self.isShowingMailView.toggle()
  #endif
         }
         label: {
           HStack(spacing: 10) {
             Image(systemName: "square.and.pencil")
-            Text("\(email)")
+            Text("\(contactPoint.email)")
           }
         }
-      } // if let email =
+//      } // if let email =
       
       if let telephone = contactPoint.telephone {
         Button {

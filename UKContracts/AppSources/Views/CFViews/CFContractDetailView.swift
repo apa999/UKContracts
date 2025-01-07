@@ -52,9 +52,11 @@ struct CFContractDetailView: View {
           .font(.title)
           .padding(.top)
         
-        if let tenderTitle = release.tender.title {
-          Text("\(tenderTitle)").font(.title2)
-        }
+//        if let tenderTitle = release.tender.title {
+//          Text("\(tenderTitle)").font(.title2)
+//        }
+        
+        Text("\(release.tender.title)").font(.title2)
         
         VStack(alignment: .leading, spacing: 10) {
        
@@ -80,9 +82,10 @@ struct CFContractDetailView: View {
     }
     
     .sheet(isPresented: $showingTender) {
-      if let tender = release.tender {
-        CFTenderView(tender: tender)
-      }
+//      if let tender = release.tender {
+//        CFTenderView(tender: tender)
+//      }
+      CFTenderView(tender: release.tender)
     }
     
     .sheet(isPresented: $showingParties) {
@@ -164,10 +167,13 @@ struct CFContractDetailView: View {
         Spacer()
       }
       
-      if let _ = release.tender {
-        tenderButton
-        Spacer()
-      }
+//      if let _ = release.tender {
+//        tenderButton
+//        Spacer()
+//      }
+      
+      tenderButton
+      Spacer()
     }
     .padding(.horizontal)
   } // rivate var controlButtons
