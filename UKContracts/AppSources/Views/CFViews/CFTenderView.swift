@@ -97,10 +97,7 @@ struct CFTenderView: View {
           Text("Id:  \(id)")
         }
         
-        if let description = tender.tenderDescription {
-          Text("Description:  \(description)")
-        }
-        
+        Text("Description:  \(tender.tenderDescription)")
         Text("Published:  \(tender.formattedDatePublished )")
         
         if let status = tender.status {
@@ -350,7 +347,7 @@ struct CFTenderView: View {
 
 struct TenderView_Previews: PreviewProvider {
   
-  static let tender = Tender(id: "", title: "", tenderDescription: "", datePublished: Date(), status: "", classification: nil, items: nil, minValue: nil, value: nil, procurementMethod: "", procurementMethodDetails: "", tenderPeriod: nil, contractPeriod: nil, suitability: nil, mainProcurementCategory: "", documents: nil, additionalClassifications: nil, communication: nil)
+  static let tender = Tender(id: "", title: "", datePublished: Date(), status: "", classification: nil, items: nil, minValue: nil, value: nil, procurementMethod: "", procurementMethodDetails: "", tenderPeriod: nil, contractPeriod: nil, suitability: nil, mainProcurementCategory: "", documents: nil, additionalClassifications: nil, communication: nil)
   
   static var previews: some View {
     CFTenderView(tender: tender)

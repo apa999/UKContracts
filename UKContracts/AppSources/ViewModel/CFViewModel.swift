@@ -16,13 +16,11 @@ class CFViewModel: ObservableObject {
   @Published var settings = SettingsModel()
   
   /// CPVModel will be included in second release
-//  @Published var cpvModel = CPVModel()
-
+  //  @Published var cpvModel = CPVModel()
+  
   
   //MARK: - Properties
-  var cfSearch = CFSearch()
-  
-  
+ 
   /// Report the model status
   enum ViewModelStatus : Equatable {
     
@@ -34,7 +32,7 @@ class CFViewModel: ObservableObject {
   
   var viewModelStatus = ViewModelStatus.unloaded
   
- 
+  
   //MARK: - Public functions
   func search(urlString: String = Constants.searchText)   {
     cfModel.modelStatus = .loading
@@ -42,7 +40,18 @@ class CFViewModel: ObservableObject {
     let searchStr = buildSearchString()
     
     loadMessages(urlString: searchStr)
-  } // func search()
+  }
+  
+  func toggleSelectedFor(index: Int) {
+    cfModel.cfSearch.releases?[index].toggleSelected()
+  }
+  
+  var selectAllFlag = false
+  
+  func selectAll() {
+    selectAllFlag.toggle()
+    cfModel.cfSearch.setAllSelectedTo(selectAllFlag)
+  }
   
   //MARK: - Private functions
   private func loadMessages (urlString: String) {
@@ -53,13 +62,16 @@ class CFViewModel: ObservableObject {
                                                                 from: url,
                                                                 dateDecodingStrategy: .iso8601)
           
+          if !settings.filterByText.isEmpty {
+            cfModel.filterBy(userText: settings.filterByText)
+          }
+          
           cfModel.sort(CFModel.SortType.alpha)
           
           cfModel.modelStatus = .loaded
         } catch {
           cfModel.modelStatus = .loadingError
           viewModelStatus     = .dataLoadFailed(error: EquatableError(error))
-          cfModel.cfSearch    = cfSearch
         } // catch
       } // Task
     } else {

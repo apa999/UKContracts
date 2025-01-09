@@ -43,7 +43,7 @@ struct ContentView: View {
     
     /// Release list
     .sheet(isPresented: $showingRelease) {
-      CFContractListView(cfViewModel: cfViewModel)
+      CFContractListViewS(cfViewModel: cfViewModel)
     }
     
     /// Settings

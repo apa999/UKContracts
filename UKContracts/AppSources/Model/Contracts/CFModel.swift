@@ -74,13 +74,17 @@ struct CFModel {
   } // mutating func sort()
   
  
+  mutating func filterBy(userText: String) {
+    cfSearch.filterReleasesBy(userText: userText)
+  }
+  
   //MARK: - Private functions
   
   private func filter(by searchStr: String) -> [Release]? {
     
     /// We should have guarded against this before calling
     guard cfSearch.releases != nil else {
-      fatalError("Program error - trying to filter releasses when none exist")
+      fatalError("Program error - trying to filter releases when none exist")
     }
     
     ///Lower case the search string

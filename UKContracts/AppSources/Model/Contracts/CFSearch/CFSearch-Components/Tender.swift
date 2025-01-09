@@ -14,7 +14,7 @@ struct Tender : Codable {
   /// There must be a title
   let title                     : String
   
-  let tenderDescription         : String?
+  let tenderDescription         : String = ""
   let datePublished             : Date?
   let status                    : String?
   let classification            : Classification?

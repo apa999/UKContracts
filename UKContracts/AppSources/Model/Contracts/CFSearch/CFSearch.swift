@@ -20,6 +20,22 @@ struct CFSearch : Codable {
   let publicationPolicy : String
   var releases          : [Release]?
   let links             : Links?
+  
+  mutating func filterReleasesBy(userText: String) {
+    releases = releases?.filter({$0.contains(userText: userText)})
+  }
+  
+  mutating func toggleSelectedFor(index: Int) {
+    releases?[index].toggleSelected()
+  }
+  
+  mutating func setAllSelectedTo(_ selected: Bool) {
+    if let _ = releases {
+      for index in releases!.indices {
+        releases?[index].selected = selected
+      }
+    }
+  }
 }
 
 extension CFSearch {

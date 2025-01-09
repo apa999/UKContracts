@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -115,6 +115,7 @@
 		33EAB4F9290ABFBB00EAA97C /* Deboucer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4F7290ABFBB00EAA97C /* Deboucer_Tests.swift */; };
 		33EAB4FA290ABFBB00EAA97C /* CFMailView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */; };
 		33EAB4FC290ABFEF00EAA97C /* CFMailViewTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */; };
+		33F0EA342D2FD09100293DB3 /* CFContractListView~selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0EA332D2FD09100293DB3 /* CFContractListView~selectable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,7 +249,12 @@
 		33EAB4F7290ABFBB00EAA97C /* Deboucer_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deboucer_Tests.swift; sourceTree = "<group>"; };
 		33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailView_Tests.swift; sourceTree = "<group>"; };
 		33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailViewTester.swift; sourceTree = "<group>"; };
+		33F0EA332D2FD09100293DB3 /* CFContractListView~selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFContractListView~selectable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3376E6BC2D2D3762005F4E88 /* Documentation */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Documentation; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		33B4277F28FF27CC00B2165F /* Frameworks */ = {
@@ -461,6 +467,7 @@
 		33B4278428FF27CC00B2165F /* UKContracts */ = {
 			isa = PBXGroup;
 			children = (
+				3376E6BC2D2D3762005F4E88 /* Documentation */,
 				33B427B128FF27ED00B2165F /* AppSources */,
 				33B427B428FF281700B2165F /* CFHelpers */,
 				33B4278B28FF27CD00B2165F /* Preview Content */,
@@ -601,6 +608,7 @@
 				3311A4BA29011AE000B14B5F /* CFClassificationView.swift */,
 				33B4280229005E0E00B2165F /* CFContractDetailView.swift */,
 				332DD34F290FAFE0003909BC /* CFContractListView.swift */,
+				33F0EA332D2FD09100293DB3 /* CFContractListView~selectable.swift */,
 				33B4280429005E3E00B2165F /* CFDocumentView.swift */,
 				3311A4F62901EA4800B14B5F /* CFMailView.swift */,
 				33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */,
@@ -624,6 +632,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3376E6BC2D2D3762005F4E88 /* Documentation */,
 			);
 			name = UKContracts;
 			productName = UKContracts;
@@ -747,6 +758,7 @@
 				3311A4EF2901733F00B14B5F /* CFModifiers.swift in Sources */,
 				3311A4CC29013AA100B14B5F /* Period.swift in Sources */,
 				33B427F228FFE1D500B2165F /* Debouncer.swift in Sources */,
+				33F0EA342D2FD09100293DB3 /* CFContractListView~selectable.swift in Sources */,
 				3311A4D729014C6800B14B5F /* Budget.swift in Sources */,
 				3311A4E529014D6300B14B5F /* Details.swift in Sources */,
 				3311A4ED29014DAF00B14B5F /* Links.swift in Sources */,

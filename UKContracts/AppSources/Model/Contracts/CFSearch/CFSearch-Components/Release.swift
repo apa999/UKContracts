@@ -25,6 +25,23 @@ struct Release : Codable, Identifiable, Hashable {
   let awards         : [Award]?
   let planning       : Planning?
   
+  var selected = false
+  
+  /// Exclude "selected"
+  enum CodingKeys: String, CodingKey {
+    case ocid
+    case id
+    case language
+    case date
+    case tag
+    case initiationType
+    case tender
+    case parties
+    case buyer
+    case awards
+    case planning
+    }
+  
   //TODO: - Individual components should be responsible for string representation
   /// formatted version of release for pronting, email, etc
   var formatted: String {
@@ -36,9 +53,7 @@ struct Release : Codable, Identifiable, Hashable {
       s  +=  "Date : \(date.formatted(date: .long, time: .shortened))\n"
     }
     
-    if let tenderDescription = tender.tenderDescription {
-      s  +=  "Description : \(tenderDescription)\n"
-    }
+    s  +=  "Description : \(tender.tenderDescription)\n"
     
     if let status = tender.status {
       s  +=  "Status : \(status)\n"
@@ -51,6 +66,20 @@ struct Release : Codable, Identifiable, Hashable {
     return s
   }
   
+  mutating func toggleSelected() {
+    selected.toggle()
+  }
+  
+  func contains(userText: String) -> Bool {
+    
+    let userText = userText.lowercased()
+    
+    if tender.title.lowercased().contains(userText)
+    || tender.tenderDescription.lowercased().contains(userText) {
+      return true
+    }
+    return false
+  }
   /// Format the date
   var formattedDate: String {
     let formatter = DateFormatter()

@@ -11,10 +11,10 @@ struct SettingsModel {
   
   let defaults = UserDefaults.standard
   
-  @AppStorage(keys.award)             var award             = false
-  @AppStorage(keys.implmentation)     var implmentation     = false
-  @AppStorage(keys.planning)          var planning          = false
-  @AppStorage(keys.tender)            var tender            = false
+  @AppStorage(keys.award)             var award             = true
+  @AppStorage(keys.implmentation)     var implmentation     = true
+  @AppStorage(keys.planning)          var planning          = true 
+  @AppStorage(keys.tender)            var tender            = true
   @AppStorage(keys.sme)               var sme               = false
   @AppStorage(keys.vco)               var vco               = false
   
@@ -29,6 +29,9 @@ struct SettingsModel {
   @AppStorage("\(keys.searchedCPVs)", store: UserDefaults(suiteName: "\(keys.searchedCPVs)"))
   var searchedCPVs: Data = Data()
   
+  @AppStorage("\(keys.filterByText)", store: UserDefaults(suiteName: "\(keys.filterByText)"))
+  var filterByText: String = ""
+  
   struct keys {
     static let award         = "CF.award"
     static let implmentation = "CF.implmentation"
@@ -42,6 +45,7 @@ struct SettingsModel {
     static let searchedCPVs      = "CF.searchedCPVs"
     static let publishedFromDate = "CF.publishedFromDate"
     static let publishedToDate   = "CF.publishedToDate"
+    static let filterByText      = "CF.filterByText"
   } // keys
   
   //MARK: - Settings Functions
@@ -78,7 +82,7 @@ struct SettingsModel {
 } // SettingsModel
 
 /// Store Dates as AppStorage
-extension Date: RawRepresentable {
+extension Date: @retroactive RawRepresentable {
   public var rawValue: String {
     self.timeIntervalSinceReferenceDate.description
   }

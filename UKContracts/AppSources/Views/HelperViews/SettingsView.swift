@@ -81,6 +81,14 @@ struct SettingsView: View {
           
           .font(.title3)
           .foregroundColor(Constants.settingsTextColor)
+          
+          /// From and To date pickers
+          Section(header: Text("Filter by")) {
+            filterBy
+          } // Section
+          
+          .font(.title3)
+          .foregroundColor(Constants.settingsTextColor)
         } // Form
         
         .toolbar{
@@ -113,6 +121,10 @@ struct SettingsView: View {
     .foregroundColor(Constants.settingsTextColor)
   } // var toDatePicker
   
+  private var filterBy: some View {
+    TextField("Filter by", text: cfViewModel.settings.$filterByText)
+    .foregroundColor(Constants.settingsTextColor)
+  } // var filterBy
 } // SettingsView
 
 
