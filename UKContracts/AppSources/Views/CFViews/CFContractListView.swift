@@ -30,7 +30,7 @@ struct CFContractListView: View {
     
     self.cfViewModel = cfViewModel
     
-    UINavigationBar.appearance().barTintColor = UIColor.systemBlue
+//    UINavigationBar.appearance().barTintColor = Constants.backgroundColour
   }
   
   var body: some View {

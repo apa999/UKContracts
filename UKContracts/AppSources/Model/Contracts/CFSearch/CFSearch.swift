@@ -36,6 +36,10 @@ struct CFSearch : Codable {
       }
     }
   }
+  
+  mutating func deleteItems(at offsets: IndexSet) {
+    releases?.remove(atOffsets: offsets)
+  }
 }
 
 extension CFSearch {

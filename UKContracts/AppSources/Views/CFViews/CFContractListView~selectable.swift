@@ -28,67 +28,93 @@ struct CFContractListViewS: View {
     
     self.cfViewModel = cfViewModel
     
-    UINavigationBar.appearance().barTintColor = UIColor.systemBlue
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.backgroundColor = UIColor.systemBlue // Background color
+    navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Title color
+    navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Large title color
+    
+    UINavigationBar.appearance().standardAppearance   = navBarAppearance
+    UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
   }
   
   var body: some View {
-    ZStack(alignment: .top) {
-      Constants.backgroundColour
-        .ignoresSafeArea()
-      
-      VStack {
-        Text("Contracts")
-          .font(.title)
-          .foregroundColor(.white)
-          .padding(.top)
+    NavigationStack {
+      ZStack(alignment: .top) {
+        Constants.backgroundColour
+          .ignoresSafeArea()
         
-        /// Avoid an empty list - this gives us a white background
-        if let releases = cfViewModel.cfModel.cfSearch.releases {
+        VStack {
           
-          List(releases.indices, id: \.self) { index in
-            HStack {
-              Text(getTextFor(releases[index]))
-              Spacer()
-              if releases[index].selected == true {
-                Image(systemName: "checkmark.circle.fill")
-                  .foregroundColor(.white)
+          /// Custom Search Bar Integration to prevent search bar leaping to
+          /// the top of the screen and hiding the save button
+          searchBar
+          
+          /// Avoid an empty list - this gives us a white background
+          if let releases = cfViewModel.cfModel.cfSearch.releases {
+            
+            List {
+              ForEach(releases.indices, id: \.self) { index in
+                HStack {
+                  Text(getTextFor(releases[index]))
+                    .onTapGesture {
+                      selectedRelease = releases[index]
+                    }
+                  Spacer()
+                  Image(systemName: releases[index].selected ? "checkmark.circle.fill" : "circle.dashed")
+                    .foregroundColor(.white)
+                    .onTapGesture {
+                      cfViewModel.toggleSelectedFor(index: index)
+                    }
+                }
               }
+              .onDelete(perform: deleteItems)
+              .listRowBackground(Constants.backgroundColour)
+              .foregroundColor(.white)
             }
-            .contentShape(Rectangle()) // Make the whole row tappable
-            .onTapGesture {
-              cfViewModel.toggleSelectedFor(index: index)
+            .background(Constants.backgroundColour)
+            .scrollContentBackground(.hidden)
+            
+            if isShowingContractDetail == false {
+              userOptions
             }
-            .listRowBackground(Constants.backgroundColour)
+          } else {
+            VStack {
+              Spacer()
+              ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
+              Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .background(Constants.backgroundColour)
             .foregroundColor(.white)
           }
-          .background(Constants.backgroundColour)
-          .scrollContentBackground(.hidden)
-          
-          if isShowingContractDetail == false {
-            userOptions
+        } // VStack
+        .background(Constants.backgroundColour)
+        .navigationTitle("Contracts")
+      }
+      .toolbar {
+        ToolbarItem (placement: .topBarTrailing) {
+          Button("Save") {
+            saveSelectedContracts()
           }
-        } else {
-          Spacer()
-          ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
-          Spacer()
+          .foregroundColor(.white)
         }
-        
-      } // VStack
-      .background(Constants.backgroundColour)
-    } // ZStack
+      }
+    }
+    .background(Constants.backgroundColour)
     
     .sheet(item: $selectedRelease) { release in
       CFContractDetailView(release: release,
                            isShowingContractDetail: $isShowingContractDetail)
     }
     
-    /// Searching
-    .searchable(text: $searchText.input,
-                placement: .navigationBarDrawer(displayMode: .always))
-    
     .onChange(of: searchText.output) {searchText in
       cfViewModel.search(searchText)
     } // .onChange
+  }
+  
+  // Delete function
+  private func deleteItems(at offsets: IndexSet) {
+    cfViewModel.deleteItems(at: offsets)
   }
   
   private func getTextFor(_ release: Release) -> String {
@@ -98,6 +124,37 @@ struct CFContractListViewS: View {
     } else {
       return "\(release.formattedDate) - \(release.tender.title)"
     }
+  }
+  
+  private func saveSelectedContracts() {
+    print("saveSelectedContracts")
+  }
+  
+  private var searchBar: some View {
+    HStack {
+      TextField("", text: $searchText.input, prompt: Text("Search").foregroundColor(.white))
+        .padding(7)
+        .padding(.horizontal, 25)
+//        .background(Color(.systemGray6))
+        .foregroundStyle(.white)
+        .cornerRadius(8)
+        .overlay(
+          HStack {
+            Spacer()
+            if !searchText.input.isEmpty {
+              Button(action: {
+                searchText.input = ""
+              }) {
+                Image(systemName: "xmark.circle.fill")
+                  .foregroundColor(.gray)
+                  .padding(.trailing, 8)
+              }
+            }
+          }
+        )
+        .padding(.horizontal, 10)
+    }
+    .padding(.top, 10)
   }
   
   private var userOptions: some View {
@@ -151,7 +208,7 @@ struct CFContractListViewS: View {
       cfViewModel.selectAll()
     }
     label: {
-//      Text(cfViewModel.selectAllFlag ?  "Deselect all" : "Select all")
+      //      Text(cfViewModel.selectAllFlag ?  "Deselect all" : "Select all")
       Image(systemName: cfViewModel.selectAllFlag ? "minus.square" : "checkmark.square")
     } // label
     .foregroundColor(Constants.textColor)

@@ -53,6 +53,12 @@ class CFViewModel: ObservableObject {
     cfModel.cfSearch.setAllSelectedTo(selectAllFlag)
   }
   
+  // Delete function
+  func deleteItems(at offsets: IndexSet) {
+    cfModel.cfSearch.deleteItems(at: offsets)
+  }
+  
+  
   //MARK: - Private functions
   private func loadMessages (urlString: String) {
     if let url = URL(string: urlString) {
