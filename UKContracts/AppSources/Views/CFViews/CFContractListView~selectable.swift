@@ -64,7 +64,19 @@ struct CFContractListViewS: View {
           } else {
             VStack {
               Spacer()
-              ProgressView("Retrieving contracts").foregroundColor(Constants.textColor).font(.title3)
+              if cfViewModel.cfModel.modelStatus == .unloaded {
+                Text("No contracts to display\nPlease search again")
+                  .foregroundColor(Constants.textColor)
+                  .font(.title3)
+                  .multilineTextAlignment(.center) // Center-aligns multiline text
+                  .frame(maxWidth: .infinity)      // Ensures the text spans horizontally to see centering effect
+                  .padding()
+              } else {
+                ProgressView("Retrieving contracts").foregroundColor(Constants.textColor).font(.title3)
+                  .foregroundColor(Constants.textColor)
+                  .font(.title3)
+              }
+              
               Spacer()
             }
             .frame(maxWidth: .infinity)
@@ -84,7 +96,7 @@ struct CFContractListViewS: View {
           .foregroundColor(cfViewModel.oneOrMoreContractsSaved ? .white : .gray)
           .disabled(!cfViewModel.oneOrMoreContractsSaved)
         }
-
+        
         if cfViewModel.modelIsLoading {
           ToolbarItem (placement: .bottomBar) {
             Button("Stop search") {
@@ -145,7 +157,7 @@ struct CFContractListViewS: View {
         title += " *"
       }
     }
-   
+    
     return title
   }
   
@@ -182,7 +194,7 @@ struct CFContractListViewS: View {
       TextField("", text: $filterText.input, prompt: Text("Filter").foregroundColor(.white))
         .padding(7)
         .padding(.horizontal, 25)
-//        .background(Color(.systemGray6))
+      //        .background(Color(.systemGray6))
         .foregroundStyle(.white)
         .cornerRadius(8)
         .overlay(

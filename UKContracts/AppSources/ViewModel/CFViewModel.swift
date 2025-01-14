@@ -145,8 +145,8 @@ class CFViewModel: ObservableObject {
         do {
           
           let cfSearch = try await URLSession.shared.decode(CFSearch.self,
-                                                                from: url,
-                                                                dateDecodingStrategy: .iso8601)
+                                                            from: url,
+                                                            dateDecodingStrategy: .iso8601)
           
           
           if cfModel.cfSearch.uri.isEmpty {
@@ -183,7 +183,7 @@ class CFViewModel: ObservableObject {
   func cancelSearch() {
     cancelSearchFlag = true
   }
-
+  
 } // CFViewModel
 
 

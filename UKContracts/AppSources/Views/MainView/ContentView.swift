@@ -70,6 +70,10 @@ struct ContentView: View {
   private var userOptions: some View {
     HStack {
       showSearchButton
+      if cfViewModel.oneOrMoreContractsSaved {
+        Spacer()
+        showSavedRecordsButton
+      }
       Spacer()
       showSettingsButton
     }
@@ -104,6 +108,17 @@ struct ContentView: View {
   label: {
     Image(systemName: "gear")
   } // label
+  .foregroundColor(Constants.textColor)
+  .font(.title)
+  } // showSettingsButton
+  
+  
+  private var showSavedRecordsButton: some View {
+    Button("Saved") {
+      cfViewModel.savedContractsOnDisplay = false // The showSavedContractsonDisplay() sets this to true
+      cfViewModel.showSavedContracts()
+      showingRelease = true
+    }
   .foregroundColor(Constants.textColor)
   .font(.title)
   } // showSettingsButton
