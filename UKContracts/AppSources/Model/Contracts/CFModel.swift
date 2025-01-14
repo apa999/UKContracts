@@ -11,10 +11,12 @@ struct CFModel {
   
   /// Main search objects, containing the releases []
   var cfSearch = CFSearch()
- 
-  /// Save the releases here when filtering; use this to restore releases
-  var savedRelease: [Release]?
-
+  
+  /// Save the filtered contracts here; use this to restore releases
+  var filteredContracts = [Release]()
+  
+  /// Saved contracts
+  var savedContracts = [Release]()
   
   //MARK: - init
   init() {
@@ -51,51 +53,70 @@ struct CFModel {
     
     /// If it is an empty string, then restore the savedSearch
     if searchStr.count == 0 {
-      if let savedRelease = savedRelease {
-        cfSearch.releases = savedRelease
+      if filteredContracts.count > 0 {
+        cfSearch.releases = filteredContracts
       }
     } else {
-      if let existingReleases = cfSearch.releases {
-        if existingReleases.count > savedRelease?.count ?? 0 {
-          savedRelease = existingReleases
-        }
+      
+      if cfSearch.releases.count > filteredContracts.count {
+        filteredContracts = cfSearch.releases
       }
       
-      cfSearch.releases = filter(by: searchStr)
+      if let filteredReleases = filter(by: searchStr) {
+        cfSearch.releases = filteredReleases
+      }
     }
+  }
+  
+  mutating func saveSelectedContracts() {
+    let contractsToSave = cfSearch.releases.filter({$0.isSelected})
+    for contract in contractsToSave {
+      if !savedContracts.contains(where: {$0.id == contract.id}) {
+        savedContracts.append(contract)
+      }
+    }
+    print("Saving saved contracts to disk")
+    saveJSONData(savedContracts, to: Constants.savedContractsFile)
   }
   
   /// Sorts the releases alphabetically or by date
   mutating func sort(_ sortType: SortType) {
     switch sortType {
-      case .alpha         : sortAlpha()
-      case .releaseDate   : sortReleaseDate()
+    case .alpha         : sortAlpha()
+    case .releaseDate   : sortReleaseDate()
     } // switch sortType
   } // mutating func sort()
   
- 
+  
   mutating func filterBy(userText: String) {
     cfSearch.filterReleasesBy(userText: userText)
+  }
+  
+  mutating func deleteSavedContracts(at offsets: IndexSet) {
+    
+    let isValid = offsets.allSatisfy { $0 >= 0 && $0 < savedContracts.count }
+    
+    guard isValid else {
+      fatalError("\(#fileID) \(#line) - Invalid offsets provided.")
+    }
+    
+    savedContracts.remove(atOffsets: offsets)
+    saveJSONData(savedContracts, to: Constants.savedContractsFile)
   }
   
   //MARK: - Private functions
   
   private func filter(by searchStr: String) -> [Release]? {
     
-    /// We should have guarded against this before calling
-    guard cfSearch.releases != nil else {
-      fatalError("Program error - trying to filter releases when none exist")
-    }
-    
     ///Lower case the search string
     let str = searchStr.lowercased()
     
     /// Filter
-    if let releases = cfSearch.releases {
-      return releases.filter({$0.tender.title.lowercased().contains(str)})
+    if !cfSearch.releases.isEmpty {
+      return cfSearch.releases.filter({$0.tender.title.lowercased().contains(str)})
     }
     
-   return nil
+    return nil
   } // private func filter
   
   
@@ -109,16 +130,18 @@ struct CFModel {
     alphaSortStatus = alphaSortStatus == .alphaUp ? .alphaDown : .alphaUp
     
     if alphaSortStatus == .alphaUp {
-      sortedReleases = cfSearch.releases?.sorted(by: {
+      sortedReleases = cfSearch.releases.sorted(by: {
         $0.tender.title < $1.tender.title
       } )
     } else {
-      sortedReleases = cfSearch.releases?.sorted(by: {
+      sortedReleases = cfSearch.releases.sorted(by: {
         $0.tender.title > $1.tender.title
       } )
     }
-   
-    cfSearch.releases = sortedReleases
+    
+    if let sortedReleases {
+      cfSearch.releases = sortedReleases
+    }
   }
   
   /// Sorts the releases by date with recent first
@@ -131,11 +154,13 @@ struct CFModel {
     releasedateSortStatus = releasedateSortStatus == .releaseDateUp ? .releaseDateDown : .releaseDateUp
     
     if releasedateSortStatus == .releaseDateUp {
-      sortedReleases = cfSearch.releases?.sorted { $0.date ?? Date() > $1.date ?? Date() }
+      sortedReleases = cfSearch.releases.sorted { $0.date ?? Date() > $1.date ?? Date() }
     } else {
-      sortedReleases = cfSearch.releases?.sorted { $0.date ?? Date() < $1.date ?? Date() }
+      sortedReleases = cfSearch.releases.sorted { $0.date ?? Date() < $1.date ?? Date() }
     }
     
-    cfSearch.releases = sortedReleases
+    if let sortedReleases {
+      cfSearch.releases = sortedReleases
+    }
   }
 }

@@ -89,6 +89,15 @@ struct SettingsView: View {
           
           .font(.title3)
           .foregroundColor(Constants.settingsTextColor)
+          
+          /// Maximum contracts to return
+          Section(header: Text("Maximum contracts")) {
+            maximumContracts
+          } // Section
+          
+          .font(.title3)
+          .foregroundColor(Constants.settingsTextColor)
+          
         } // Form
         
         .toolbar{
@@ -125,6 +134,14 @@ struct SettingsView: View {
     TextField("Filter by", text: cfViewModel.settings.$filterByText)
     .foregroundColor(Constants.settingsTextColor)
   } // var filterBy
+  
+  
+  private var maximumContracts: some View {
+    TextField("\(cfViewModel.settings.searchReleaseMax)", text: $cfViewModel.settings.searchReleaseMaxStr)
+    .foregroundColor(Constants.settingsTextColor)
+  } // var filterBy
+  
+  
 } // SettingsView
 
 

@@ -50,9 +50,35 @@ extension CFViewModel {
   //MARK: - Search Intents
   
   /// User has pressed search button
-  func search(_ searchstr: String) {
-    cfModel.search(searchstr)
+  func filter(_ searchStr: String) {
+    
+    /// If it is an empty string, then restore the savedSearch
+    if searchStr.count == 0 {
+      releases = cfModel.cfSearch.releases
+    } else {
+      
+      if cfModel.cfSearch.releases.count > filteredReleases.count {
+        filteredReleases = cfModel.cfSearch.releases
+      }
+      
+      if let filteredReleases = filterBy(searchStr: searchStr) {
+        releases = filteredReleases
+      }
+    }
   }
+  
+  private func filterBy(searchStr: String) -> [Release]? {
+    
+    ///Lower case the search string
+    let str = searchStr.lowercased()
+    
+    /// Filter
+    if !cfModel.cfSearch.releases.isEmpty {
+      return cfModel.cfSearch.releases.filter({$0.tender.title.lowercased().contains(str)})
+    }
+    
+    return nil
+  } // private func filterBy
   
   /// User has pressed sort button
   func sort(_ sortType: CFModel.SortType) {

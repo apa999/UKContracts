@@ -10,9 +10,9 @@ import Foundation
 // MARK: - Release
 struct Release : Codable, Identifiable, Hashable {
   
-  let ocid           : String?
+  let ocid           : String
   let id             : String?
-  let language       : String?
+  let language       : String
   let date           : Date?
   let tag            : [String]?
   let initiationType : String?
@@ -25,7 +25,8 @@ struct Release : Codable, Identifiable, Hashable {
   let awards         : [Award]?
   let planning       : Planning?
   
-  var selected = false
+  var isSelected = false
+  var isFiltered = false
   
   /// Exclude "selected"
   enum CodingKeys: String, CodingKey {
@@ -66,8 +67,12 @@ struct Release : Codable, Identifiable, Hashable {
     return s
   }
   
-  mutating func toggleSelected() {
-    selected.toggle()
+  mutating func toggleIsSelected() {
+    isSelected.toggle()
+  }
+  
+  mutating func toggleIsFiltered() {
+    isFiltered.toggle()
   }
   
   func contains(userText: String) -> Bool {

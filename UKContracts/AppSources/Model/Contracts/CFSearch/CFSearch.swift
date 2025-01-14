@@ -18,27 +18,32 @@ struct CFSearch : Codable {
   let publisher         : Publisher
   let license           : String
   let publicationPolicy : String
-  var releases          : [Release]?
+  var releases          = [Release]()
   let links             : Links?
   
   mutating func filterReleasesBy(userText: String) {
-    releases = releases?.filter({$0.contains(userText: userText)})
+    releases = releases.filter({$0.contains(userText: userText)})
   }
   
   mutating func toggleSelectedFor(index: Int) {
-    releases?[index].toggleSelected()
+    releases[index].toggleIsSelected()
   }
   
-  mutating func setAllSelectedTo(_ selected: Bool) {
-    if let _ = releases {
-      for index in releases!.indices {
-        releases?[index].selected = selected
-      }
+  mutating func setAllSelectedTo(_ isSelected: Bool) {
+    for index in releases.indices {
+      releases[index].isSelected = isSelected
     }
   }
   
-  mutating func deleteItems(at offsets: IndexSet) {
-    releases?.remove(atOffsets: offsets)
+  mutating func deleteContracts(at offsets: IndexSet) {
+    
+    let isValid = offsets.allSatisfy { $0 >= 0 && $0 < releases.count }
+    
+    guard isValid else {
+      fatalError("\(#fileID) \(#line) - Invalid offsets provided.")
+    }
+    
+    releases.remove(atOffsets: offsets)
   }
 }
 
@@ -51,7 +56,7 @@ extension CFSearch {
     publisher         = Publisher(name: "", scheme: "", uid: "", uri: "")
     license           = ""
     publicationPolicy = ""
-    releases          = nil
+    releases          = [Release]()
     links             = nil
   }
 }

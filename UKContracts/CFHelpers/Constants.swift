@@ -20,6 +20,8 @@ struct Constants {
   static let CpvCodes = "CpvCodes"
   static let cpvCodeDataNumberOfFields = 4
   
+  static let searchReleaseMax = 1000
+  
   /// N.B. Append the CPV code and ".html", for example,  "http://cpv.data.ac.uk/code-19000000.html"
   static let cpvCodeURL = "http://cpv.data.ac.uk/code-"
   
@@ -43,6 +45,8 @@ struct Constants {
       .frame(height: 1)
   }
 
+  /// Name of the saved contracts file
+  static let savedContractsFile = "savedContracts.json"
   
   /// General
   static let mailSubjectLine  = "Contract Finder - Enquiry"

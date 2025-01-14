@@ -23,6 +23,8 @@ struct SettingsModel {
   
   @AppStorage(keys.cpvFilteredString) var cpvFilteredString = ""
   
+  @AppStorage(keys.searchReleaseMax) var searchReleaseMax   = Constants.searchReleaseMax
+  
   @AppStorage("\(keys.selectedCPVs)", store: UserDefaults(suiteName: "\(keys.selectedCPVs)"))
   var selectedCPVs: Data = Data()
   
@@ -46,7 +48,17 @@ struct SettingsModel {
     static let publishedFromDate = "CF.publishedFromDate"
     static let publishedToDate   = "CF.publishedToDate"
     static let filterByText      = "CF.filterByText"
+    static let searchReleaseMax  = "CF.searchReleaseMax"
   } // keys
+  
+  var searchReleaseMaxStr = "" {
+    didSet {
+      if let value = Int(searchReleaseMaxStr) {
+        searchReleaseMax = value
+      }
+      searchReleaseMaxStr = "\(searchReleaseMax)"
+    }
+  }
   
   //MARK: - Settings Functions
   

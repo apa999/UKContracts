@@ -140,6 +140,7 @@ struct CFContractDetailView: View {
    https://www.contractsfinder.service.gov.uk/notice/90983041-1638-4704-9bcf-61bbae6515a2
    */
   private func showWebsiteFor() {
+
     
     if let id = release.id {
       var splits = id.split(separator: "-")

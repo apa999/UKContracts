@@ -116,6 +116,7 @@
 		33EAB4FA290ABFBB00EAA97C /* CFMailView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */; };
 		33EAB4FC290ABFEF00EAA97C /* CFMailViewTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */; };
 		33F0EA342D2FD09100293DB3 /* CFContractListView~selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0EA332D2FD09100293DB3 /* CFContractListView~selectable.swift */; };
+		33F0EB812D3293B700293DB3 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0EB802D3293B700293DB3 /* JSONHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,7 @@
 		33EAB4F8290ABFBB00EAA97C /* CFMailView_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailView_Tests.swift; sourceTree = "<group>"; };
 		33EAB4FB290ABFEF00EAA97C /* CFMailViewTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFMailViewTester.swift; sourceTree = "<group>"; };
 		33F0EA332D2FD09100293DB3 /* CFContractListView~selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFContractListView~selectable.swift"; sourceTree = "<group>"; };
+		33F0EB802D3293B700293DB3 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -558,6 +560,7 @@
 		33B427B428FF281700B2165F /* CFHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				33F0EB802D3293B700293DB3 /* JSONHelper.swift */,
 				334FEBF42902ED070041F30A /* CFContacts.swift */,
 				3311A4EE2901733F00B14B5F /* CFModifiers.swift */,
 				3311A4CF290143DE00B14B5F /* CFSearchTestData.swift */,
@@ -802,6 +805,7 @@
 				3311A4E929014D9200B14B5F /* MinValue.swift in Sources */,
 				3311A4D12901445B00B14B5F /* CFSearchTestData.swift in Sources */,
 				33B427E128FFDE5A00B2165F /* SettingsModel.swift in Sources */,
+				33F0EB812D3293B700293DB3 /* JSONHelper.swift in Sources */,
 				33B4280729005E5200B2165F /* CFTenderView.swift in Sources */,
 				3311A4D329014C3900B14B5F /* Publisher.swift in Sources */,
 			);

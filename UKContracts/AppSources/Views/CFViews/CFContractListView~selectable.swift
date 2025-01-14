@@ -19,9 +19,12 @@ struct CFContractListViewS: View {
   @State var isShowingContractDetail = false
   
   /// Search text
-  @StateObject private var searchText = Debouncer(initialValue: "", delay: 1.0)
+  @StateObject private var filterText = Debouncer(initialValue: "", delay: 1.0)
+  
+  @State var contractsToDisplay = [Release]()
   
   @State var selectedRelease: Release?
+  
   
   /// Set the navigation bar appearance - this is shown when the user scrolls upwards
   init(cfViewModel : CFViewModel) {
@@ -37,6 +40,8 @@ struct CFContractListViewS: View {
     UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
   }
   
+  
+  
   var body: some View {
     NavigationStack {
       ZStack(alignment: .top) {
@@ -47,40 +52,19 @@ struct CFContractListViewS: View {
           
           /// Custom Search Bar Integration to prevent search bar leaping to
           /// the top of the screen and hiding the save button
-          searchBar
+          filterBar
           
           /// Avoid an empty list - this gives us a white background
-          if let releases = cfViewModel.cfModel.cfSearch.releases {
-            
-            List {
-              ForEach(releases.indices, id: \.self) { index in
-                HStack {
-                  Text(getTextFor(releases[index]))
-                    .onTapGesture {
-                      selectedRelease = releases[index]
-                    }
-                  Spacer()
-                  Image(systemName: releases[index].selected ? "checkmark.circle.fill" : "circle.dashed")
-                    .foregroundColor(.white)
-                    .onTapGesture {
-                      cfViewModel.toggleSelectedFor(index: index)
-                    }
-                }
-              }
-              .onDelete(perform: deleteItems)
-              .listRowBackground(Constants.backgroundColour)
-              .foregroundColor(.white)
-            }
-            .background(Constants.backgroundColour)
-            .scrollContentBackground(.hidden)
-            
+          
+          if !cfViewModel.releases.isEmpty {
+            listOfContracts(contractsToDisplay: cfViewModel.releases)
             if isShowingContractDetail == false {
               userOptions
             }
           } else {
             VStack {
               Spacer()
-              ProgressView("Downloading").foregroundColor(Constants.textColor).font(.title3)
+              ProgressView("Retrieving contracts").foregroundColor(Constants.textColor).font(.title3)
               Spacer()
             }
             .frame(maxWidth: .infinity)
@@ -89,14 +73,34 @@ struct CFContractListViewS: View {
           }
         } // VStack
         .background(Constants.backgroundColour)
-        .navigationTitle("Contracts")
+        .navigationTitle(getNavigationTitle())
       }
+      
       .toolbar {
+        ToolbarItem (placement: .topBarLeading) {
+          Button(cfViewModel.savedContractsOnDisplay ? "Contracts" : "Saved") {
+            cfViewModel.showSavedContracts()
+          }
+          .foregroundColor(cfViewModel.oneOrMoreContractsSaved ? .white : .gray)
+          .disabled(!cfViewModel.oneOrMoreContractsSaved)
+        }
+
+        if cfViewModel.modelIsLoading {
+          ToolbarItem (placement: .bottomBar) {
+            Button("Stop search") {
+              cfViewModel.cancelSearch()
+            }
+            .foregroundColor(.red)
+            .font(.title)
+          }
+        }
+        
         ToolbarItem (placement: .topBarTrailing) {
           Button("Save") {
             saveSelectedContracts()
           }
-          .foregroundColor(.white)
+          .foregroundColor(cfViewModel.oneOrMoreContractsIsSelected ? .white : .gray)
+          .disabled(!cfViewModel.oneOrMoreContractsIsSelected)
         }
       }
     }
@@ -107,14 +111,18 @@ struct CFContractListViewS: View {
                            isShowingContractDetail: $isShowingContractDetail)
     }
     
-    .onChange(of: searchText.output) {searchText in
-      cfViewModel.search(searchText)
+    .onChange(of: filterText.output) {filterText in
+      cfViewModel.filter(filterText)
     } // .onChange
   }
   
   // Delete function
   private func deleteItems(at offsets: IndexSet) {
-    cfViewModel.deleteItems(at: offsets)
+    if cfViewModel.savedContractsOnDisplay {
+      cfViewModel.deleteSavedContracts(at: offsets)
+    } else {
+      cfViewModel.deleteContracts(at: offsets)
+    }
   }
   
   private func getTextFor(_ release: Release) -> String {
@@ -126,13 +134,52 @@ struct CFContractListViewS: View {
     }
   }
   
-  private func saveSelectedContracts() {
-    print("saveSelectedContracts")
+  private func getNavigationTitle() -> String {
+    var title = ""
+    
+    if cfViewModel.savedContractsOnDisplay {
+      title = "Saved contracts - \(cfViewModel.cfModel.savedContracts.count)"
+    } else {
+      title = "Contracts  - \(cfViewModel.releases.count)"
+      if cfViewModel.cfModel.modelStatus == .loading {
+        title += " *"
+      }
+    }
+   
+    return title
   }
   
-  private var searchBar: some View {
+  private func saveSelectedContracts() {
+    cfViewModel.saveSelectedContracts()
+  }
+  
+  fileprivate func listOfContracts(contractsToDisplay: [Release]) -> some View {
+    return List {
+      ForEach(contractsToDisplay.indices, id: \.self) { index in
+        HStack {
+          Text(getTextFor(contractsToDisplay[index]))
+            .onTapGesture {
+              selectedRelease = contractsToDisplay[index]
+            }
+          Spacer()
+          Image(systemName: contractsToDisplay[index].isSelected ? "checkmark.circle.fill" : "circle.dashed")
+            .foregroundColor(.white)
+            .onTapGesture {
+              cfViewModel.toggleSelectedFor(index: index)
+            }
+        }
+      }
+      .onDelete(perform: deleteItems)
+      .listRowBackground(Constants.backgroundColour)
+      .foregroundColor(.white)
+    }
+    .background(Constants.backgroundColour)
+    .scrollContentBackground(.hidden)
+  }
+  
+  private var filterBar: some View {
     HStack {
-      TextField("", text: $searchText.input, prompt: Text("Search").foregroundColor(.white))
+      TextField("", text: $filterText.input, prompt: Text("Filter").foregroundColor(.white))
         .padding(7)
         .padding(.horizontal, 25)
 //        .background(Color(.systemGray6))
@@ -141,9 +188,9 @@ struct CFContractListViewS: View {
         .overlay(
           HStack {
             Spacer()
-            if !searchText.input.isEmpty {
+            if !filterText.input.isEmpty {
               Button(action: {
-                searchText.input = ""
+                filterText.input = ""
               }) {
                 Image(systemName: "xmark.circle.fill")
                   .foregroundColor(.gray)
